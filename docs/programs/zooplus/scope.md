@@ -1,18 +1,20 @@
-# Scope - $(echo $p | sed "s/.*/\u&/")
+# Scope - Zooplus
 
 **Snapshot Date**: 2025-09-01
 
+**Program Policy URL**: https://hackerone.com/zooplus
+
 ## Official Policy / Scope
 
-> [To be captured automatically from HackerOne policy page]
+© HackerOneOpportunitiesSecurityLeaderboardBlogStatusDocsSupportDisclosure GuidelinesPressPrivacyTerms
 
 ## Parsed Scope (to fill)
 
 ### In Scope
-- 
+-
 
 ### Out of Scope
-- 
+-
 
 ### Changes
-- 2025-09-01: Initial snapshot recorded.
+- 2025-09-01: Snapshot recorded.

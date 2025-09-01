@@ -1,18 +1,44 @@
-# Scope - $(echo $p | sed "s/.*/\u&/")
+# Scope - Ferrero
 
 **Snapshot Date**: 2025-09-01
 
+**Program Policy URL**: https://hackerone.com/ferrero
+
 ## Official Policy / Scope
 
-> [To be captured automatically from HackerOne policy page]
+Security page
+Program guidelines
+Scope
+Hacktivity
+Thanks
+Updates
+Safe harbor
+‌‌‌
+‌‌‌‌‌
+‌‌
+‌‌
+‌‌‌‌‌
+‌‌‌
+© HackerOne
+Opportunities
+Security
+Leaderboard
+Blog
+Status
+Docs
+Support
+Disclosure Guidelines
+Press
+Privacy
+Terms
 
 ## Parsed Scope (to fill)
 
 ### In Scope
-- 
+-
 
 ### Out of Scope
-- 
+-
 
 ### Changes
-- 2025-09-01: Initial snapshot recorded.
+- 2025-09-01: Snapshot recorded.
