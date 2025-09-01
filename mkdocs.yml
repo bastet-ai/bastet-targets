@@ -101,6 +101,7 @@ nav:
     - programs/index.md
     - Active Programs: programs/active.md
     - Archived Programs: programs/archived.md
+    - High-Value Targets: programs/high-value.md
     - Program Templates: programs/templates.md
   - Techniques:
     - techniques/index.md
