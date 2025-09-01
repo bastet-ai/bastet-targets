@@ -6,25 +6,25 @@ This section provides configurations, documentation, and best practices for secu
 
 <div class="grid cards" markdown>
 
--   :material-radar:{ .lg .middle } **[Reconnaissance](reconnaissance.md)**
+-   :material-radar:{ .lg .middle } **Reconnaissance** (Coming Soon)
 
     ---
 
     Subdomain enumeration, port scanning, asset discovery, OSINT gathering
 
--   :material-bug:{ .lg .middle } **[Vulnerability Scanning](vulnerability-scanning.md)**
+-   :material-bug:{ .lg .middle } **Vulnerability Scanning** (Coming Soon)
 
     ---
 
     Automated vulnerability detection, web app scanners, static analysis
 
--   :material-shield-bug:{ .lg .middle } **[Exploitation](exploitation.md)**
+-   :material-shield-bug:{ .lg .middle } **Exploitation** (Coming Soon)
 
     ---
 
     Proof-of-concept development, payload generation, manual testing tools
 
--   :material-file-document:{ .lg .middle } **[Reporting](reporting.md)**
+-   :material-file-document:{ .lg .middle } **Reporting** (Coming Soon)
 
     ---
 
@@ -77,19 +77,19 @@ tools-config/
 
 ### Essential Tools for Beginners
 
-1. **[Subdomain Enumeration](reconnaissance.md#subdomain-enumeration)**
+1. **Subdomain Enumeration** (Coming Soon)
    - `subfinder` - Fast passive subdomain discovery
    - `amass` - Comprehensive asset discovery
 
-2. **[Port Scanning](reconnaissance.md#port-scanning)**
+2. **Port Scanning** (Coming Soon)
    - `nmap` - Network discovery and security auditing
    - `masscan` - High-speed port scanner
 
-3. **[Web Application Testing](vulnerability-scanning.md#web-scanners)**
+3. **Web Application Testing** (Coming Soon)
    - `nuclei` - Vulnerability scanner with templates
    - `burp-suite` - Interactive web security testing
 
-4. **[Content Discovery](reconnaissance.md#content-discovery)**
+4. **Content Discovery** (Coming Soon)
    - `ffuf` - Fast web fuzzer
    - `dirsearch` - Directory brute forcer
 

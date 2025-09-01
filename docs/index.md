@@ -23,7 +23,7 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
     Document and track individual HackerOne bounty programs, their scope, and findings.
 
-    [:octicons-arrow-right-24: Explore Programs](programs/)
+    [:octicons-arrow-right-24: Explore Programs](programs/index.md)
 
 -   :material-tools:{ .lg .middle } **Techniques**
 
@@ -31,7 +31,7 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
     Learn about various security testing methodologies and attack vectors.
 
-    [:octicons-arrow-right-24: Browse Techniques](techniques/)
+    [:octicons-arrow-right-24: Browse Techniques](techniques/index.md)
 
 -   :material-hammer-wrench:{ .lg .middle } **Tools**
 
@@ -39,7 +39,7 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
     Configuration files and documentation for security testing tools.
 
-    [:octicons-arrow-right-24: View Tools](tools/)
+    [:octicons-arrow-right-24: View Tools](tools/index.md)
 
 -   :material-book:{ .lg .middle } **Resources**
 
@@ -47,7 +47,7 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
     Guidelines, legal frameworks, and community resources for ethical hacking.
 
-    [:octicons-arrow-right-24: Access Resources](resources/)
+    [:octicons-arrow-right-24: Access Resources](resources/index.md)
 
 </div>
 

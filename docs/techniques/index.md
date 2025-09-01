@@ -6,31 +6,31 @@ This section documents various methodologies, attack vectors, and testing approa
 
 <div class="grid cards" markdown>
 
--   :material-web:{ .lg .middle } **[Web Application Security](web-application.md)**
+-   :material-web:{ .lg .middle } **Web Application Security** (Coming Soon)
 
     ---
 
     OWASP Top 10, injection attacks, authentication bypass, session management
 
--   :material-api:{ .lg .middle } **[API Security](api-security.md)**
+-   :material-api:{ .lg .middle } **API Security** (Coming Soon)
 
     ---
 
     REST/GraphQL testing, authentication, rate limiting, data exposure
 
--   :material-cellphone:{ .lg .middle } **[Mobile Security](mobile-security.md)**
+-   :material-cellphone:{ .lg .middle } **Mobile Security** (Coming Soon)
 
     ---
 
     iOS/Android testing, deep links, certificate pinning, local storage
 
--   :material-network:{ .lg .middle } **[Network Security](network-security.md)**
+-   :material-network:{ .lg .middle } **Network Security** (Coming Soon)
 
     ---
 
     Port scanning, service enumeration, network protocols, infrastructure
 
--   :material-account-voice:{ .lg .middle } **[Social Engineering](social-engineering.md)**
+-   :material-account-voice:{ .lg .middle } **Social Engineering** (Coming Soon)
 
     ---
 
@@ -76,19 +76,19 @@ Techniques are cross-referenced with:
 ## 📖 Learning Path
 
 ### Beginner Level
-- Start with [Web Application Security](web-application.md)
+- Start with Web Application Security (Coming Soon)
 - Learn basic reconnaissance techniques
 - Understand common vulnerability classes
 - Practice with intentionally vulnerable applications
 
 ### Intermediate Level
-- Explore [API Security](api-security.md) testing
+- Explore API Security testing (Coming Soon)
 - Learn advanced injection techniques
 - Study business logic vulnerabilities
 - Develop custom testing tools
 
 ### Advanced Level
-- Master [Mobile Security](mobile-security.md) testing
+- Master Mobile Security testing (Coming Soon)
 - Research zero-day vulnerability classes
 - Contribute new techniques and methodologies
 - Mentor other security researchers
