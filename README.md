@@ -21,7 +21,7 @@ This repository serves as a centralized knowledge base for:
 
 1. **Clone and navigate to the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/bastet-ai/bastet-targets.git
    cd bastet-targets
    ```
 

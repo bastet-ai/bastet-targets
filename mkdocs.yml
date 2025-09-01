@@ -4,8 +4,8 @@ site_author: Security Research Team
 site_url: https://your-domain.github.io/bastet-targets
 
 # Repository
-repo_name: bastet-targets
-repo_url: https://github.com/your-username/bastet-targets
+repo_name: bastet-ai/bastet-targets
+repo_url: https://github.com/bastet-ai/bastet-targets
 edit_uri: edit/main/docs/
 
 # Configuration
@@ -79,7 +79,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: your-username
+      user: bastet-ai
       repo: bastet-targets
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -126,9 +126,7 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/your-username/bastet-targets
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/your-username
+      link: https://github.com/bastet-ai/bastet-targets
   tags:
     Reconnaissance: reconnaissance
     Web Security: web-security
