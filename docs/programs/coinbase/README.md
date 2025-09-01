@@ -1,4 +1,56 @@
-# Coinbase - HackerOne Bounty Program
+# Coinbase Global Inc. - HackerOne Bounty Program
+
+## Company Profile
+
+**Coinbase Global Inc.** is an American cryptocurrency exchange and financial services company founded in 2012 by Brian Armstrong and Fred Ehrsam. It is the largest U.S.-based cryptocurrency exchange and the world's largest Bitcoin custodian as of 2024, serving as a publicly traded gateway to the cryptocurrency ecosystem.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/Coinbase
+
+### Corporate Overview:
+- **Founded**: June 2012 by Brian Armstrong & Fred Ehrsam
+- **Headquarters**: San Francisco, California, USA
+- **Employees**: ~4,500+ worldwide (2024)
+- **CEO**: Brian Armstrong (Co-founder)
+- **Public Company**: NASDAQ: COIN (IPO: April 2021)
+
+### Financial Profile (2024):
+- **Market Cap**: ~$75 billion USD (COIN: $304.54 as of Aug 2025)
+- **Annual Revenue**: ~$3.1 billion USD (2023)
+- **Net Income**: $2.58 billion USD (2024)
+- **Total Assets**: $22.5 billion USD
+- **Global Users**: 108+ million verified users
+- **Countries Served**: 100+ countries worldwide
+
+### Business Evolution & Major Acquisitions:
+- **2012**: Founded as simple Bitcoin buying platform
+- **2015**: Launched institutional services (Coinbase Prime)
+- **2018**: Launched Coinbase Pro (professional trading)
+- **2021**: Public IPO, first major crypto exchange on traditional stock market
+- **2024**: Acquired Unbound Security (cryptographic security)
+- **2025**: **Historic Acquisitions Year**:
+  - **Deribit**: $2.9B (largest crypto industry acquisition ever)
+  - **Liquifi**: Token management startup acquisition
+  - **Opyn Leadership**: DeFi options protocol team acqui-hire
+  - **S&P 500 Inclusion**: First cryptocurrency firm in S&P 500 (May 2025)
+
+### Key Business Units:
+- **Coinbase Exchange**: Consumer cryptocurrency trading platform
+- **Coinbase Pro/Advanced**: Professional trading platform
+- **Coinbase Prime**: Institutional custody and trading services
+- **Coinbase Wallet**: Self-custody crypto wallet
+- **Coinbase Commerce**: Merchant payment processing
+- **Coinbase Cloud**: Developer platform and infrastructure (CDP)
+- **Coinbase Card**: Crypto-to-fiat debit card
+
+### Notable Achievements:
+- **Largest Bitcoin Custodian**: ~12% of all Bitcoin globally
+- **Staked Ether Leader**: ~11% of all staked Ether
+- **Assets Under Management**: $400+ billion in cryptocurrencies
+- **Regulatory Leadership**: First major crypto exchange with traditional finance integration
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/coinbase  
 **Last Updated**: 2025-09-01  

@@ -1,4 +1,49 @@
-# TikTok - HackerOne Bounty Program
+# TikTok (ByteDance Ltd.) - HackerOne Bounty Program
+
+## Company Profile
+
+**TikTok** is a short-form video hosting service owned by Chinese company ByteDance Ltd. Founded in 2016 as "Douyin" in China, it was launched internationally as "TikTok" in 2018, becoming one of the world's most downloaded mobile applications and the fastest-growing social media platform in history.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/TikTok
+
+### Corporate Overview:
+- **Founded**: September 2016 (as Douyin), International launch: 2018
+- **Parent Company**: ByteDance Ltd. (founded 2012 by Zhang Yiming)
+- **Headquarters**: Singapore (TikTok), Beijing (ByteDance)
+- **Employees**: ~110,000+ worldwide (ByteDance total)
+- **CEO**: Shou Zi Chew (TikTok), Liang Rubo (ByteDance)
+
+### Financial Profile (2024):
+- **Parent Company Valuation**: ~$220 billion USD (ByteDance)
+- **Annual Revenue**: ~$80 billion USD (ByteDance total, 2023)
+- **Global Users**: 1+ billion monthly active users
+- **Market Presence**: 150+ countries and regions
+- **App Downloads**: 4.7+ billion total downloads
+
+### Business Evolution & Key Events:
+- **2012**: ByteDance founded by Zhang Yiming
+- **2016**: Douyin launched in China
+- **2017**: Acquired Musical.ly for $1 billion
+- **2018**: Merged Musical.ly with TikTok for global expansion
+- **2020-2025**: Ongoing regulatory challenges and data localization efforts
+- **2023**: TikTok Shop launched (e-commerce integration)
+
+### Key Products & Services:
+- **TikTok**: Short-form video social media platform
+- **TikTok Shop**: E-commerce marketplace integrated into the app
+- **TikTok for Business**: Advertising and marketing platform
+- **TikTok Live**: Live streaming and virtual gifting
+- **CapCut**: Video editing mobile application
+
+### Regulatory & Security Landscape:
+- **Data Localization**: Project Texas (US user data stored in Oracle servers)
+- **Government Scrutiny**: Banned in India (2020), ongoing US regulatory review
+- **Content Moderation**: AI-powered systems + human reviewers
+- **Algorithm Transparency**: Limited disclosure due to competitive concerns
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/tiktok  
 **Primary Domain**: tiktok.com  

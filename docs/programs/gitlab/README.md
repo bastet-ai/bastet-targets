@@ -1,4 +1,51 @@
-# GitLab - HackerOne Bounty Program
+# GitLab Inc. - HackerOne Bounty Program
+
+## Company Profile
+
+**GitLab Inc.** is an American multinational software company that develops and maintains a web-based DevOps lifecycle tool providing Git repository management, issue tracking, continuous integration/continuous deployment (CI/CD), and software development collaboration features.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/GitLab
+
+### Corporate Overview:
+- **Founded**: 2011 by Dmitriy Zaporozhets and Valery Sizov (Ukraine)
+- **Incorporated**: 2014 in Delaware, USA by Sid Sijbrandij
+- **Headquarters**: San Francisco, California, USA
+- **Employees**: ~2,000+ worldwide (2024)
+- **CEO**: Sid Sijbrandij (Co-founder)
+- **Public Company**: NASDAQ: GTLB (IPO: October 2021)
+
+### Financial Profile (2024):
+- **Market Cap**: ~$8 billion USD
+- **Annual Revenue**: ~$650 million USD (2024)
+- **Subscription Model**: Freemium SaaS with enterprise tiers
+- **Customer Base**: 30+ million registered users
+- **Enterprise Customers**: 50,000+ organizations
+
+### Business Evolution & Key Milestones:
+- **2011**: Created as open-source Git repository management
+- **2013**: GitLab.com SaaS platform launched
+- **2014**: Company incorporated, raised Series A ($1.5M)
+- **2015-2020**: Rapid feature expansion, DevOps platform evolution
+- **2021**: Public IPO on NASDAQ
+- **2022-2025**: AI/ML integration, competitive positioning vs GitHub
+
+### Key Products & Services:
+- **GitLab SaaS**: Cloud-hosted DevOps platform
+- **GitLab Self-Managed**: On-premises/private cloud deployment
+- **GitLab.com**: Free public repository hosting
+- **CI/CD Pipelines**: Integrated continuous integration/deployment
+- **Security & Compliance**: SAST, DAST, dependency scanning
+- **Issue Tracking**: Project management and collaboration tools
+
+### Competitive Landscape:
+- **Primary Competitor**: Microsoft GitHub (acquired 2018, $7.5B)
+- **Differentiation**: All-in-one DevOps platform vs GitHub's ecosystem approach
+- **Market Position**: #2 in Git-based source code management
+- **Enterprise Focus**: Strong presence in regulated industries
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/gitlab  
 **Primary Domain**: gitlab.com  

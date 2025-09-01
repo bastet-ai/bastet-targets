@@ -1,4 +1,48 @@
-# OKG (OKX) - HackerOne Bounty Program
+# OKX (formerly OKEx) - HackerOne Bounty Program
+
+## Company Profile
+
+**OKX** is a blockchain technology company operating one of the world's largest cryptocurrency exchanges by daily trading volume. Founded in 2013 by Star Xu in China, the company was originally launched as "Okcoin" and later rebranded to "OKEx" in 2017, before adopting the "OKX" name in 2022.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/OKX
+
+### Corporate Overview:
+- **Founded**: 2013 (as Okcoin → OKEx 2017 → OKX 2022)
+- **Founder**: Star Xu (Mingxing Xu)
+- **Headquarters**: San Jose, California, USA (Global HQ)
+- **Employees**: ~5,000+ worldwide (2025)
+- **Global Offices**: New York, Dubai, Singapore, Turkey, Australia, Brazil, EEA
+
+### Financial Profile (2025):
+- **Daily Trading Volume**: #2 globally by volume
+- **Supported Assets**: 350+ cryptocurrencies and tokens
+- **Global Users**: 50+ million registered users
+- **Regional Licenses**: USA, UAE, EU, Singapore, Australia
+- **Market Position**: World's second-largest crypto exchange
+
+### Business Evolution & Recent Acquisitions:
+- **2013**: Founded as Okcoin (spot trading)
+- **2017**: Rebranded to OKEx, added derivatives trading
+- **2022**: Rebranded to OKX, expanded Web3 ecosystem
+- **2025**: MiFID II license acquisition for EU institutional services
+- **Strategy**: Web3 infrastructure, DeFi integration, regulatory compliance
+
+### Key Products & Services:
+- **OKX Exchange**: Spot and derivatives trading platform
+- **OKX Wallet**: Self-custody Web3 wallet with DeFi integration
+- **OKX Chain**: Layer-1 blockchain (formerly OKC)
+- **OKX NFT**: NFT marketplace and trading platform
+- **OKX DeFi**: Decentralized finance protocol integrations
+
+### Notable Features:
+- **OKTC Safe**: Multi-signature wallet solution
+- **Cross-Chain Bridge**: Supporting 40+ blockchains
+- **Layer 2 Solutions**: X-Layer protocol development
+- **Institutional Services**: Prime brokerage, custody solutions
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/okg  
 **Last Updated**: 2025-09-01  

@@ -1,4 +1,40 @@
-# Uber Technologies - HackerOne Bounty Program
+# Uber Technologies Inc. - HackerOne Bounty Program
+
+## Company Profile
+
+**Uber Technologies Inc.** is an American multinational transportation and delivery company founded in 2009 by Garrett Camp and Travis Kalanick in San Francisco, California. Originally launched as "UberCab," the company revolutionized urban transportation through its ride-sharing platform.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/Uber
+
+### Corporate Overview:
+- **Founded**: March 2009 (as UberCab, rebranded to Uber in 2010)
+- **Headquarters**: San Francisco, California, USA
+- **Employees**: ~32,800 worldwide (2024)
+- **CEO**: Dara Khosrowshahi (since 2017, replaced Travis Kalanick)
+- **Public Company**: Listed on NYSE as UBER (IPO: May 2019)
+
+### Financial Profile (2024):
+- **Market Cap**: ~$150 billion USD
+- **Annual Revenue**: ~$37.3 billion USD (2023)
+- **Operations**: 70+ countries, 10,000+ cities worldwide
+- **Active Users**: 150+ million monthly active platform consumers
+
+### Business Evolution:
+- **2009-2012**: Ride-sharing pioneer in luxury transportation
+- **2014**: Expanded to food delivery (Uber Eats)
+- **2016**: Autonomous vehicle research (Uber ATG, sold to Aurora in 2020)
+- **2020**: IPO of Uber Freight, logistics platform
+- **2021-Present**: Focus on profitability, super-app strategy
+
+### Key Subsidiaries & Acquisitions:
+- **Uber Eats**: Food delivery platform (major revenue driver)
+- **Uber Freight**: Logistics and freight services
+- **Postmates**: Acquired 2020 for $2.65 billion
+- **Drizly**: Acquired 2021 for $1.1 billion (alcohol delivery)
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/uber  
 **Primary Domain**: uber.com  

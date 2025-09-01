@@ -1,4 +1,53 @@
-# PayPal - HackerOne Bounty Program
+# PayPal Holdings Inc. - HackerOne Bounty Program
+
+## Company Profile
+
+**PayPal Holdings Inc.** is an American multinational financial technology company operating an online payments system in the majority of countries that support online money transfers. Founded in 1998, PayPal serves as an electronic alternative to traditional paper methods like checks and money orders.
+
+**Wikipedia**: https://en.wikipedia.org/wiki/PayPal
+
+### Corporate Overview:
+- **Founded**: December 1998 (as Confinity by Peter Thiel, Max Levchin, Luke Nosek)
+- **Merged**: March 2000 with X.com (Elon Musk's company) to become PayPal
+- **Headquarters**: San Jose, California, USA
+- **Employees**: ~30,000+ worldwide (2024)
+- **CEO**: Dan Schulman (2014-2023), Alex Chriss (2023-present)
+- **Public Company**: NASDAQ: PYPL (Spun off from eBay in 2015)
+
+### Financial Profile (2024):
+- **Market Cap**: ~$70 billion USD
+- **Annual Revenue**: ~$30 billion USD (2023)
+- **Payment Volume**: $1.53 trillion total payment volume (2023)
+- **Active Accounts**: 435+ million active user accounts
+- **Merchant Accounts**: 35+ million merchant accounts worldwide
+
+### Business Evolution & Major Acquisitions:
+- **1998-2002**: Founded, acquired by eBay for $1.5 billion
+- **2002-2015**: Operated as eBay subsidiary, dominant online payments
+- **2015**: Spun off from eBay as independent public company
+- **Recent Major Acquisitions**:
+  - **Honey**: $4 billion (2019) - browser extension for coupons
+  - **iZettle**: $2.2 billion (2018) - European POS systems
+  - **Xoom**: $890 million (2015) - international money transfers
+  - **Venmo**: Part of Braintree acquisition - P2P payments
+
+### Key Products & Services:
+- **PayPal**: Core digital wallet and payment processing
+- **Venmo**: Peer-to-peer social payments (US-focused)
+- **PayPal Credit**: Buy Now, Pay Later financing
+- **Braintree**: Payment processing for businesses
+- **Xoom**: International money transfer service
+- **PayPal Here**: Mobile card reader and POS solutions
+
+### Financial Services Expansion:
+- **PayPal Savings**: High-yield savings accounts
+- **PayPal Working Capital**: Small business loans
+- **Cryptocurrency**: Buy, sell, hold crypto within PayPal wallet
+- **Stablecoins**: PayPal USD (PYUSD) launched 2023
+
+---
+
+## HackerOne Bug Bounty Program
 
 **Program URL**: https://hackerone.com/paypal  
 **Primary Domain**: paypal.com  
