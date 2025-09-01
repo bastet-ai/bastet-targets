@@ -6,25 +6,25 @@ This section provides essential resources for ethical security research, includi
 
 <div class="grid cards" markdown>
 
--   :material-gavel:{ .lg .middle } **[Legal Framework](legal-framework.md)**
+-   :material-gavel:{ .lg .middle } **Legal Framework** (Coming Soon)
 
     ---
 
     Legal considerations, compliance requirements, and regulatory guidelines
 
--   :material-shield-account:{ .lg .middle } **[HackerOne Guidelines](hackerone-guidelines.md)**
+-   :material-shield-account:{ .lg .middle } **HackerOne Guidelines** (Coming Soon)
 
     ---
 
     Platform-specific rules, best practices, and program participation
 
--   :material-security:{ .lg .middle } **[Disclosure Best Practices](disclosure-practices.md)**
+-   :material-security:{ .lg .middle } **Disclosure Best Practices** (Coming Soon)
 
     ---
 
     Responsible disclosure, coordinated vulnerability disclosure, ethics
 
--   :material-account-group:{ .lg .middle } **[Community Resources](community.md)**
+-   :material-account-group:{ .lg .middle } **Community Resources** (Coming Soon)
 
     ---
 
@@ -57,9 +57,9 @@ Security research must be conducted within ethical and legal boundaries:
 ### Beginner Resources
 
 **Legal and Ethical Foundation**
-- Read [Legal Framework](legal-framework.md) thoroughly
-- Understand [HackerOne Guidelines](hackerone-guidelines.md)
-- Learn [Disclosure Best Practices](disclosure-practices.md)
+- Read Legal Framework thoroughly (Coming Soon)
+- Understand HackerOne Guidelines (Coming Soon)
+- Learn Disclosure Best Practices (Coming Soon)
 
 **Technical Skills**
 - Start with basic web application security

@@ -2,7 +2,7 @@
 
 Welcome to the **Bastet Targets** wiki - your comprehensive resource for documenting and analyzing observations from HackerOne's public, paid bounty programs.
 
-![HackerOne Observatory](assets/images/hero-banner.png)
+<!-- ![HackerOne Observatory](assets/images/hero-banner.png) -->
 
 ## 🎯 What is Bastet Targets?
 
@@ -64,15 +64,15 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
 ### For New Contributors
 
-1. **Read the [Legal Framework](resources/legal-framework.md)** - Understand the ethical and legal guidelines
-2. **Review [HackerOne Guidelines](resources/hackerone-guidelines.md)** - Learn platform-specific rules
+1. **Read the Legal Framework** (Coming Soon) - Understand the ethical and legal guidelines
+2. **Review HackerOne Guidelines** (Coming Soon) - Learn platform-specific rules
 3. **Use [Program Templates](programs/templates.md)** - Standardize your documentation
-4. **Follow [Disclosure Practices](resources/disclosure-practices.md)** - Ensure responsible disclosure
+4. **Follow Disclosure Practices** (Coming Soon) - Ensure responsible disclosure
 
 ### For Experienced Researchers
 
 - Browse [Active Programs](programs/active.md) for current targets
-- Contribute to [Community Resources](resources/community.md)
+- Contribute to Community Resources (Coming Soon)
 - Share advanced techniques in relevant technique categories
 - Improve tool configurations and automation scripts
 
@@ -106,7 +106,7 @@ We encourage contributions from the security community! Here's how you can help:
 - **Improve Tools**: Enhance automation scripts and configurations
 - **Update Resources**: Keep guidelines and references current
 
-See our [contribution guidelines](resources/community.md#contributing) for detailed instructions.
+See our contribution guidelines (Coming Soon) for detailed instructions.
 
 ---
 

@@ -1,7 +1,7 @@
 site_name: Bastet Targets - HackerOne Observatory
 site_description: A comprehensive wiki for documenting HackerOne bounty program observations and research
 site_author: Security Research Team
-site_url: https://your-domain.github.io/bastet-targets
+site_url: https://targets.bastet.ai
 
 # Repository
 repo_name: bastet-ai/bastet-targets
@@ -104,23 +104,26 @@ nav:
     - Program Templates: programs/templates.md
   - Techniques:
     - techniques/index.md
-    - Web Application: techniques/web-application.md
-    - API Security: techniques/api-security.md
-    - Mobile Security: techniques/mobile-security.md
-    - Network Security: techniques/network-security.md
-    - Social Engineering: techniques/social-engineering.md
+    # TODO: Create these technique pages
+    # - Web Application: techniques/web-application.md
+    # - API Security: techniques/api-security.md
+    # - Mobile Security: techniques/mobile-security.md
+    # - Network Security: techniques/network-security.md
+    # - Social Engineering: techniques/social-engineering.md
   - Tools:
     - tools/index.md
-    - Reconnaissance: tools/reconnaissance.md
-    - Vulnerability Scanning: tools/vulnerability-scanning.md
-    - Exploitation: tools/exploitation.md
-    - Reporting: tools/reporting.md
+    # TODO: Create these tool pages
+    # - Reconnaissance: tools/reconnaissance.md
+    # - Vulnerability Scanning: tools/vulnerability-scanning.md
+    # - Exploitation: tools/exploitation.md
+    # - Reporting: tools/reporting.md
   - Resources:
     - resources/index.md
-    - HackerOne Guidelines: resources/hackerone-guidelines.md
-    - Legal Framework: resources/legal-framework.md
-    - Disclosure Best Practices: resources/disclosure-practices.md
-    - Community Resources: resources/community.md
+    # TODO: Create these resource pages
+    # - HackerOne Guidelines: resources/hackerone-guidelines.md
+    # - Legal Framework: resources/legal-framework.md
+    # - Disclosure Best Practices: resources/disclosure-practices.md
+    # - Community Resources: resources/community.md
 
 # Extra
 extra:
