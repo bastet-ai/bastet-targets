@@ -1,0 +1,308 @@
+/* Custom styles for Bastet Targets Observatory */
+
+/* Hero section styling */
+.hero-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+    color: white;
+}
+
+/* Card grid styling */
+.grid.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.grid.cards > * {
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.grid.cards > *:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--md-primary-fg-color);
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-paused {
+    background-color: #ff9800;
+    color: white;
+}
+
+.status-completed {
+    background-color: #2196f3;
+    color: white;
+}
+
+.status-archived {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+/* Severity indicators */
+.severity-critical {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.severity-high {
+    color: #f57c00;
+    font-weight: bold;
+}
+
+.severity-medium {
+    color: #fbc02d;
+    font-weight: bold;
+}
+
+.severity-low {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.severity-info {
+    color: #1976d2;
+    font-weight: bold;
+}
+
+/* Statistics tables */
+.stats-table {
+    margin: 1rem 0;
+}
+
+.stats-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.stats-table th {
+    background-color: var(--md-default-fg-color--lightest);
+    font-weight: 600;
+}
+
+/* Timeline styling */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--md-primary-fg-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--md-primary-fg-color);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 0.25rem;
+}
+
+/* Code block enhancements */
+.highlight {
+    margin: 1rem 0;
+}
+
+.highlight pre {
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+/* Vulnerability report styling */
+.vuln-header {
+    background: var(--md-code-bg-color);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.vuln-severity {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.vuln-critical {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+
+.vuln-high {
+    background-color: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ff9800;
+}
+
+.vuln-medium {
+    background-color: #fffde7;
+    color: #f57f17;
+    border: 1px solid #ffeb3b;
+}
+
+.vuln-low {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+}
+
+/* Progress indicators */
+.progress-bar {
+    background-color: var(--md-default-fg-color--lightest);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--md-primary-fg-color);
+    transition: width 0.3s ease;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .grid.cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-banner {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .timeline {
+        padding-left: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .grid.cards > *:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .timeline::before,
+    .timeline-item::before {
+        background: #000;
+    }
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+    --md-code-bg-color: #2d3748;
+}
+
+[data-md-color-scheme="slate"] .vuln-critical {
+    background-color: #4a1a1a;
+    color: #ef5350;
+}
+
+[data-md-color-scheme="slate"] .vuln-high {
+    background-color: #4a2c0a;
+    color: #ff9800;
+}
+
+[data-md-color-scheme="slate"] .vuln-medium {
+    background-color: #4a4a0a;
+    color: #ffeb3b;
+}
+
+[data-md-color-scheme="slate"] .vuln-low {
+    background-color: #1a4a1a;
+    color: #4caf50;
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators */
+.grid.cards > *:focus-within {
+    outline: 2px solid var(--md-primary-fg-color);
+    outline-offset: 2px;
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s infinite;
+}

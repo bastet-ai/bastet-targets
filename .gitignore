@@ -1,0 +1,55 @@
+# Python virtual environment
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# MkDocs build output
+site/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Sensitive data (never commit!)
+*.key
+*.pem
+credentials.txt
+secrets.yaml
+config.json
+
+# Evidence and screenshots (consider if these should be tracked)
+# Uncomment the following lines if you don't want to track evidence files
+# docs/assets/images/screenshots/
+# docs/assets/images/evidence/
+# docs/*/assets/
+
+# Backup files
+*.bak
+*.backup
+
+# Node modules (if using any Node.js tools)
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage
+.pytest_cache/
