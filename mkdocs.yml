@@ -102,6 +102,12 @@ nav:
     - Active Programs: programs/active.md
     - Archived Programs: programs/archived.md
     - High-Value Targets: programs/high-value.md
+    - High-Value Program Details:
+      - Uber: programs/uber/README.md
+      - Eternal: programs/eternal/README.md
+      - TikTok: programs/tiktok/README.md
+      - GitLab: programs/gitlab/README.md
+      - PayPal: programs/paypal/README.md
     - Program Templates: programs/templates.md
   - Analysis:
     - Attack Surface Analysis: attack-surface-analysis.md
