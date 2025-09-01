@@ -13,41 +13,63 @@ Bastet Targets is a systematic approach to security research documentation, prov
 - **Knowledge Sharing**: Collaborative documentation of techniques, tools, and methodologies
 - **Historical Records**: Timeline-based tracking of security research activities
 
-## 🚀 Quick Navigation
+## 🎯 High-Priority Targets
 
 <div class="grid cards" markdown>
 
--   :material-target:{ .lg .middle } **Programs**
+-   :material-fire:{ .lg .middle } **[High-Value Programs](programs/high-value.md)**
 
     ---
 
-    Document and track individual HackerOne bounty programs, their scope, and findings.
+    Top 10 HackerOne programs by 6-month payout volume plus strategic additions.
 
-    [:octicons-arrow-right-24: Explore Programs](programs/index.md)
+    [:octicons-arrow-right-24: View Priority List](programs/high-value.md)
+
+-   :material-chart-line:{ .lg .middle } **[Attack Surface Analysis](attack-surface-analysis.md)**
+
+    ---
+
+    Comprehensive reconnaissance findings across 1,005+ subdomains and 490+ services.
+
+    [:octicons-arrow-right-24: View Analysis](attack-surface-analysis.md)
+
+-   :material-currency-btc:{ .lg .middle } **Cryptocurrency Exchanges**
+
+    ---
+
+    **Coinbase**: 519 subdomains | **OKX**: 337 subdomains | Enhanced intelligence profiles
+
+    [:octicons-arrow-right-24: Coinbase](programs/coinbase/README.md) • [:octicons-arrow-right-24: OKX](programs/okg/README.md)
+
+-   :material-car:{ .lg .middle } **Top Payout Leaders**
+
+    ---
+
+    **Uber**: $20,340 (Rank #1) | **Eternal**: $9,300 | **TikTok**: $6,000
+
+    [:octicons-arrow-right-24: Uber](programs/uber/README.md) • [:octicons-arrow-right-24: View All](programs/high-value.md)
+
+</div>
+
+## 🚀 Navigation
+
+<div class="grid cards" markdown>
+
+-   :material-target:{ .lg .middle } **All Programs**
+
+    ---
+
+    Complete directory of documented HackerOne bounty programs and intelligence.
+
+    [:octicons-arrow-right-24: Browse All Programs](programs/index.md)
 
 -   :material-tools:{ .lg .middle } **Techniques**
 
     ---
 
-    Learn about various security testing methodologies and attack vectors.
+    Security testing methodologies and attack vectors for bug bounty research.
 
     [:octicons-arrow-right-24: Browse Techniques](techniques/index.md)
-
--   :material-hammer-wrench:{ .lg .middle } **Tools**
-
-    ---
-
-    Configuration files and documentation for security testing tools.
-
-    [:octicons-arrow-right-24: View Tools](tools/index.md)
-
--   :material-book:{ .lg .middle } **Resources**
-
-    ---
-
-    Guidelines, legal frameworks, and community resources for ethical hacking.
-
-    [:octicons-arrow-right-24: Access Resources](resources/index.md)
 
 </div>
 
@@ -55,10 +77,10 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
 !!! info "Repository Statistics"
     
-    - **Active Programs**: 0 (Ready for your first entry!)
-    - **Documented Techniques**: 5 core categories
-    - **Tool Configurations**: 4 primary toolsets
-    - **Resource Guides**: 4 essential documents
+    - **Active Programs**: 12 high-value targets documented
+    - **Total Subdomains Discovered**: 1,005+ across all targets
+    - **Live Web Services**: 490+ active endpoints mapped
+    - **Attack Surface Analysis**: Complete for major cryptocurrency exchanges
 
 ## 🎓 Getting Started
 
@@ -71,20 +93,85 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
 ### For Experienced Researchers
 
-- Browse [Active Programs](programs/active.md) for current targets
-- Contribute to Community Resources (Coming Soon)
-- Share advanced techniques in relevant technique categories
-- Improve tool configurations and automation scripts
+- Browse [**High-Value Targets**](programs/high-value.md) for priority programs
+- Review [**Attack Surface Analysis**](attack-surface-analysis.md) for comprehensive findings
+- Explore individual program intelligence via [**Program Details**](programs/index.md)
+- Check reconnaissance findings and technical research priorities
 
-## 📈 Latest Updates
+## 🔥 Recently Updated Programs
 
-!!! tip "Recent Activity"
+<div class="grid cards" markdown>
+
+-   :material-currency-btc:{ .lg .middle } **[Coinbase Global Inc.](programs/coinbase/README.md)**
+
+    ---
     
-    🏗️ **Initial Setup Complete** - All core infrastructure is ready for content
+    **Updated**: September 1, 2025  
+    **Status**: 🚨 **NEW TARGET** - Strategic addition  
+    **Intelligence**: 519 subdomains, 222 services, $2.9B Deribit acquisition
     
-    🎯 **Templates Available** - Use standardized templates for consistent documentation
+    [:octicons-arrow-right-24: View Analysis](programs/coinbase/README.md)
+
+-   :material-car:{ .lg .middle } **[Uber Technologies Inc.](programs/uber/README.md)**
+
+    ---
     
-    📚 **Documentation Framework** - Comprehensive structure for organizing research
+    **Updated**: September 1, 2025  
+    **Status**: 🔥 **HIGH PRIORITY** - #1 Payout Leader  
+    **Intelligence**: $20,340 total payouts, global mobility platform
+    
+    [:octicons-arrow-right-24: View Analysis](programs/uber/README.md)
+
+-   :material-currency-eth:{ .lg .middle } **[OKX (formerly OKEx)](programs/okg/README.md)**
+
+    ---
+    
+    **Updated**: September 1, 2025  
+    **Status**: 🔥 **HIGH PRIORITY** - #2 Global Exchange  
+    **Intelligence**: 337 subdomains, Web3/DeFi integration, MiFID II license
+    
+    [:octicons-arrow-right-24: View Analysis](programs/okg/README.md)
+
+-   :material-video:{ .lg .middle } **[TikTok (ByteDance)](programs/tiktok/README.md)**
+
+    ---
+    
+    **Updated**: September 1, 2025  
+    **Status**: 🔥 **MEDIUM-HIGH** - 1B+ Users  
+    **Intelligence**: Regulatory challenges, Project Texas, algorithm security
+    
+    [:octicons-arrow-right-24: View Analysis](programs/tiktok/README.md)
+
+-   :material-git:{ .lg .middle } **[GitLab Inc.](programs/gitlab/README.md)**
+
+    ---
+    
+    **Updated**: September 1, 2025  
+    **Status**: 🟡 **MEDIUM** - DevOps Platform  
+    **Intelligence**: CI/CD security, enterprise self-hosted, GitHub competitor
+    
+    [:octicons-arrow-right-24: View Analysis](programs/gitlab/README.md)
+
+-   :material-credit-card:{ .lg .middle } **[PayPal Holdings Inc.](programs/paypal/README.md)**
+
+    ---
+    
+    **Updated**: September 1, 2025  
+    **Status**: 🟡 **MEDIUM** - FinTech Leader  
+    **Intelligence**: $1.53T payment volume, Venmo integration, crypto services
+    
+    [:octicons-arrow-right-24: View Analysis](programs/paypal/README.md)
+
+</div>
+
+## 📈 Intelligence Summary
+
+!!! success "Comprehensive Corporate Intelligence Added"
+    
+    ✅ **Company Profiles**: Detailed corporate backgrounds for all major targets  
+    ✅ **Financial Intelligence**: Market cap, revenue, employee counts for threat modeling  
+    ✅ **Acquisition History**: Integration attack surfaces and legacy system identification  
+    ✅ **Attack Surface Mapping**: 1,005+ subdomains discovered across 12 high-value programs
 
 ## ⚖️ Ethical Guidelines
 
