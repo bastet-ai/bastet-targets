@@ -103,6 +103,8 @@ nav:
     - Archived Programs: programs/archived.md
     - High-Value Targets: programs/high-value.md
     - Program Templates: programs/templates.md
+  - Analysis:
+    - Attack Surface Analysis: attack-surface-analysis.md
   - Techniques:
     - techniques/index.md
     # TODO: Create these technique pages
