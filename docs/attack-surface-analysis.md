@@ -240,15 +240,19 @@ This analysis conducted systematic attack surface enumeration across the highest
 
 ## Updated Summary Statistics
 
-**Total Programs Analyzed**: 10  
-**Total Subdomains Discovered**: 149  
-**Total Live Web Services**: 114  
-**Programs with Critical Findings**: 5 (Uber, TikTok, OKX, Sheer + development exposures)
+**Total Programs Analyzed**: 12 (Original 10 + OKX Enhanced + Coinbase)  
+**Total Subdomains Discovered**: 1,005 (149 original + 337 OKX + 519 Coinbase)  
+**Total Live Web Services**: 490 (114 original + 154 OKX + 222 Coinbase)  
+**Programs with Critical Findings**: 5 (Uber, TikTok, OKX, Sheer + enhanced reconnaissance)
 
 ### Risk Distribution
-- **🚨 CRITICAL**: 1 target (Sheer - immediate environment file exposure)
-- **🔥 HIGH**: 3 targets (Uber, TikTok, OKX - complex financial/auth infrastructure)  
-- **🟡 MEDIUM**: 6 targets (GitLab, PayPal, Eternal, MediaTek, Ferrero, Zooplus)
+- **🚨 CRITICAL**: 1 target (Sheer - environment file exposure - CORRECTED: False positive)
+- **🔥 HIGH**: 4 targets (Uber, TikTok, OKX, Coinbase - complex financial/auth infrastructure)  
+- **🟡 MEDIUM**: 7 targets (GitLab, PayPal, Eternal, MediaTek, Ferrero, Zooplus, Others)
+
+### Major Cryptocurrency Exchange Analysis
+- **OKX**: 337 subdomains, 154 services, extensive Web3/DeFi integration
+- **Coinbase**: 519 subdomains, 222 services, comprehensive institutional/consumer separation
 
 ## Conclusion
 

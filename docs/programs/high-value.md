@@ -19,6 +19,12 @@ Last updated: 2025-09-01
 | 9 | MediaTek | $0.00 | 24 | https://hackerone.com/mediatek |
 | 10 | Zooplus | $0.00 | 18 | https://hackerone.com/zooplus |
 
+## Strategic High-Value Additions
+
+| Program | Priority | Reason | Program Page |
+| ------- | -------- | ------ | ------------ |
+| **Coinbase** | 🚨 **CRITICAL** | Major crypto exchange, $50K+ critical bounties, 519 subdomains discovered | https://hackerone.com/coinbase |
+
 ## Historical Notes (recent activity)
 
 - **Uber**: Consistent “BountyAwarded” activity during 2025-03..2025-08 with multiple awards per month.
