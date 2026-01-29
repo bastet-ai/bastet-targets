@@ -36,6 +36,25 @@ Last updated: 2025-09-01
 - **PayPal**: Intermittent awards, including early September.
 - **Ferrero/MediaTek/Zooplus**: High volume of resolved activity; limited public award amount exposure.
 
+## Program Quality Signals (Community/Operational Heuristics)
+
+When two programs pay similar amounts, “program quality” often dominates expected value. Signals that repeatedly show up in community discussions:
+
+- **Clear impact standards (esp. for Blind SSRF / OAST findings):**
+  - Programs that **document what evidence they accept** (e.g., DNS/HTTP callbacks, timing-based internal reachability, header leaks) reduce report churn.
+  - Watch for programs that require **data exfiltration only** for SSRF; this can be a time sink unless you can safely demonstrate higher impact.
+- **Fair, consistent triage:**
+  - Low “Informative / N/A” rates for valid vuln classes and predictable severity mapping.
+  - Willingness to **engage on nuance** (business logic, chains, internal reachability) rather than rubber-stamping.
+- **Fast feedback loop:**
+  - Reasonable response SLAs, low ghosting, and credible mediation outcomes.
+- **Duplicate pressure vs. depth:**
+  - Programs with heavy “spray-and-pray” tooling overlap can have high duplicate rates; higher EV often comes from programs where **manual, product-understanding bugs** (logic, authZ, SSRF, cache poisoning/desync edge cases) are rewarded.
+- **Scope quality:**
+  - Modern asset inventory (well-defined subdomain patterns, APIs, mobile, integrations) and explicit third-party boundaries.
+- **Disclosure and learning culture:**
+  - Public write-ups / hacktivity that show **interesting classes being rewarded** (authZ, SSRF, desync, supply-chain) is a strong indicator the program pays for real risk.
+
 ## Next Steps
 
 - Review each program page and policy for current scope and exclusions
