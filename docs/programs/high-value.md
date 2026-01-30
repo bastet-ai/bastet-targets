@@ -41,8 +41,9 @@ Last updated: 2025-09-01
 When two programs pay similar amounts, “program quality” often dominates expected value. Signals that repeatedly show up in community discussions:
 
 - **Clear impact standards (esp. for Blind SSRF / OAST findings):**
-  - Programs that **document what evidence they accept** (e.g., DNS/HTTP callbacks, timing-based internal reachability, header leaks) reduce report churn.
+  - Programs that **document what evidence they accept** (e.g., DNS/HTTP callbacks, timing-based internal reachability, status-code differentials, header leaks) reduce report churn.
   - Watch for programs that require **data exfiltration only** for SSRF; this can be a time sink unless you can safely demonstrate higher impact.
+  - Bonus signal: they explicitly recognize **internal network mapping / WAF-bypass-by-proxy / protocol pivot proofs** as meaningful impact when exfiltration is unsafe or impractical.
 - **Fair, consistent triage:**
   - Low “Informative / N/A” rates for valid vuln classes and predictable severity mapping.
   - Willingness to **engage on nuance** (business logic, chains, internal reachability) rather than rubber-stamping.
@@ -50,6 +51,7 @@ When two programs pay similar amounts, “program quality” often dominates exp
   - Reasonable response SLAs, low ghosting, and credible mediation outcomes.
 - **Duplicate pressure vs. depth:**
   - Programs with heavy “spray-and-pray” tooling overlap can have high duplicate rates; higher EV often comes from programs where **manual, product-understanding bugs** (logic, authZ, SSRF, cache poisoning/desync edge cases) are rewarded.
+  - Community meta-signal: if hunters consistently report success with a “lighter” stack (proxy + notes + targeted automation) it often correlates with programs where *understanding workflows* beats running scanners.
 - **Scope quality:**
   - Modern asset inventory (well-defined subdomain patterns, APIs, mobile, integrations) and explicit third-party boundaries.
 - **Disclosure and learning culture:**
