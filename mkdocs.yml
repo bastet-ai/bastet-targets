@@ -130,6 +130,7 @@ nav:
     # - Reporting: tools/reporting.md
   - Resources:
     - resources/index.md
+    - Program Quality Signals: resources/program-quality-signals.md
     # TODO: Create these resource pages
     # - HackerOne Guidelines: resources/hackerone-guidelines.md
     # - Legal Framework: resources/legal-framework.md

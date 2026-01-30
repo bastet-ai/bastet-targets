@@ -18,6 +18,12 @@ This section provides essential resources for ethical security research, includi
 
     Platform-specific rules, best practices, and program participation
 
+-   :material-chart-line:{ .lg .middle } **Program Quality Signals**
+
+    ---
+
+    Heuristics to identify high-value bounty/VDP programs and avoid time sinks
+
 -   :material-security:{ .lg .middle } **Disclosure Best Practices** (Coming Soon)
 
     ---
