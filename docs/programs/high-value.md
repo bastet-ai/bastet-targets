@@ -56,6 +56,10 @@ When two programs pay similar amounts, “program quality” often dominates exp
   - Modern asset inventory (well-defined subdomain patterns, APIs, mobile, integrations) and explicit third-party boundaries.
 - **Disclosure and learning culture:**
   - Public write-ups / hacktivity that show **interesting classes being rewarded** (authZ, SSRF, desync, supply-chain) is a strong indicator the program pays for real risk.
+- **Remediation posture (especially VDPs):**
+  - Some high-signal targets (e.g., government VDPs) can have **very long remediation timelines**. Great for reputation/impact, but low expected value if you’re optimizing for payout/velocity.
+- **“Contribution surface” / CI-CD exposure:**
+  - Community write-ups about exploits starting from **PR comments, CI pipelines, webhooks, integrations, or supply-chain touchpoints** are a signal to prioritize programs where those surfaces are in-scope (often higher severity, lower duplicate pressure).
 
 ## Next Steps
 
