@@ -29,6 +29,9 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Local crawler caches
+.cache/
+
 # Sensitive data (never commit!)
 *.key
 *.pem

@@ -9,6 +9,10 @@ This page tracks currently active HackerOne bounty programs that are under resea
 
 *No active programs documented yet.*
 
+### Auto-discovered (Public-only)
+
+- [HackerOne Public Program Index (auto-generated)](hackerone-public.md)
+
 This section will contain:
 - Programs currently being researched
 - Recent scope changes or updates

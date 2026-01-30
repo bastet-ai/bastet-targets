@@ -84,6 +84,20 @@ Configuration files and documentation for commonly used tools:
 - **Exploitation**: Proof-of-concept development
 - **Reporting**: Documentation and evidence gathering
 
+## 🤖 Public-only HackerOne Program Crawler
+
+This repo includes an **optional, public-only** crawler that discovers HackerOne program landing pages via the public sitemap and generates a wiki index page:
+
+- Script: `scripts/hackerone_public_crawler.py`
+- Runner: `scripts/update_hackerone_public_targets.sh`
+- Output page: `docs/programs/hackerone-public.md` (generated)
+- Snapshot JSON: `data/hackerone-public/programs.json`
+
+Design constraints:
+- **Never logs in** (no cookies, no tokens)
+- Uses only **public** endpoints (robots-advertised sitemap + public HTML meta tags)
+- Polite defaults: caching + rate limiting + per-run fetch cap
+
 ## 🔧 Configuration
 
 The wiki is powered by MkDocs with several useful plugins:
