@@ -59,6 +59,16 @@ When programs are saturated with low-effort automation, low-hanging fruit become
 
 **Heuristic:** prefer programs with unique workflows, unusual tech, or deeper authZ models where understanding beats scanning.
 
+### D) Unclear payability criteria for common classes (especially authZ/IDOR)
+If a program regularly marks common-but-real issues as N/A/Informative without a consistent written standard, you waste time arguing impact.
+
+- Community example (authZ/IDOR exposing private lists/bookmarks — “will I get paid?”): https://www.reddit.com/r/bugbounty/comments/1qrsa96/is_this_a_payable_bug/
+
+**Heuristic:** higher-value programs usually have at least one of:
+- explicit “what counts as IDOR/authZ” examples,
+- guidance on “unguessable IDs” (still authZ-bypass if access control fails),
+- clear non-impact carveouts (e.g., *public* info only, or purely self-impact).
+
 ## Practical Scoring Rubric (30-second triage)
 
 Score each 0–2 (max 10):
