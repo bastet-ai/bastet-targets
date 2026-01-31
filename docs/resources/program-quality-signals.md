@@ -123,6 +123,8 @@ Themes showing up repeatedly:
 - **VDP timelines vs. bounty timelines**: VDPs may remediate slowly but still provide recognition (e.g., LoR / hall-of-fame). Bounty programs often optimize for triage throughput and duplicates.
   - *Signal:* for VDP-heavy targets, treat “time-to-remediation” as a core KPI (and budget your attention accordingly).
 - **“Automation obsession” vs. manual testing**: many hunters report better ROI from fewer tools + deeper app understanding, especially on heavily-tested public programs.
+- **Bounty variance + expectation management**: community anecdotes continue to highlight large variance between perceived severity and awarded bounty (e.g., long “under investigation” periods followed by low awards). Treat this as a *program-level* signal about payout predictability.
+  - *Heuristic:* if a program’s public chatter frequently includes “lowball” outcomes after long cycles, bias toward (a) faster-moving programs or (b) targets where you can stack multiple related issues into a single high-impact chain.
 
 ## Practical next steps
 
