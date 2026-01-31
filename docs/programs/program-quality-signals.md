@@ -40,6 +40,7 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 A common community complaint is spending weeks/months in investigation/triage for a small reward.
 
 - Example discussion (Meta): https://www.reddit.com/r/bugbounty/comments/1qruinj/meta_bug_bounty/
+- Another recent thread (Meta “no response”): https://www.reddit.com/r/bugbounty/comments/1qsai88/meta_bug_bounty_no_response/
 
 **Heuristic:** if you see recurring patterns of long states + small awards, treat as *low expected value* unless you have a very high-confidence finding.
 
