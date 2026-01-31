@@ -13,6 +13,9 @@ Completed or discontinued programs with historical documentation.
 ### [Program Templates](templates.md)
 Standardized documentation templates for consistent program documentation.
 
+### [Program Quality Signals](program-quality-signals.md)
+Heuristics for identifying high-value programs (triage speed, payout consistency, duplicate pressure, etc.).
+
 ## 🎯 Program Documentation Structure
 
 Each program follows a standardized structure:
