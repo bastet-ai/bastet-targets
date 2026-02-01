@@ -77,6 +77,19 @@ If a program regularly marks common-but-real issues as N/A/Informative without a
 - guidance on “unguessable IDs” (still authZ-bypass if access control fails),
 - clear non-impact carveouts (e.g., *public* info only, or purely self-impact).
 
+### F) “Off-platform” / unclear legitimacy signals
+Community threads periodically pop up where a hunter reports via a company-run form/email and gets no response for long periods, raising the question: is the program real, maintained, and safe to engage?
+
+- Community example (“fake bounty programs??”): https://www.reddit.com/r/bugbounty/comments/1qt6gqc/how_to_identify_fake_bounty_programs/
+
+**Heuristic:** prefer programs where you can quickly verify:
+- an official policy + safe harbor language
+- a platform presence (HackerOne/Bugcrowd/Intigriti, etc.) *or* clear ownership evidence (security.txt, verified domain emails)
+- expected response windows / SLAs
+- a clear scope and reporting channel (not a random webform)
+
+If those aren’t present, treat the expected value as low and the legal/operational risk as higher.
+
 ## Practical Scoring Rubric (30-second triage)
 
 Score each 0–2 (max 10):
@@ -106,6 +119,9 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 - **Blind-impact disputes remain common.** The blind SSRF + WAF bypass + internal enumeration “Informative” closure is a recurring pattern: if you can’t show data read/exfil, you may get low-severity outcomes.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qq37r0/blind_ssrf_waf_bypass_internal_timing_scan_closed/
+
+- **Legitimacy checks matter for off-platform programs.** A recurring beginner question: how to distinguish a legitimate, maintained bounty program from a dead inbox or a risky/ambiguous “report here” page.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qt6gqc/how_to_identify_fake_bounty_programs/
 
 ## Notes / Source Log
 
