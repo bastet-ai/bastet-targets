@@ -98,6 +98,9 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **“Easy to find, hard to exploit” → duplicates happen even with strong effort.** One hunter describes an IDOR where exploitation required reversing obfuscated client-side crypto + dealing with rate limits, yet the report still landed as a duplicate.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt0jq0/easy_to_find_but_hard_to_exploit_idor/
 
+- **Mixed/unclear severity signals can indicate inconsistent triage.** A hunter reports an authZ/IDOR issue marked as duplicate while simultaneously receiving an “exceptional find” badge, highlighting that program feedback signals (badges/points/severity) may not line up with final outcomes.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qt3881/what_is_this_bug_supposed_to_be/
+
 - **Programs may N/A “debug/info leak” findings without a crisp impact chain.** A report about an exposed ASP.NET Route Debugger (route table + stack details) was N/A’d as “no security concern,” highlighting how some programs discount misconfig findings unless you can demonstrate a downstream exploit path.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qswjo4/exposed_aspnet_route_debugger_in_prod_nad_as_no/
 

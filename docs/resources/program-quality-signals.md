@@ -128,6 +128,8 @@ Themes showing up repeatedly:
 - **Bounty variance + expectation management**: community anecdotes continue to highlight large variance between perceived severity and awarded bounty (e.g., long “under investigation” periods followed by low awards). Treat this as a *program-level* signal about payout predictability.
   - *Heuristic:* if a program’s public chatter frequently includes “lowball” outcomes after long cycles, bias toward (a) faster-moving programs or (b) targets where you can stack multiple related issues into a single high-impact chain.
 
+- **Inconsistent “signals” (badges/points vs. final outcome) are a yellow flag.** If a program hands out positive signals (e.g., “exceptional find” badges) while still closing reports as duplicate/N/A, assume you need to optimize for *documented policy* + *clear impact*, not gamified feedback.
+
 ## Practical next steps
 
 - Maintain a personal shortlist of programs that match your strengths (web/API/mobile/cloud).
