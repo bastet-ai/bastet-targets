@@ -91,6 +91,19 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Community Signals (2026-02-01)
+
+These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
+
+- **“Easy to find, hard to exploit” → duplicates happen even with strong effort.** One hunter describes an IDOR where exploitation required reversing obfuscated client-side crypto + dealing with rate limits, yet the report still landed as a duplicate.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qt0jq0/easy_to_find_but_hard_to_exploit_idor/
+
+- **Programs may N/A “debug/info leak” findings without a crisp impact chain.** A report about an exposed ASP.NET Route Debugger (route table + stack details) was N/A’d as “no security concern,” highlighting how some programs discount misconfig findings unless you can demonstrate a downstream exploit path.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qswjo4/exposed_aspnet_route_debugger_in_prod_nad_as_no/
+
+- **Blind-impact disputes remain common.** The blind SSRF + WAF bypass + internal enumeration “Informative” closure is a recurring pattern: if you can’t show data read/exfil, you may get low-severity outcomes.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qq37r0/blind_ssrf_waf_bypass_internal_timing_scan_closed/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
