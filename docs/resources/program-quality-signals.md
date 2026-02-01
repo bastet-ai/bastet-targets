@@ -118,6 +118,8 @@ Themes showing up repeatedly:
 
 - **“Blind SSRF closed as Informative” disputes**: indicates some programs require full exfiltration proof (even when interaction + internal enumeration is demonstrated). Treat this as a program-specific policy signal.
   - *Actionable heuristic:* before spending hours on SSRF, look for any public policy language about “interaction-only” SSRF, and/or community confirmation that OAST + timing + internal reachability is accepted as impact.
+- **“Enabling” exposures dismissed as N/A**: exposed debug endpoints / route dumps / stack details may be treated as non-issues unless you chain to a concrete exploit.
+  - *Heuristic:* budget time for chaining (debug output → endpoint discovery → authZ abuse / SSRF / file read) or expect N/A outcomes.
 - **Credit/disclosure expectations matter (CVE/GHSA/acknowledgements)**: hunters continue to care about durable credit (CVE assignment, GHSA being un-embargoed, hall-of-fame / recognition). Programs that are cooperative about attribution tend to also be more cooperative about remediation.
   - *Signal:* if a program/org routinely keeps advisories private indefinitely or is cagey about attribution, expect more friction.
 - **VDP timelines vs. bounty timelines**: VDPs may remediate slowly but still provide recognition (e.g., LoR / hall-of-fame). Bounty programs often optimize for triage throughput and duplicates.

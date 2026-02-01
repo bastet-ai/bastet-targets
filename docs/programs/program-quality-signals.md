@@ -53,14 +53,21 @@ Blind issues (SSRF, injection, timing side channels) are real, but some programs
 - strong OAST evidence + clear internal interaction proofs, and/or
 - a target where you can safely demonstrate impact within scope.
 
-### C) High automation pressure → race to duplicates
+### C) Programs that downplay “informational” findings even when they enable follow-on attacks
+A recurring pattern: exposed debug endpoints / route dumps / stack details get marked N/A unless you demonstrate a clear follow-on exploit.
+
+- Example (ASP.NET Route Debugger exposure marked duplicate / original N/A): https://www.reddit.com/r/bugbounty/comments/1qswjo4/exposed_aspnet_route_debugger_in_prod_nad_as_no/
+
+**Heuristic:** if a program dismisses *enabling* exposures, you’ll need to plan for chaining (e.g., debug output → endpoint discovery → authZ abuse / SSRF / file read). Otherwise expect low ROI.
+
+### D) High automation pressure → race to duplicates
 When programs are saturated with low-effort automation, low-hanging fruit becomes a duplicate lottery.
 
 - Community prompt (manual-first vs automation): https://www.reddit.com/r/bugbounty/comments/1qpcw79/is_the_automation_obsession_actually_a_trap_for/
 
 **Heuristic:** prefer programs with unique workflows, unusual tech, or deeper authZ models where understanding beats scanning.
 
-### D) Unclear payability criteria for common classes (especially authZ/IDOR)
+### E) Unclear payability criteria for common classes (especially authZ/IDOR)
 If a program regularly marks common-but-real issues as N/A/Informative without a consistent written standard, you waste time arguing impact.
 
 - Community example (authZ/IDOR exposing private lists/bookmarks — “will I get paid?”): https://www.reddit.com/r/bugbounty/comments/1qrsa96/is_this_a_payable_bug/
