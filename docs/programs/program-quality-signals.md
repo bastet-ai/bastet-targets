@@ -104,7 +104,7 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
-## Recent Community Signals (2026-02-01)
+## Recent Community Signals (2026-02-02)
 
 These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
 
@@ -122,6 +122,9 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 - **Legitimacy checks matter for off-platform programs.** A recurring beginner question: how to distinguish a legitimate, maintained bounty program from a dead inbox or a risky/ambiguous “report here” page.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt6gqc/how_to_identify_fake_bounty_programs/
+
+- **“Fundamentals-first” correlates with unique bugs (and lower duplicate pressure).** A common theme: hunters who invest in deep understanding of web development and application behavior (vs. payload-spraying or heavy automation) tend to surface more *workflow/authZ/business-logic* issues—exactly the bug classes that stay valuable even in crowded programs.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qscdhf/why_do_a_lot_of_hunters_skip_the_fundamentals_for/
 
 ## Notes / Source Log
 
