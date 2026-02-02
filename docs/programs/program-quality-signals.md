@@ -111,6 +111,10 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **“Easy to find, hard to exploit” → duplicates happen even with strong effort.** One hunter describes an IDOR where exploitation required reversing obfuscated client-side crypto + dealing with rate limits, yet the report still landed as a duplicate.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt0jq0/easy_to_find_but_hard_to_exploit_idor/
 
+- **Triage outcomes can hinge on framing + category choice — good programs support re-triage without forcing a “new report” dance.** A hunter describes a deep technical report closed quickly as “won’t fix / intended behavior,” then realizing they misclassified it (“sandbox escape” framing) and needing to reframe as isolation failure / info disclosure / memory-corruption-adjacent impact.
+  - Heuristic: higher-quality programs make it clear how to (a) correct category/impact framing, (b) request re-review, and (c) avoid being penalized for reasonable misclassification.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qtwce9/bug_bounty_report_closed_as_intended_behavior_i/
+
 - **Policy clarity around “sandbox vs production” matters (especially for fintech/payments).** If the program’s policy is ambiguous about whether/when you can validate issues in production (particularly anything that “moves money”), your risk/effort increases. High-quality programs tend to provide explicit guidance for safely validating payment/checkout logic bugs.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qtj9el/paypal_bug_bounty_sandbox_vs_production_testing/
 
