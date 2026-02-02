@@ -111,6 +111,12 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **“Easy to find, hard to exploit” → duplicates happen even with strong effort.** One hunter describes an IDOR where exploitation required reversing obfuscated client-side crypto + dealing with rate limits, yet the report still landed as a duplicate.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt0jq0/easy_to_find_but_hard_to_exploit_idor/
 
+- **Policy clarity around “sandbox vs production” matters (especially for fintech/payments).** If the program’s policy is ambiguous about whether/when you can validate issues in production (particularly anything that “moves money”), your risk/effort increases. High-quality programs tend to provide explicit guidance for safely validating payment/checkout logic bugs.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qtj9el/paypal_bug_bounty_sandbox_vs_production_testing/
+
+- **“Is a Swagger UI / API docs page reportable?” is often a proxy for program maturity.** Some teams treat exposed API documentation as low/no impact unless it includes creds/secrets or directly enables authZ bypass; others consider it a meaningful recon enabler. Programs that publish a clear stance on “docs exposure” and other recon-only findings reduce wasted cycles.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qtny5i/found_a_swagger_ui_page_of_an_api/
+
 - **Mixed/unclear severity signals can indicate inconsistent triage.** A hunter reports an authZ/IDOR issue marked as duplicate while simultaneously receiving an “exceptional find” badge, highlighting that program feedback signals (badges/points/severity) may not line up with final outcomes.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt3881/what_is_this_bug_supposed_to_be/
 
