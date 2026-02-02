@@ -126,6 +126,14 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **“Fundamentals-first” correlates with unique bugs (and lower duplicate pressure).** A common theme: hunters who invest in deep understanding of web development and application behavior (vs. payload-spraying or heavy automation) tend to surface more *workflow/authZ/business-logic* issues—exactly the bug classes that stay valuable even in crowded programs.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qscdhf/why_do_a_lot_of_hunters_skip_the_fundamentals_for/
 
+- **AI/LLM programs have recurring, high-impact misconfig patterns (good ROI if scope includes the “plumbing”).** Community discussion from recent AI startup pentests highlights repeatable failure modes:
+  - Exposed vector DBs (auth defaults, no IP allowlists/logging)
+  - Prompt injection via “hidden” inputs (PDF metadata, email subjects, Slack commands)
+  - CI/CD as a credential graveyard (keys in logs, Docker layers, Terraform state)
+  - Treat model output as untrusted (LLM → SQL/tool injection)
+  - Billing/usage spikes as an early breach signal (leaked keys, rate-limit bypass)
+  - Thread: https://www.reddit.com/r/AskNetsec/comments/1qtn45b/tldr_i_pentested_3_ai_startups_here_are_5_ways_i/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
