@@ -112,7 +112,7 @@ Score each 0–2:
 
 **0–4:** proceed only if you have a specific thesis
 
-## Notes from recent community discussion (Jan 2026)
+## Notes from recent community discussion (Jan–Feb 2026)
 
 Themes showing up repeatedly:
 
@@ -127,6 +127,11 @@ Themes showing up repeatedly:
 - **“Automation obsession” vs. manual testing**: many hunters report better ROI from fewer tools + deeper app understanding, especially on heavily-tested public programs.
 - **Bounty variance + expectation management**: community anecdotes continue to highlight large variance between perceived severity and awarded bounty (e.g., long “under investigation” periods followed by low awards). Treat this as a *program-level* signal about payout predictability.
   - *Heuristic:* if a program’s public chatter frequently includes “lowball” outcomes after long cycles, bias toward (a) faster-moving programs or (b) targets where you can stack multiple related issues into a single high-impact chain.
+- **Fintech/payment programs: sandbox vs production boundaries**: questions keep surfacing about whether programs expect **sandbox-only validation** for checkout/payment flows, and whether “testing in prod (even on your own accounts)” is acceptable.
+  - *Signal:* high-quality programs explicitly state what’s allowed for **financial-impact testing**, provide safe test paths (sandbox accounts, test cards, staging), and document how to demonstrate impact without moving real money.
+  - *Anti-signal:* ambiguity here often leads to N/A/violations risk; treat it as a scope/rules red flag and pick targets with explicit safe-harbor guidance.
+- **“Is this program fake?” anxiety**: recurring community theme where hunters report submitting bugs to self-hosted/company-run programs and getting no reply.
+  - *Heuristic:* if a program has no published SLA, no hall-of-fame/history of acknowledgements, and no clear security contact process, assume **low responsiveness** until proven otherwise.
 
 - **Inconsistent “signals” (badges/points vs. final outcome) are a yellow flag.** If a program hands out positive signals (e.g., “exceptional find” badges) while still closing reports as duplicate/N/A, assume you need to optimize for *documented policy* + *clear impact*, not gamified feedback.
 
