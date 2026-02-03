@@ -90,6 +90,16 @@ Community threads periodically pop up where a hunter reports via a company-run f
 
 If those aren’t present, treat the expected value as low and the legal/operational risk as higher.
 
+### G) “Impact downgrading” games (especially at the last minute)
+A recurring (and expensive) failure mode: the program initially agrees the impact is high/critical, then later looks for a technicality to downgrade after a fix is in progress.
+
+- Example (CVSS “temporal adjustment because the bug is now fixed”): https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
+
+**Heuristic:** if you see repeated community reports of post-fix downgrades, treat the program as *high variance* and:
+- be explicit about the impact model in your report (VRT mapping + concrete abuse story)
+- capture evidence early (screens/video/logs) and preserve it
+- ask for confirmation of scope/severity assumptions before spending days on a PoC
+
 ## Practical Scoring Rubric (30-second triage)
 
 Score each 0–2 (max 10):
@@ -104,9 +114,12 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
-## Recent Community Signals (2026-02-02)
+## Recent Community Signals (2026-02-03)
 
 These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
+
+- **Watch for "post-fix" severity games.** One hunter reports a program accepting a critical CVSS on a desync/redirect-to-credential-harvest chain, then downgrading late by applying a CVSS temporal adjustment because the bug was fixed.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
 
 - **“Easy to find, hard to exploit” → duplicates happen even with strong effort.** One hunter describes an IDOR where exploitation required reversing obfuscated client-side crypto + dealing with rate limits, yet the report still landed as a duplicate.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qt0jq0/easy_to_find_but_hard_to_exploit_idor/

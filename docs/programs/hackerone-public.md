@@ -2,7 +2,7 @@
 
 > **Public-only automation**: generated from HackerOne's public sitemap + public program landing pages.
 
-- Generated at (UTC): **2026-01-31T04:10:48+00:00**
+- Generated at (UTC): **2026-02-03T10:05:56+00:00**
 - Total public programs detected: **1** (bug bounty: 1, VDP: 0)
 
 ## Passive OSINT Notes (Non-invasive)
@@ -11,12 +11,6 @@
   - the program landing page for policy summaries
   - organization security contact pages (e.g., `/.well-known/security.txt` when the primary domain is known)
   - public write-ups / advisories (careful: may contain outdated scope)
-
-## Changes Since Last Snapshot
-- Added: 1
-
-### Added
-- `000webhost` —  (bug-bounty)
 
 ## Program List
 | Program | Handle | Type | Lastmod (sitemap) | URL |
