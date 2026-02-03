@@ -136,6 +136,10 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **“Fundamentals-first” correlates with unique bugs (and lower duplicate pressure).** A common theme: hunters who invest in deep understanding of web development and application behavior (vs. payload-spraying or heavy automation) tend to surface more *workflow/authZ/business-logic* issues—exactly the bug classes that stay valuable even in crowded programs.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qscdhf/why_do_a_lot_of_hunters_skip_the_fundamentals_for/
 
+- **“Record real flows, then mutate them” is a practical way to find logic bugs.** A hunter describes a workflow where you browse the app normally, record your own API calls, then replay/mutate them to break hidden assumptions (coupon reuse, cross-user reuse, refund/checkout abuse, etc.).
+  - Heuristic: programs with complex business workflows/APIs are higher-EV if you can efficiently capture and iterate on real flows.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qubktv/bug_bounty_browser_extension_tool/
+
 - **AI/LLM programs have recurring, high-impact misconfig patterns (good ROI if scope includes the “plumbing”).** Community discussion from recent AI startup pentests highlights repeatable failure modes:
   - Exposed vector DBs (auth defaults, no IP allowlists/logging)
   - Prompt injection via “hidden” inputs (PDF metadata, email subjects, Slack commands)
