@@ -135,6 +135,10 @@ Themes showing up repeatedly:
 
 - **Inconsistent “signals” (badges/points vs. final outcome) are a yellow flag.** If a program hands out positive signals (e.g., “exceptional find” badges) while still closing reports as duplicate/N/A, assume you need to optimize for *documented policy* + *clear impact*, not gamified feedback.
 
+- **Late-stage severity/payout downgrades with questionable rationale are a strong anti-signal.** Community anecdote: a program accepted a critical CVSS, fixed quickly, then downgraded “because it’s now fixed” (misusing CVSS temporal adjustments).
+  - *Heuristic:* prefer programs that rate impact at time-of-report and clearly justify any rating changes without moving goalposts.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
+
 ## Practical next steps
 
 - Maintain a personal shortlist of programs that match your strengths (web/API/mobile/cloud).

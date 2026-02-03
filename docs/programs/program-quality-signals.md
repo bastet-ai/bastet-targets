@@ -148,6 +148,10 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Billing/usage spikes as an early breach signal (leaked keys, rate-limit bypass)
   - Thread: https://www.reddit.com/r/AskNetsec/comments/1qtn45b/tldr_i_pentested_3_ai_startups_here_are_5_ways_i/
 
+- **Late-stage severity downgrades with questionable rationale are a strong negative signal.** One hunter describes a program accepting a critical CVSS for a high-impact desync/phish→ATO chain, fixing quickly, then downgrading at the last minute by applying a “temporal adjustment” *because the bug was now fixed*.
+  - Heuristic: high-quality programs don’t retroactively reduce severity/payout based on post-fix state; they assess impact at time-of-report and explain rating changes clearly.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
