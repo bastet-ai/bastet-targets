@@ -182,6 +182,14 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: repeated long-lived duplicates often correlate with (a) slow remediation, (b) “we already know” triage patterns, and (c) high time cost for verification. Prefer programs that either fix quickly or clearly re-open/award when issues remain exploitable.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qvpn9a/reports_closed_as_duplicates_even_when_the/
 
+- **Third-party integrations (payments, SSO, analytics) are a common scope trap — good programs spell out boundaries.** A hunter asks how to handle a payment amount manipulation issue when the checkout flow appears to involve a third-party billing/payment provider that might not be explicitly in-scope.
+  - Heuristic: high-quality programs explicitly state how to report issues that manifest through third-party services (who to report to, what evidence is acceptable, and what to avoid testing in production).
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvvceo/inscope_platform_bug_involving_thirdparty_payment/
+
+- **Operational signal: hunters are still building workflow tooling to bypass WAF/CAPTCHA friction.** New tool release focuses on recording browser traffic, exporting cookies/HAR, and importing into Burp for authenticated testing behind WAF/bot detection.
+  - Heuristic: programs with heavy bot/WAF friction can still be high-EV if they have deep authenticated surfaces — but you need a low-friction session capture workflow.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvu6ve/tool_release_excalibur_manual_waf_bypass_cookie/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
