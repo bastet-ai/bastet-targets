@@ -33,6 +33,14 @@ Bastet Targets is a systematic approach to security research documentation, prov
 
     [:octicons-arrow-right-24: View Analysis](attack-surface-analysis.md)
 
+-   :material-signal:{ .lg .middle } **[Program Quality Signals](program-quality-signals.md)**
+
+    ---
+
+    Community-derived heuristics for identifying high-signal, high-ROI bounty programs.
+
+    [:octicons-arrow-right-24: View Heuristics](program-quality-signals.md)
+
 -   :material-currency-btc:{ .lg .middle } **Cryptocurrency Exchanges**
 
     ---
