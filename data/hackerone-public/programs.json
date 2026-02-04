@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-03T10:05:56+00:00",
+  "generated_at": "2026-02-04T04:25:02+00:00",
   "programs": [
     {
       "description": "This community-curated security page documents any known process for reporting a security vulnerability to 000webhost, often referred to as vulnerability disclosure (ISO 29147), a responsible disclosure policy, or bug bounty program.\n",
@@ -14,7 +14,7 @@
     }
   ],
   "source": {
-    "handles_seen": 294645,
+    "handles_seen": 294692,
     "page_fetch_cap": 200,
     "pages_fetched_this_run": 0,
     "sitemap_index": "https://hackerone.com/sitemap.xml",
