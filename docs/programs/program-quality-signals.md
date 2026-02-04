@@ -178,6 +178,10 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: if a program is mature on authZ, expected value often shifts to business logic (payments, workflows), desyncs, complex authorization graphs, and “weird” integrations (SSO, partner APIs) rather than straight IDOR payloading.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qvojti/deep_testing_for_idor_and_privilege_escalation/
 
+- **Duplicates where the original report is ~1 year old can signal fix backlog (and low EV).** A new hunter describes reports being closed as duplicates even when the underlying issue appears to persist long after the original submission.
+  - Heuristic: repeated long-lived duplicates often correlate with (a) slow remediation, (b) “we already know” triage patterns, and (c) high time cost for verification. Prefer programs that either fix quickly or clearly re-open/award when issues remain exploitable.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvpn9a/reports_closed_as_duplicates_even_when_the/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
