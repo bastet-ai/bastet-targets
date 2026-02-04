@@ -165,6 +165,19 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: high-quality programs don’t retroactively reduce severity/payout based on post-fix state; they assess impact at time-of-report and explain rating changes clearly.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
 
+## Recent Community Signals (2026-02-04)
+
+- **“Needs PoC” / “Informative” even when steps are clear is a triage-quality red flag.** A hunter reports a simple broken access control issue (parameter toggles a “hide history” share link into showing full history) being closed as Informative with the rationale that there was “no working PoC,” despite clear numbered reproduction steps.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvpja5/simple_broken_access_control_marked_as/
+
+- **IP allowlists that trust `X-Forwarded-For` are common, but payability depends on threat model clarity.** A hunter reports bypassing an IP restriction feature by spoofing `X-Forwarded-For`, and the program closed as Informative framing it as “IP spoofing of an already-permitted address.”
+  - Heuristic: higher-quality programs explicitly state whether *client-controllable forwarding headers* are in-scope as a security boundary, and what evidence is required (e.g., demonstrate bypass of a *real* enforced control with a non-local allowlist, show realistic attacker capability, show upstream proxy behavior).
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvoxq3/reported_ip_whitelisted_restriction_bypass/
+
+- **Community reality check: deep, single-bug-class focus can stall on mature programs.** One hunter describes months of deep IDOR/authZ testing across multiple apps resulting mostly in Informational findings.
+  - Heuristic: if a program is mature on authZ, expected value often shifts to business logic (payments, workflows), desyncs, complex authorization graphs, and “weird” integrations (SSO, partner APIs) rather than straight IDOR payloading.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvojti/deep_testing_for_idor_and_privilege_escalation/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
