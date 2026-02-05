@@ -79,6 +79,12 @@ Example pattern: IDOR/BOLA “fixed” by obscuring IDs client-side (encryption/
 
 **Red flag:** programs that consistently treat authorization failures as “informational” unless you provide extreme chaining.
 
+### 5) “Informational” now, silently fixed later
+
+A recurring community complaint: a report is closed as **Informational / N/A / Intended behavior**, but the exact behavior is later quietly changed with **no follow-up**.
+
+**Why it matters:** this can indicate inconsistent triage standards and poor researcher feedback loops (and it makes it harder for researchers to calibrate impact on future reports).
+
 ## Practical workflow: how to use these signals
 
 When selecting targets, score each program (0–2 points per line):
