@@ -55,6 +55,17 @@ A recurring complaint is *creative* or inconsistent downgrade logic.
 - Public/credible writeups, hall-of-fame activity, or conference presence.
 - Low volume of community “non-payment / stalled” stories.
 
+### 6) Clear severity + bounty guidance (calibration help)
+
+A quiet but powerful green flag is when a program helps researchers *calibrate* impact.
+
+Examples:
+
+- A published **bounty table** (by severity) and/or concrete example reports.
+- A documented **severity rubric** that mentions how they treat common gray areas (e.g., rate limiting / brute force / abuse, “temporary lockout” account issues, business-logic fraud).
+
+**Why it matters:** it reduces “ping-pong” on impact, avoids surprise downgrades, and improves report quality (which usually improves triage speed).
+
 ## Negative signals (red flags)
 
 ### 1) Ghosting / prolonged silence
