@@ -190,6 +190,14 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: programs with heavy bot/WAF friction can still be high-EV if they have deep authenticated surfaces — but you need a low-friction session capture workflow.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qvu6ve/tool_release_excalibur_manual_waf_bypass_cookie/
 
+- **Self-hosted / off-platform programs that go dark after acknowledgment are a strong negative signal.** A hunter reports a high-impact price tampering / payment-bypass business-logic issue submitted via a self-hosted program: acknowledgment after several days, then weeks of silence.
+  - Heuristic: if a program lacks visible SLAs/status + has a pattern of “ack then ghost,” treat as low-EV and higher operational risk (unclear safe harbor, unclear duplication handling, unclear payout path).
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvzmao/company_ghosted_me_after_i_reported_a_price/
+
+- **“Informative” + later silent mitigation suggests weak transparency (and inconsistent triage).** A hunter describes a HackerOne report classified as Informative, later finding the behavior quietly changed without any follow-up or acknowledgement.
+  - Heuristic: higher-quality programs either (a) update the report when they change behavior, or (b) clearly state that they may silently adjust “intended behavior” findings without award. Lack of comms increases wasted effort and reduces trust.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qw1z4p/bug_bounty_experience_with_bybit_informative/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
