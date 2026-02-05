@@ -59,9 +59,9 @@ A recurring complaint is *creative* or inconsistent downgrade logic.
 
 ### 1) Ghosting / prolonged silence
 
-Community anecdotes repeatedly cite weeks-long silence after acknowledgement—especially in self-hosted programs.
+Community anecdotes repeatedly cite weeks-long silence after acknowledgement—especially in self-hosted / email-based disclosure programs.
 
-**Heuristic:** If the program doesn’t publish (and follow) an SLA, assume higher risk of dead time.
+**Heuristic:** If the program doesn’t publish (and follow) an SLA **and** you don’t have a clear escalation path (support contact, platform mediation, etc.), assume higher risk of dead time.
 
 ### 2) “Needs more info” loops despite clear reproduction
 

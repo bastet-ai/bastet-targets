@@ -131,7 +131,7 @@ Themes showing up repeatedly:
   - *Signal:* high-quality programs explicitly state what’s allowed for **financial-impact testing**, provide safe test paths (sandbox accounts, test cards, staging), and document how to demonstrate impact without moving real money.
   - *Anti-signal:* ambiguity here often leads to N/A/violations risk; treat it as a scope/rules red flag and pick targets with explicit safe-harbor guidance.
 - **“Is this program fake?” anxiety**: recurring community theme where hunters report submitting bugs to self-hosted/company-run programs and getting no reply.
-  - *Heuristic:* if a program has no published SLA, no hall-of-fame/history of acknowledgements, and no clear security contact process, assume **low responsiveness** until proven otherwise.
+  - *Heuristic:* if a program has no published SLA, no hall-of-fame/history of acknowledgements, and no clear security contact process (or escalation path), assume **low responsiveness** until proven otherwise.
 
 - **Inconsistent “signals” (badges/points vs. final outcome) are a yellow flag.** If a program hands out positive signals (e.g., “exceptional find” badges) while still closing reports as duplicate/N/A, assume you need to optimize for *documented policy* + *clear impact*, not gamified feedback.
 
