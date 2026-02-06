@@ -63,6 +63,7 @@ Examples:
 
 - A published **bounty table** (by severity) and/or concrete example reports.
 - A documented **severity rubric** that mentions how they treat common gray areas (e.g., rate limiting / brute force / abuse, “temporary lockout” account issues, business-logic fraud).
+- Explicit guidance on *borderline-but-common* report types (e.g., self-XSS / session-storage XSS, email-change collision causing temporary lockout, “rate limit bypass” without clear sensitive impact) so researchers don’t waste cycles guessing what will be closed as N/A.
 
 **Why it matters:** it reduces “ping-pong” on impact, avoids surprise downgrades, and improves report quality (which usually improves triage speed).
 
