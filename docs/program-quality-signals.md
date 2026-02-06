@@ -99,6 +99,8 @@ A recurring community complaint: a report is closed as **Informational / N/A / I
 
 ## Practical workflow: how to use these signals
 
+### A) Program/process score (fast filter)
+
 When selecting targets, score each program (0–2 points per line):
 
 - Response SLA exists and seems followed
@@ -108,6 +110,15 @@ When selecting targets, score each program (0–2 points per line):
 - Reports of ghosting / stalled triage are rare
 
 Prefer programs with **high process score** even if their max bounty is lower.
+
+### B) Target selection heuristics (community signal)
+
+These are *not* “program quality” per se, but they strongly affect expected value:
+
+- **Surface area vs crowding:** crowded programs can still be high-EV if they have lots of distinct surfaces (multiple apps, APIs, mobile, partner portals, regional variants).
+- **Workflow complexity:** programs with real business logic (payments, onboarding, approvals, invites, multi-tenant RBAC) reward deep testing more than payload-spraying.
+- **Duplicate pressure:** if you keep hitting duplicates, shift to *less scanned* surfaces (authenticated APIs, admin/partner tools, lesser-known subdomains) or a different bug class (logic/authZ chains vs “classic” XSS/SQLi).
+- **Timebox discipline:** set a fixed window (e.g., 2–6 hours) to map the app + build a test plan; if you don’t find promising seams (weird authZ edges, complex flows, brittle integrations), rotate.
 
 ## OSINT inputs we currently monitor
 
