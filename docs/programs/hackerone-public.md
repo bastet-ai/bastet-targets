@@ -2,7 +2,7 @@
 
 > **Public-only automation**: generated from HackerOne's public sitemap + public program landing pages.
 
-- Generated at (UTC): **2026-02-04T04:25:02+00:00**
+- Generated at (UTC): **2026-02-07T05:37:34+00:00**
 - Total public programs detected: **1** (bug bounty: 1, VDP: 0)
 
 ## Passive OSINT Notes (Non-invasive)

@@ -117,6 +117,7 @@ These are *not* “program quality” per se, but they strongly affect expected 
 
 - **Surface area vs crowding:** crowded programs can still be high-EV if they have lots of distinct surfaces (multiple apps, APIs, mobile, partner portals, regional variants).
 - **Workflow complexity:** programs with real business logic (payments, onboarding, approvals, invites, multi-tenant RBAC) reward deep testing more than payload-spraying.
+- **Large SPA/admin JS bundles as recon signal:** finding a massive `index.<hash>.js` for an admin/partner UI is often a *positive* signal (many routes, API endpoints, feature flags). It’s not a vuln by itself, but it can quickly reveal hidden surfaces (API base paths, GraphQL operations, permission checks) via source maps, route tables, and string/endpoint extraction.
 - **Duplicate pressure:** if you keep hitting duplicates, shift to *less scanned* surfaces (authenticated APIs, admin/partner tools, lesser-known subdomains) or a different bug class (logic/authZ chains vs “classic” XSS/SQLi).
 - **Timebox discipline:** set a fixed window (e.g., 2–6 hours) to map the app + build a test plan; if you don’t find promising seams (weird authZ edges, complex flows, brittle integrations), rotate.
 
