@@ -114,6 +114,19 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Community Signals (2026-02-07)
+
+These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
+
+- **Choosing targets: “surface area × freshness × hunter traffic” is the core EV triangle.** A recurring beginner question is how to pick a single target when everything feels saturated. The durable takeaway: prioritize programs that combine (a) broad surface area, (b) frequent feature shipping / asset churn, and (c) lower crowd density in your niche. In practice, this often means: authenticated workflows, admin/partner portals, regional variants, and APIs behind SSO.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qwelwl/what_are_the_parameters_you_consider_while/
+
+- **High-EV programs tend to have “big apps,” and big apps leak mapping clues.** Discussion around analyzing huge minified admin UI bundles reinforces a practical point: complex products often ship large JS bundles with API route strings, feature flags, error messages, GraphQL operations, and sometimes source-map hints. That’s not a “program quality” signal by itself, but it correlates with deeper workflow/authZ surfaces (lower duplicate pressure than simple reflected XSS hunts).
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qy2o8o/what_should_i_do_when_i_find_a_huge_admin_ui/
+
+- **Severity disputes often map to *threat model clarity*, not just technical merit.** A thread describing cookie-based backend routing (cookie poisoning → internal API redirection → token leakage/lockout) is a reminder: high-quality programs publish clear guidance on what constitutes a security boundary (cookies, client-side routing knobs, “intended” proxy behavior), and how to demonstrate impact without unsafe exfil.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qy1y9o/potential_critical_ssrf_session_exfiltration/
+
 ## Recent Community Signals (2026-02-06)
 
 These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
