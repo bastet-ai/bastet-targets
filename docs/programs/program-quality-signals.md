@@ -114,7 +114,7 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
-## Recent Community Signals (2026-02-03)
+## Recent Community Signals (2026-02-06)
 
 These are **examples** from recent public discussion that reinforce (or nuance) the heuristics above:
 
@@ -164,6 +164,10 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **Late-stage severity downgrades with questionable rationale are a strong negative signal.** One hunter describes a program accepting a critical CVSS for a high-impact desync/phish→ATO chain, fixing quickly, then downgrading at the last minute by applying a “temporal adjustment” *because the bug was now fixed*.
   - Heuristic: high-quality programs don’t retroactively reduce severity/payout based on post-fix state; they assess impact at time-of-report and explain rating changes clearly.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
+
+- **Asset churn / continuous discovery is an “EV multiplier” (and also a duplicate-reducer).** When an org frequently spins up and retires external assets (marketing microsites, new SaaS tenants, region-specific apps, short-lived preview envs), the target surface changes faster than the crowd can fully map it.
+  - Heuristic: programs whose public footprint *changes* tend to yield more “fresh” findings than static, heavily-scanned monoliths — especially if scope includes subdomains/APIs and not just one flagship webapp.
+  - Thread (ASM vs periodic scanning discussion): https://www.reddit.com/r/AskNetsec/comments/1qxxrlx/whats_the_real_difference_between_an_attack/
 
 ## Recent Community Signals (2026-02-04)
 
