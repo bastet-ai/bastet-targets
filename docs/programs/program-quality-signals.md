@@ -41,6 +41,7 @@ A common community complaint is spending weeks/months in investigation/triage fo
 
 - Example discussion (Meta): https://www.reddit.com/r/bugbounty/comments/1qruinj/meta_bug_bounty/
 - Another recent thread (Meta “no response”): https://www.reddit.com/r/bugbounty/comments/1qsai88/meta_bug_bounty_no_response/
+- Recent example (8+ months waiting for severity assessment on a “high severity” report): https://www.reddit.com/r/bugbounty/comments/1qyoeg3/just_a_random_for_question_for_people_who_have/
 
 **Heuristic:** if you see recurring patterns of long states + small awards, treat as *low expected value* unless you have a very high-confidence finding.
 
