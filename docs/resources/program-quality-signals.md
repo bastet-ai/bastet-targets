@@ -139,6 +139,18 @@ Themes showing up repeatedly:
   - *Heuristic:* prefer programs that rate impact at time-of-report and clearly justify any rating changes without moving goalposts.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qulv8l/tldr_funny_impact_downgrade_of_the_week/
 
+- **Duplicates “even when it’s still present” is a real pain point.** Hunters report being closed as duplicate referencing very old internal tickets (months+) while the vuln is still reproducible.
+  - *Heuristic:* treat this as a signal of (a) remediation backlog or (b) triage process prioritizing queue health over fixes. Either way, expect low ROI unless you can demonstrate *new impact* vs the original.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvpn9a/reports_closed_as_duplicates_even_when_the/
+
+- **“Needs more info / no PoC” despite clear repro steps is an anti-signal.** If a program repeatedly claims missing PoC when you provided numbered steps + evidence, expect comms friction.
+  - *Heuristic:* favor programs with triagers who can restate your PoC in their own words (they actually read it) and ask *delta* questions.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvpja5/simple_broken_access_control_marked_as/
+
+- **Header-trust misunderstandings (X-Forwarded-For) can create weird triage outcomes.** Example: “IP allowlist bypass” reports getting dismissed as “just spoofing a whitelisted address”, which may indicate the org doesn’t treat edge header-trust as a security boundary.
+  - *Signal:* programs/teams that explicitly document trusted-proxy requirements (or deploy mTLS/ZTNA) usually have more mature threat modeling and cleaner impact discussions.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qvoxq3/reported_ip_whitelisted_restriction_bypass/
+
 ## Practical next steps
 
 - Maintain a personal shortlist of programs that match your strengths (web/API/mobile/cloud).
