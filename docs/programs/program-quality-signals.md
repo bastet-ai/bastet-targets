@@ -216,6 +216,16 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: higher-quality programs either (a) update the report when they change behavior, or (b) clearly state that they may silently adjust “intended behavior” findings without award. Lack of comms increases wasted effort and reduces trust.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qw1z4p/bug_bounty_experience_with_bybit_informative/
 
+## Recent Community Signals (2026-02-08)
+
+- **Account-creation / identity-verification friction is an EV killer (even for “good” programs).** A recurring practical pain point: some high-profile programs require government ID verification for accounts, and deploy aggressive bot/WAF controls that block even normal browsing. Even if the *program itself* is attractive, this friction increases time-to-first-request, makes multi-account testing harder/unsafe, and can turn basic recon into support tickets.
+  - Heuristic: prefer programs that explicitly support security testing ergonomics (test accounts, clear guidance on multiple accounts, predictable bot defenses, documented allowlisting process, or at least an explicit “how to test without getting blocked” section).
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1qyuu64/question_for_whove_hack_on_airbnb_bug_bounty/
+
+- **Business-logic / “economic boundary” abuse is increasingly a first-class security problem.** A thoughtful AskNetsec thread reframes payment bypasses, quota-workarounds, and workflow gaming as part of the security surface—often bridging into data governance and integrity, not just revenue.
+  - Heuristic: the highest-value programs increasingly treat business logic flaws as security when they cross trust boundaries (data access, account state integrity, authorization-by-billing tier, retention/export gates, etc.), and they have an owner for it (abuse/fraud + AppSec + product), rather than bouncing it as “intended.”
+  - Thread: https://www.reddit.com/r/AskNetsec/comments/1qyv0kv/are_we_lowkey_underestimating_business_logic/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
