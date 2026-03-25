@@ -226,6 +226,20 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
   - Heuristic: the highest-value programs increasingly treat business logic flaws as security when they cross trust boundaries (data access, account state integrity, authorization-by-billing tier, retention/export gates, etc.), and they have an owner for it (abuse/fraud + AppSec + product), rather than bouncing it as “intended.”
   - Thread: https://www.reddit.com/r/AskNetsec/comments/1qyv0kv/are_we_lowkey_underestimating_business_logic/
 
+## Recent Community Signals (2026-03-25)
+
+- **Triage latency appears to be worsening on some Bugcrowd programs (platform-wide perception).** Multiple hunters report that reports which previously moved in ~3–5 days are now sitting ~20 days without action.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1s3g040/bugcrowd_triage_getting_slower_lately/
+
+- **Inconsistent first-pass triage (“N/A → Duplicate”) is a strong quality red flag.** Hunters describe detailed, reproducible reports being closed “Not Applicable” with template text, then on appeal being marked “Duplicate” by a different triager — implying the original triage did not engage with the evidence.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1s2k7n9/bugcrowd_triagers_mark_everything_not_applicable/
+
+- **Silent fixes after dismissing a report as “theoretical” are a trust-breaker.** Even if a team later corrects severity, the combination of (a) not reading evidence, (b) fixing quietly, and (c) delaying/avoiding researcher credit is a negative signal for expected value.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1s1gog5/triager_dismissed_my_critical_then_silently/
+
+- **Reward volatility is itself a signal.** Programs that reduce rewards and later reverse course can still be good targets — but hunters should treat them as *higher variance* and bias toward fast-to-validate findings.
+  - Thread: https://www.reddit.com/r/bugbounty/comments/1s3i10u/spotify_reverses_reward_decrease/
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
