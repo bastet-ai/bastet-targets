@@ -128,8 +128,9 @@ These are *not* “program quality” per se, but they strongly affect expected 
 
 As new repeated patterns emerge, update this page with **generalized** (non-doxxing) heuristics.
 
-## Recent community patterns (Feb 2026)
+## Recent community patterns (Mar 2026)
 
 - **Assessment latency can dwarf fix time:** researchers report cases where a valid issue is actively being worked but remains **unrated/unassessed for many months**. Treat “slow severity assignment” as its own red flag (it delays payout certainty and makes it hard to plan your time).
 - **Identity / anti-abuse friction matters:** targets requiring strong identity verification (e.g., ID upload) or that aggressively block IPs via WAF/CDN can be *high value* but impose extra operational overhead. Prefer programs that explicitly document safe testing guidance (rate limits, account policy, test accounts) to avoid accidental ToS violations.
 - **Duplicates without actionable feedback remain a top complaint:** especially when the original report is old and the behavior appears to persist. Programs that provide even minimal, non-sensitive “same root cause” explanations are easier to work with and reduce wasted cycles.
+- **Reporter treatment is a quality signal:** when a clear, high-impact report gets ignored, delayed, or the researcher is publicly/privately shut out, that’s a strong red flag for future triage friction. Fast, respectful contact paths matter as much as payout tables.
