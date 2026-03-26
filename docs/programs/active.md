@@ -3,7 +3,7 @@
 This page tracks currently active HackerOne bounty programs that are under research or monitoring.
 
 !!! info "Status Update"
-    Last updated: **Never** - This is a fresh installation!
+    Last updated: **2026-03-26** - Public-only monitoring continues; no new public HackerOne program detections in this run.
 
 ## 🎯 Currently Active
 

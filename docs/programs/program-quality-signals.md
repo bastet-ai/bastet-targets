@@ -240,6 +240,26 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **Reward volatility is itself a signal.** Programs that reduce rewards and later reverse course can still be good targets — but hunters should treat them as *higher variance* and bias toward fast-to-validate findings.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1s3i10u/spotify_reverses_reward_decrease/
 
+## Recent Community Signals (2026-03-26)
+
+- **High-value program quality is still mostly about operational behavior, not just payout size.** The most durable signals this run were unchanged: fast triage, clear scope/exclusions, consistent severity mapping, and a respectful/reliable researcher experience.
+  - New threads this cycle reinforced that programs with opaque review loops or inconsistent outcomes create high time cost even when the target is technically attractive.
+
+- **Big-app / broad-surface programs remain the best manual-EV bet.** Threads in r/netsec and r/bugbounty again pointed toward complex workflows, authZ paths, APIs, and partner/admin portals as the places where deeper understanding still beats spray-and-pray automation.
+  - This lines up with the recurring heuristic that “surface area × freshness × low duplicate pressure” is the best rough target selector.
+
+- **AI/LLM programs have repeatable misconfig patterns worth watching.** Recent AskNetsec discussion highlighted recurring failure modes in AI startups and AI-integrated products:
+  - exposed vector databases or weak auth defaults
+  - prompt injection via hidden inputs and indirect content sources
+  - CI/CD and logs as secret leaks
+  - tool-calling / model-output trust boundary mistakes
+  - billing or usage spikes as a compromise indicator
+  - Heuristic: if a program includes AI plumbing in scope, treat the orchestration layer as first-class attack surface rather than novelty UI.
+
+- **Public community sentiment still favors programs that recognize “enabling” bugs.** The bug bounty subreddit again surfaced frustration with programs that dismiss debug/info leaks, authZ edge cases, or blind-impact reports unless the researcher proves direct exfiltration. Programs that document what evidence they accept are usually higher-value.
+
+- **HackerOne public discovery remains opaque from lightweight fetches.** Public landing pages and directory pages still do not yield an easily enumerated program list without heavier scraping or logged-in access, so this tracker remains anchored on public RSS/community signals instead of private platform data.
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
