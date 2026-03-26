@@ -24,6 +24,10 @@ Last updated: 2025-09-01
 | Program | Priority | Reason | Program Page |
 | ------- | -------- | ------ | ------------ |
 | **Coinbase** | 🚨 **CRITICAL** | Major crypto exchange, $50K+ critical bounties, 519 subdomains discovered | https://hackerone.com/coinbase |
+| **1Password** | 🔥 **HIGH** | Public page explicitly asks for creative researchers; scanners are unlikely to help, which usually means higher manual-EV surface | https://hackerone.com/1password |
+| **Akamai** | 🔥 **HIGH** | Public soft-launch / invite-only posture focused on CDN/origin/proxy-layer trust boundaries | https://hackerone.com/akamai |
+| **Airlock Secure Access Hub** | 🔥 **HIGH** | WAF + IAM platform protecting 30k+ apps; complex auth and edge paths tend to pay off | https://hackerone.com/airlock |
+
 
 ## Historical Notes (recent activity)
 
