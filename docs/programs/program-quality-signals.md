@@ -260,6 +260,15 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 - **HackerOne public discovery remains opaque from lightweight fetches.** Public landing pages and directory pages still do not yield an easily enumerated program list without heavier scraping or logged-in access, so this tracker remains anchored on public RSS/community signals instead of private platform data.
 
+- **Identity and anti-abuse friction is a quality signal, but also a cost center.** Community discussion keeps pointing at passkeys, YubiKeys, APIM/gateway choices, account recovery, and identity verification as places where programs either feel smooth or become operationally painful. The best programs document their testing ergonomics and access boundaries clearly.
+  - Heuristic: if a program is serious about security testing, it usually documents how to test without triggering lockouts, what MFA/identity paths are in scope, and how to handle rate limits or bot defenses safely.
+
+- **Community complaints keep reinforcing that “reward policy drift” is a trust issue.** Threads about bounty promises disappearing after a silent patch are a reminder that researcher ROI drops sharply when payout language is vague or retroactively rewritten.
+  - Heuristic: favor programs with stable, public reward language and a consistent payout history; treat retroactive policy changes as a strong negative signal.
+
+- **Big systems and auth/abuse boundaries stay high-value because they are hard to model exhaustively.** Current netsec discussion again highlighted NTLM relay to web servers, Magento upload/RCE, and AI trust-boundary mistakes as durable examples of why broad, real-world attack surfaces remain better manual-EV targets than narrow commodity apps.
+  - Heuristic: prioritize targets with complex authZ, workflow, partner/admin, payment, or identity layers; de-prioritize programs that only expose a thin marketing surface.
+
 ## Notes / Source Log
 
-- Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity RSS/Atom was not discoverable without heavier (JS) scraping at last check.
+- Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity/Directory pages remain JS-heavy and yielded no new public program detections in this run.
