@@ -276,6 +276,7 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 ## Recent Community Signals (2026-03-27)
 
 - **Programs that document safe testing ergonomics save researchers real time.** The newest AskNetsec thread about scanner-generated SIEM noise is a reminder that good bounty programs explain how to test without tripping lockouts, alert storms, or bot defenses. Clear allowlist, test-account, and rate-limit guidance is a quality signal, not a convenience feature.
+- **Safe-testing guidance is also a maturity signal.** When a program tells researchers how to keep scans from polluting SIEMs or triggering abuse controls, it usually has at least thought through its security-operations side. That tends to correlate with less ad-hoc triage and fewer “why did you do that?” escalations.
 
 - **Identity / anti-abuse friction remains a quality signal, but it raises the entry cost.** If a program is serious about security testing, it usually explains MFA, recovery, allowlisting, and anti-abuse guardrails up front. Otherwise researchers burn time on support friction before they ever reach the interesting surface.
 
