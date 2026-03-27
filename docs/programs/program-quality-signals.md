@@ -275,15 +275,15 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 ## Recent Community Signals (2026-03-27)
 
-- **Program quality still shows up first in operations, not branding.** The newest Reddit threads kept reinforcing the same durable filters: fast triage, clear scope/exclusions, consistent severity mapping, and predictable follow-up. Fancy branding does not compensate for opaque or inconsistent handling.
+- **Programs that document safe testing ergonomics save researchers real time.** The newest AskNetsec thread about scanner-generated SIEM noise is a reminder that good bounty programs explain how to test without tripping lockouts, alert storms, or bot defenses. Clear allowlist, test-account, and rate-limit guidance is a quality signal, not a convenience feature.
 
-- **Identity / anti-abuse friction is a real quality signal, but it raises researcher cost.** A thread about Rapid7-driven incident noise suggests that some programs are noisy because they are actively defended and monitored. High-value programs often need documented test-account, rate-limit, or allowlist guidance so researchers can work safely without creating alert storms.
+- **Identity / anti-abuse friction remains a quality signal, but it raises the entry cost.** If a program is serious about security testing, it usually explains MFA, recovery, allowlisting, and anti-abuse guardrails up front. Otherwise researchers burn time on support friction before they ever reach the interesting surface.
 
-- **Reward-policy drift remains one of the strongest negative signals.** The community continues to flag programs that quietly patch, rewrite bounty language, or ghost reporters after acknowledgment. Favor programs with stable public reward language and visible, consistent payout history.
+- **Reward-policy drift and ghosting are still the biggest trust killers.** Community sentiment continues to punish programs that quietly patch, rewrite bounty language, or leave reporters hanging after acknowledgement. Stable public reward language and visible payout history remain strong positive signals.
 
-- **Big-app and workflow-heavy targets are still the best manual-EV bet.** Fresh chatter again points to authZ, partner/admin portals, payment/business-logic, and complex API flows as where deeper understanding beats automation and where programs tend to pay for real risk.
+- **Big-app, auth-heavy, and workflow-heavy targets still win on manual EV.** The fresh discussion again points to authZ, partner/admin portals, payments, business logic, and complex API flows as the places where deeper understanding beats automation and where programs are likelier to pay for real risk.
 
-- **HackerOne public program discovery is still constrained by JS-heavy pages.** Lightweight fetches of Hacktivity and Directory pages still only return the shell, so any target discovery here remains limited to browser-backed inspection or other public metadata.
+- **HackerOne public program discovery is still constrained by JS-heavy pages.** Lightweight fetches of Hacktivity and Directory pages still only return the shell, so public discovery here remains limited without browser-backed inspection or other public metadata.
 
 - **High-value program screening heuristics to keep using:**
   - surface area × freshness × hunter traffic
