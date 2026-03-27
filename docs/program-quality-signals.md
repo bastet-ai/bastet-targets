@@ -154,3 +154,11 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **APIM/gateway trust boundary questions are a quality cue:** teams debating managed gateway vs self-managed security visibility often care about logging gaps, policy fail-open behavior, and control-plane trust. That usually maps to valuable enterprise authN/authZ surfaces.
 - **NTLM relay and old-school webserver exposure still matter:** a fresh netsec writeup on relaying NTLM to web servers is a reminder that legacy auth protocols plus web endpoints still produce durable chains, especially in enterprise programs with hybrid auth.
 - **Unusual file-upload and BIOS-hardening research remains relevant:** new research on Magento file upload to RCE and locked-BIOS security feature bypasses keeps highlighting that mature platforms can hide high-value flaws in management and release paths, not just the obvious app UI.
+
+## Late Mar 2026 pulse
+
+- **Public bounty language can change after a report lands:** a r/bugbounty thread described a vendor silently patching a valid report and later deleting the public bounty promise from its security page. Treat archived program wording as evidence when reward terms matter.
+- **APIM / gateway / trust-boundary debates are still high-signal:** AskNetsec chatter around Azure APIM versus self-managed gateways keeps pointing to logging granularity, fail-open policy behavior, and hidden control-plane trust as useful program-quality cues.
+- **Enterprise identity permission sprawl is a durable target class:** recent netsec discussion on foreign enterprise app permissions reinforces that programs with delegated access, consent grants, and cross-tenant trust often have stronger bounty upside than narrow app-only scopes.
+- **Legacy auth + web relay chains remain relevant:** NTLM relay to web servers continues to appear in fresh research, so enterprise programs with hybrid auth should be scored higher when they expose web endpoints that sit behind older auth protocols.
+- **Crowded headline targets still reward unusual proof:** fresh community posts about Apple CVEs and other marquee targets suggest that brand-name programs are not dead; they just tend to reward deeper chains, clearer impact, and more patience than commodity payloads.
