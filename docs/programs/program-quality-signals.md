@@ -272,3 +272,22 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity/Directory pages remain JS-heavy and yielded no new public program detections in this run.
+
+## Recent Community Signals (2026-03-27)
+
+- **Program quality still shows up first in operations, not branding.** The newest Reddit threads kept reinforcing the same durable filters: fast triage, clear scope/exclusions, consistent severity mapping, and predictable follow-up. Fancy branding does not compensate for opaque or inconsistent handling.
+
+- **Identity / anti-abuse friction is a real quality signal, but it raises researcher cost.** A thread about Rapid7-driven incident noise suggests that some programs are noisy because they are actively defended and monitored. High-value programs often need documented test-account, rate-limit, or allowlist guidance so researchers can work safely without creating alert storms.
+
+- **Reward-policy drift remains one of the strongest negative signals.** The community continues to flag programs that quietly patch, rewrite bounty language, or ghost reporters after acknowledgment. Favor programs with stable public reward language and visible, consistent payout history.
+
+- **Big-app and workflow-heavy targets are still the best manual-EV bet.** Fresh chatter again points to authZ, partner/admin portals, payment/business-logic, and complex API flows as where deeper understanding beats automation and where programs tend to pay for real risk.
+
+- **HackerOne public program discovery is still constrained by JS-heavy pages.** Lightweight fetches of Hacktivity and Directory pages still only return the shell, so any target discovery here remains limited to browser-backed inspection or other public metadata.
+
+- **High-value program screening heuristics to keep using:**
+  - surface area × freshness × hunter traffic
+  - explicit safe testing guidance
+  - documented handling for blind SSRF / OAST-style proofs
+  - low ghosting / consistent re-triage behavior
+  - public evidence that the program rewards deeper chains, not just spray-and-pray noise
