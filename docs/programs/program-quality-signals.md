@@ -273,6 +273,17 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity/Directory pages remain JS-heavy and yielded no new public program detections in this run.
 
+## Recent Community Signals (2026-03-28)
+
+- **Delegated identity flows are still a durable high-value seam.** Fresh AskNetsec discussion around Entra OAuth consent-grant abuse and device-code phishing reinforces that auth flows beyond the login page — consent, token persistence, and user-driven authorization grants — remain especially valuable bounty surfaces.
+  - Heuristic: when a program has SSO/OAuth/SCIM/tenant-admin plumbing in scope, prioritize the trust boundaries around consent, device auth, and post-login permission changes.
+
+- **Same-origin upload/download chains remain one of the best “small bug → big impact” patterns.** A new r/netsec write-up chained a file-upload bypass into stored XSS and admin compromise while CSP, CORS, and CSRF were all present but ineffective because the payload stayed same-origin.
+  - Heuristic: programs with upload endpoints, content-serving endpoints, inbox/admin messaging, or object-storage handoff paths are often higher EV than they look from the front page.
+
+- **Blind-impact discussions still separate high-quality programs from low-quality ones.** Current bug bounty chatter again centers on blind SSRF and OAST-style evidence; programs that accept interaction, timing, or internal-reachability proofs without demanding exfiltration every time are usually easier to work with.
+  - Heuristic: if a program explicitly documents what counts as enough SSRF evidence, that’s a strong operational quality signal.
+
 ## Recent Community Signals (2026-03-27)
 
 - **Programs that document safe testing ergonomics save researchers real time.** The newest AskNetsec thread about scanner-generated SIEM noise is a reminder that good bounty programs explain how to test without tripping lockouts, alert storms, or bot defenses. Clear allowlist, test-account, and rate-limit guidance is a quality signal, not a convenience feature.
