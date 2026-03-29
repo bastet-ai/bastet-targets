@@ -175,6 +175,14 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **Cross-channel trust is increasingly central:** AskNetsec’s physical-mail trust-model question and the leaked-data detection thread both reinforce that onboarding, recovery, and out-of-band verification flows deserve extra weight in target selection.
 - **Hardened image / SBOM / patch-latency signals keep compounding:** AskNetsec discussion on hardened Docker images stays aligned with the earlier heuristic that CI/CD, provenance, and release boundaries are often better bounty surfaces than UI-only scope.
 
+## Fresh signal from Mar 29, 2026
+
+- **Hacktivity literacy is a durable differentiator:** the latest r/bugbounty discussion around reading disclosed reports is a reminder that public writeups are not just learning material; they are a quality signal. Programs with rich disclosure history are easier to calibrate and usually have better impact examples.
+- **Same-origin upload/download chains keep paying attention to cross-role handoffs:** a fresh r/netsec writeup again showed that upload → same-origin retrieval → admin-facing consumption can turn otherwise modest bugs into real impact, especially when chained through messaging or inbox-like workflows.
+- **MFA fallback and recovery flows remain high-value seams:** AskNetsec questions about default 2FA/passkey behavior reinforce the old heuristic that enrollment, recovery, and fallback choices often matter more than the primary login path.
+- **Cross-channel trust boundaries are still a premium target-quality cue:** discussions about physical-mail trust, leaked-data detection, and operator visibility/logging controls all point back to the same pattern: if one channel can influence privileged state in another, score that program higher.
+- **Hardened image / SBOM / patch-latency discussions remain relevant:** recent AskNetsec chatter keeps reinforcing the idea that CI/CD, provenance, and release boundaries are often better bounty seams than UI-only surface area.
+
 ## Fresh signal from Mar 28, 2026
 
 - **Invite-only + authz depth continues to outperform shallow sweeps:** a r/bugbounty researcher again described better returns from invite-only programs and multi-account authorization testing than from quick XSS-style spraying. That keeps authZ-heavy, workflow-rich targets at the top of the stack.
