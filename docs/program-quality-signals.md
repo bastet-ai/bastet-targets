@@ -182,6 +182,8 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **MFA fallback and recovery flows remain high-value seams:** AskNetsec questions about default 2FA/passkey behavior reinforce the old heuristic that enrollment, recovery, and fallback choices often matter more than the primary login path.
 - **Cross-channel trust boundaries are still a premium target-quality cue:** discussions about physical-mail trust, leaked-data detection, and operator visibility/logging controls all point back to the same pattern: if one channel can influence privileged state in another, score that program higher.
 - **Hardened image / SBOM / patch-latency discussions remain relevant:** recent AskNetsec chatter keeps reinforcing the idea that CI/CD, provenance, and release boundaries are often better bounty seams than UI-only surface area.
+- **Duplicate complaints are now an explicit selection filter:** a fresh r/bugbounty thread about duplicate and informative closures is a reminder to favor programs that explain duplicate calls clearly; opaque duplicate handling usually means more wasted cycles and lower EV.
+- **Hacktivity-style reading skill compounds over time:** questions about how to read disclosed reports suggest a simple loop for program selection — if a target has a rich disclosure archive, it becomes easier to calibrate which report classes actually pay and which are likely to be noise.
 
 ## Fresh signal from Mar 28, 2026
 
