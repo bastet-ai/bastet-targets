@@ -167,6 +167,14 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **Supply-chain and image-provenance questions are getting more practical:** AskNetsec discussion about hardened Docker images, SBOMs, and rapid CVE patching reinforces that programs owning CI/CD, base-image, or artifact-signing trust boundaries can be disproportionately valuable. These surfaces tend to reward provenance checks, dependency hygiene, and least-privilege build/release paths more than spray-and-pray fuzzing.
 - **Hardened base-image selection is becoming a real signal:** community discussion now regularly treats Docker image hardening, SBOM coverage, and patch-latency guarantees as part of program quality. If a program owns build/release tooling or can influence artifact provenance, score it higher than app-only targets with similar payout tables.
 
+## Fresh signal from Mar 29, 2026
+
+- **Reading disclosed reports is a useful program-quality filter:** the latest r/bugbounty chatter around how to read Hacktivity-style writeups reinforces that rich disclosure history is itself a signal. Programs with lots of public reports are easier to calibrate and often have better learning loops for impact.
+- **Upload/download chains remain durable value:** r/netsec’s file-upload-bypass-plus-stored-XSS walkthrough again shows that same-origin upload, object storage, and admin-facing handoff paths are more interesting than isolated payloads, especially when they can be chained into account creation or admin action.
+- **2FA fallback / recovery paths are still a quality cue:** AskNetsec discussion about Gmail defaulting to weaker authentication options is a reminder that MFA enrollment, recovery, and fallback selection are high-value review areas when a program exposes account protection controls.
+- **Cross-channel trust is increasingly central:** AskNetsec’s physical-mail trust-model question and the leaked-data detection thread both reinforce that onboarding, recovery, and out-of-band verification flows deserve extra weight in target selection.
+- **Hardened image / SBOM / patch-latency signals keep compounding:** AskNetsec discussion on hardened Docker images stays aligned with the earlier heuristic that CI/CD, provenance, and release boundaries are often better bounty surfaces than UI-only scope.
+
 ## Fresh signal from Mar 28, 2026
 
 - **Invite-only + authz depth continues to outperform shallow sweeps:** a r/bugbounty researcher again described better returns from invite-only programs and multi-account authorization testing than from quick XSS-style spraying. That keeps authZ-heavy, workflow-rich targets at the top of the stack.
