@@ -184,6 +184,9 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **Hardened image / SBOM / patch-latency discussions remain relevant:** recent AskNetsec chatter keeps reinforcing the idea that CI/CD, provenance, and release boundaries are often better bounty seams than UI-only surface area.
 - **Duplicate complaints are now an explicit selection filter:** a fresh r/bugbounty thread about duplicate and informative closures is a reminder to favor programs that explain duplicate calls clearly; opaque duplicate handling usually means more wasted cycles and lower EV.
 - **Hacktivity-style reading skill compounds over time:** questions about how to read disclosed reports suggest a simple loop for program selection — if a target has a rich disclosure archive, it becomes easier to calibrate which report classes actually pay and which are likely to be noise.
+- **AuthZ/checkout-chain ambiguity is a real quality signal:** the latest bug bounty thread about a cart token that appears to bypass session/key checks is a reminder that programs with clear guidance on checkout, tokens, and cross-session state are easier to work and usually better at handling subtle impact.
+- **Identity and account-protection flows keep surfacing as EV hotspots:** AskNetsec’s Gmail/passkey discussion reinforces that enrollment defaults, fallback channels, and recovery decisions can be more interesting than primary login mechanics, especially when the program owns account recovery or MFA administration.
+- **Public disclosure history + crisp duplicate policy reduce waste:** programs that pair a rich Hacktivity archive with transparent duplicate handling are easier to calibrate and tend to reward deeper, more careful reports.
 
 ## Fresh signal from Mar 28, 2026
 
