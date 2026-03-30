@@ -191,8 +191,10 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 ## Fresh signal from Mar 30, 2026
 
 - **Threat reports are a reminder that account-recovery abuse is a real-world harm vector:** the latest AskNetsec post about harassment and doxxing reinforces that programs with recovery, support, or out-of-band verification flows should be scored higher when they can influence account safety or escalation paths.
-- **Gmail/passkey defaults keep reinforcing recovery/fallback scrutiny:** the recurring question about whether Gmail enforces 2FA/passkeys by default is another reminder that authentication defaults, recovery choices, and weaker fallback paths remain a high-value seam.
+- **Recovery defaults remain a high-value seam:** the recurring Gmail/passkey discussion keeps pointing to the same conclusion — authentication defaults matter less than fallback choices, recovery gates, and how easy it is to downgrade the account’s assurance level.
 - **Volunteer pentest policy clarity is itself a quality signal:** a personal-site owner asking how to safely allow researchers suggests that programs which publish explicit limits for scanning, DoS, and reporting channels reduce friction and are easier to work responsibly.
+- **Hardened image / SBOM / patch-latency questions are becoming a real bounty filter:** AskNetsec discussion about hardened container images shows that CI/CD, base-image provenance, signed SBOMs, and prompt CVE rebuilds are now part of the target-quality signal, not just ops trivia.
+- **Rate limits on recovery flows are a concrete quality marker:** community concern about SMS/forgot-password abuse reinforces that programs exposing account recovery or messaging should document abuse limits and acceptable testing windows; that clarity raises both safety and EV.
 - **Response quality beats generic scope size:** the repeated theme across community posts is that programs with clear rules, safe-testing guidance, and a visible path to report issues are usually better long-term targets than large but opaque scopes.
 
 ## Fresh signal from Mar 28, 2026
