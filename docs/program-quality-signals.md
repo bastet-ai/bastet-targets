@@ -188,6 +188,13 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 - **Identity and account-protection flows keep surfacing as EV hotspots:** AskNetsec’s Gmail/passkey discussion reinforces that enrollment defaults, fallback channels, and recovery decisions can be more interesting than primary login mechanics, especially when the program owns account recovery or MFA administration.
 - **Public disclosure history + crisp duplicate policy reduce waste:** programs that pair a rich Hacktivity archive with transparent duplicate handling are easier to calibrate and tend to reward deeper, more careful reports.
 
+## Fresh signal from Mar 30, 2026
+
+- **Threat reports are a reminder that account-recovery abuse is a real-world harm vector:** the latest AskNetsec post about harassment and doxxing reinforces that programs with recovery, support, or out-of-band verification flows should be scored higher when they can influence account safety or escalation paths.
+- **Gmail/passkey defaults keep reinforcing recovery/fallback scrutiny:** the recurring question about whether Gmail enforces 2FA/passkeys by default is another reminder that authentication defaults, recovery choices, and weaker fallback paths remain a high-value seam.
+- **Volunteer pentest policy clarity is itself a quality signal:** a personal-site owner asking how to safely allow researchers suggests that programs which publish explicit limits for scanning, DoS, and reporting channels reduce friction and are easier to work responsibly.
+- **Response quality beats generic scope size:** the repeated theme across community posts is that programs with clear rules, safe-testing guidance, and a visible path to report issues are usually better long-term targets than large but opaque scopes.
+
 ## Fresh signal from Mar 28, 2026
 
 - **Invite-only + authz depth continues to outperform shallow sweeps:** a r/bugbounty researcher again described better returns from invite-only programs and multi-account authorization testing than from quick XSS-style spraying. That keeps authZ-heavy, workflow-rich targets at the top of the stack.
