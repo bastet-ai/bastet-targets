@@ -240,6 +240,20 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **Reward volatility is itself a signal.** Programs that reduce rewards and later reverse course can still be good targets — but hunters should treat them as *higher variance* and bias toward fast-to-validate findings.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1s3i10u/spotify_reverses_reward_decrease/
 
+## Recent Community Signals (2026-03-30)
+
+- **AI / agent plumbing is now a repeatable high-value surface.** Fresh r/netsec discussion highlighted MCP/server-style ecosystems where a single unauthenticated endpoint can expose credentials, permit command execution, or pivot into SSRF/prompt injection. The durable takeaway for bounty work: if a program ships AI tooling, agent orchestration, or plugin-like extension surfaces, assess the control plane first.
+  - Heuristic: auth defaults, origin checks, filesystem reads, tool invocation, and hidden prompt channels are high-EV review points.
+
+- **Container image quality is becoming a real buying criterion, which also maps to bounty expectations.** Recent AskNetsec discussion around Chainguard, Docker Hardened Images, Distroless, and Iron Bank emphasized signed SBOMs, prompt CVE rebuilds, and FIPS compatibility as differentiators.
+  - Heuristic: programs that publish stronger supply-chain posture (SBOMs, provenance, rebuild SLAs, attestation) often signal a more mature security culture and clearer expectations for reporting.
+
+- **Business-logic and account-lifecycle abuse remain durable, high-signal bugs.** New bug bounty discussion again centered on account recovery limits, cart/session handoff behavior, and similar workflow boundaries.
+  - Heuristic: programs that expose user-state transitions, recovery flows, or checkout/session reassignment paths usually have better manual-EV than static marketing surfaces.
+
+- **HackerOne public visibility still appears JS-shell limited.** Public fetches continue to show the hacktivity overview page rendering only a JS-disabled shell, so the crawler still cannot reliably enumerate new public program detections from that source alone.
+  - Operational takeaway: keep tracking public HackerOne pages, but expect the signal to come more from community discussion and known program pages than from direct hacktivity discovery.
+
 ## Recent Community Signals (2026-03-26)
 
 - **High-value program quality is still mostly about operational behavior, not just payout size.** The most durable signals this run were unchanged: fast triage, clear scope/exclusions, consistent severity mapping, and a respectful/reliable researcher experience.
