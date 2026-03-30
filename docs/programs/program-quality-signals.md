@@ -284,10 +284,15 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **Blind-impact discussions still separate high-quality programs from low-quality ones.** Current bug bounty chatter again centers on blind SSRF and OAST-style evidence; programs that accept interaction, timing, or internal-reachability proofs without demanding exfiltration every time are usually easier to work with.
   - Heuristic: if a program explicitly documents what counts as enough SSRF evidence, that’s a strong operational quality signal.
 
-## Recent Community Signals (2026-03-27)
+## Recent Community Signals (2026-03-30)
 
-- **Programs that document safe testing ergonomics save researchers real time.** The newest AskNetsec thread about scanner-generated SIEM noise is a reminder that good bounty programs explain how to test without tripping lockouts, alert storms, or bot defenses. Clear allowlist, test-account, and rate-limit guidance is a quality signal, not a convenience feature.
-- **Safe-testing guidance is also a maturity signal.** When a program tells researchers how to keep scans from polluting SIEMs or triggering abuse controls, it usually has at least thought through its security-operations side. That tends to correlate with less ad-hoc triage and fewer “why did you do that?” escalations.
+- **Program maturity is increasingly measured by remediation loops, not just payout tables.** Fresh HackerOne public content around CTEM validation, return on mitigation, and program maturity frameworks reinforces a durable heuristic: the highest-value programs make it easy to prove exposure, show remediation value, and close the loop on fixes.
+  - Heuristic: favor programs that publish clear severity mapping, measurable remediation outcomes, and explicit guidance for how evidence maps to risk reduction.
+
+- **AI/agentic programs are only valuable when the plumbing is in scope.** New HackerOne pages about prompt injection testing and agentic red teaming line up with community discussion: the good targets are rarely the demo chat UI; they’re the orchestration layer, tool-calling paths, hidden inputs, vector stores, logs, CI/CD, and auth boundaries.
+  - Heuristic: if an AI program does not include the surrounding trust boundaries, treat it as lower EV even if the headline scope sounds exciting.
+
+- **Programs that document safe testing ergonomics save researchers real time.** The latest community chatter keeps pointing at scanner-generated SIEM noise, bot defenses, allowlists, and test accounts as quality signals. Clear guidance here reduces lockouts and support friction.
 
 - **Identity / anti-abuse friction remains a quality signal, but it raises the entry cost.** If a program is serious about security testing, it usually explains MFA, recovery, allowlisting, and anti-abuse guardrails up front. Otherwise researchers burn time on support friction before they ever reach the interesting surface.
 
