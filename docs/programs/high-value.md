@@ -27,6 +27,11 @@ Last updated: 2025-09-01
 | **1Password** | 🔥 **HIGH** | Public page explicitly asks for creative researchers; scanners are unlikely to help, which usually means higher manual-EV surface | https://hackerone.com/1password |
 | **Akamai** | 🔥 **HIGH** | Public soft-launch / invite-only posture focused on CDN/origin/proxy-layer trust boundaries | https://hackerone.com/akamai |
 | **Airlock Secure Access Hub** | 🔥 **HIGH** | WAF + IAM platform protecting 30k+ apps; complex auth and edge paths tend to pay off | https://hackerone.com/airlock |
+| **Airbnb** | 🔥 **HIGH** | Massive real-world workflow surface plus rich public disclosure history; strong candidate for authZ, recovery, and trust-boundary chains | https://hackerone.com/airbnb |
+| **Amazon VRP** | 🔥 **HIGH** | Broad product surface with explicit reporting program and mature security posture; worth prioritizing for deep, chain-based testing | https://hackerone.com/amazonvrp |
+| **Anduril Industries** | 🔥 **HIGH** | Explicit reproducibility expectations and a mature disclosure policy suggest structured triage and higher-value operational/defense surfaces | https://hackerone.com/anduril_industries |
+| **Atlassian** | 🔥 **HIGH** | Large enterprise software surface with frequent releases and plenty of auth/workflow complexity | https://hackerone.com/atlassian |
+| **Basecamp** | 🔥 **HIGH** | Publicly values researcher insight and pays for quality; workflow-heavy SaaS tends to reward careful manual work | https://hackerone.com/basecamp |
 
 
 ## Historical Notes (recent activity)
