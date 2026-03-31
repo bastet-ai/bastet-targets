@@ -232,6 +232,12 @@ This analysis conducted systematic attack surface enumeration across the highest
 3. **Input Validation**: Parameter fuzzing on discovered endpoints
 4. **SSL/TLS Analysis**: Certificate transparency log mining
 
+### Program-Quality Signals From Community Intel
+1. **AI/tooling programs need behavior validation, not just surface fuzzing**: prioritize wrong-tool execution, tool-chaining drift, context/state drift, and policy bypass across alternate paths
+2. **High-value programs tend to expose real workflow complexity**: auth handoffs, billing, support, admin, and recovery flows are where durable bounty value usually lives
+3. **Hardened/containerized products are only interesting when the supply chain is measurable**: signed SBOMs, patch cadence, FIPS posture, and CVE SLA transparency are all strong quality indicators
+4. **Triager/response quality matters**: fast, consistent handling and clear duplicate/N/A logic reduce churn and usually correlate with healthier programs
+
 ### Priority 3 - Updated Analysis
 1. **🚨 URGENT - Sheer Investigation**: Immediate analysis of `.env` and admin endpoint exposure
 2. **OKX Cryptocurrency Security**: Deep-dive into financial transaction and authentication systems
