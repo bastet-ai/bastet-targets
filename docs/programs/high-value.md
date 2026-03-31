@@ -21,6 +21,17 @@ Last updated: 2025-09-01
 
 ## Strategic High-Value Additions
 
+### Newly Interesting Public HackerOne Targets (2026-03-31 scan)
+These showed up again in the public HackerOne program page as especially worth a closer look:
+- **1Password** — creative/manual research is explicitly favored; scanners are unlikely to help.
+- **Akamai** — CDN/origin/proxy trust boundaries; soft-launch / invite-only posture.
+- **Airbnb** — huge real-world workflow surface; strong fit for authZ, recovery, and trust-boundary chains.
+- **Airlock Secure Access Hub** — WAF + IAM stack protecting 30k+ apps; edge and identity bugs can be high impact.
+- **Amazon Vulnerability Research Program** — broad surface with mature triage expectations.
+- **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
+- **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
+
+
 | Program | Priority | Reason | Program Page |
 | ------- | -------- | ------ | ------------ |
 | **Coinbase** | 🚨 **CRITICAL** | Major crypto exchange, $50K+ critical bounties, 519 subdomains discovered | https://hackerone.com/coinbase |

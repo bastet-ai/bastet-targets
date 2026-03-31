@@ -124,6 +124,8 @@ These are **durable observations** from this run that reinforce the heuristics a
 - **Hardened images / SBOM expectations are part of modern bounty-worthy surface area.** Communities now explicitly compare SBOM availability, patch cadence, and SLA transparency when judging a vendor’s security posture.
 - **MCP / AI-agent tooling remains a high-EV niche.** Recent discussion keeps surfacing zero-auth APIs, prompt injection in tool docs, unsandboxed command execution, and exposure of decrypted credentials as recurring failure modes.
 - **Supply-chain compromise is still a high-signal bounty theme.** Malicious package swaps and dependency hygiene continue to generate security-relevant discussion, especially when paired with lockfile review and credential rotation advice.
+- **Public HackerOne target discovery still favors a small set of big-name programs.** The latest public program page again highlighted 1Password, Akamai, Airbnb, Airlock Secure Access Hub, Amazon VRP, Anduril Industries, and Atlassian as practical high-value starting points when you want broad surface plus meaningful bounty potential.
+- **Manual, workflow-aware testing still looks better than scanner-first hunting on mature programs.** The public copy for 1Password and several enterprise programs explicitly steers researchers toward creative, reproducible findings rather than commodity fuzzing.
 
 ## Recent Community Signals (2026-02-07)
 
