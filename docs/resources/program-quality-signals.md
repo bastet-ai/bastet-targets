@@ -151,6 +151,32 @@ Themes showing up repeatedly:
   - *Signal:* programs/teams that explicitly document trusted-proxy requirements (or deploy mTLS/ZTNA) usually have more mature threat modeling and cleaner impact discussions.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qvoxq3/reported_ip_whitelisted_restriction_bypass/
 
+## Public-signal watchlist: recent community themes worth treating as durable
+
+The most recent Reddit chatter keeps reinforcing a few repeatable program-quality cues:
+
+- **MCP / agent-tooling exposure is hot and often under-authenticated.** Programs that expose browser automation, local agents, plugins, or internal assistant tooling tend to be higher EV when they have weak auth, weak origin checks, or unsafe tool execution.
+- **Browser visibility into prompts is becoming a differentiator.** Community questions around AI prompt capture, prompt-layer policy, and extension/plugin visibility suggest a growing class of targets where the interesting bug is not simple site access, but prompt content leakage or control-plane abuse.
+- **Tracking pixels are now an edge-to-content problem.** Pure image beacons are boring; pixels paired with companion JS, DOM access, or SaaS embed flows can become high-impact data collection surfaces.
+- **Hardened image / SBOM expectations matter.** The more a program relies on container provenance, signed SBOMs, or “secure-by-default” images, the more likely it is to have a mature security posture and well-defined impact expectations.
+- **Supply-chain paths keep paying.** npm compromise chatter and dependency confusion remain strong indicators that programs with build pipelines, package publishing, or internal tooling deserve attention.
+- **Program fairness is a signal.** Hunters keep rewarding programs that handle hard-to-demo classes (blind SSRF, authZ edge cases, account recovery abuse) without forcing unsafe max-exploit proof.
+
+## Recently interesting public program pages from the HackerOne sitemap
+
+The public sitemap showed a cluster of recently updated pages that are worth a look as of this run:
+
+- [Scopely](https://hackerone.com/scopely) — lastmod 2026-03-28
+- [Sega](https://hackerone.com/sega) — lastmod 2026-03-31
+- [Shein](https://hackerone.com/shein) — lastmod 2026-03-31
+- [Shopify](https://hackerone.com/shopify) — lastmod 2026-03-30
+- [Stripe](https://hackerone.com/stripe) — lastmod 2026-03-30
+- [Supabase](https://hackerone.com/supabase) — lastmod 2026-03-30
+- [Slack](https://hackerone.com/slack) — lastmod 2026-03-25
+- [ServiceNow Disclosure](https://hackerone.com/servicenow-disclosure) — lastmod 2026-03-27
+
+These aren’t all “new programs,” but they are public pages that recently moved, which makes them good candidates for refresh-oriented review.
+
 ## Practical next steps
 
 - Maintain a personal shortlist of programs that match your strengths (web/API/mobile/cloud).
