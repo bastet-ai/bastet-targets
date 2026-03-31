@@ -21,7 +21,8 @@ This section will contain:
 
 ## 📅 Recent Activity
 
-*No recent activity to display.*
+- 2026-03-31: Public HackerOne sitemap surfaced several recently updated program pages worth a closer look: `s-pankki` (2026-03-21), `scopely` (2026-03-28), `savedroid` (2025-09-26), `saytechnologies` (2025-09-21), `sea` (2025-08-17), and `secnews` (2025-09-21).
+- 2026-03-31: Community signal stayed strong on AI/MCP tooling, prompt-layer visibility, hardened image/SBOM expectations, tracking pixels with companion JS, and supply-chain compromise hygiene.
 
 ## 🚀 Quick Actions
 
