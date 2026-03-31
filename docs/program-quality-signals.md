@@ -130,6 +130,13 @@ As new repeated patterns emerge, update this page with **generalized** (non-doxx
 
 ## Recent community patterns (Mar 2026)
 
+- **MCP / agent-tooling surfaces are now a durable high-EV cue:** when a program owns AI agents, local plugins, tool-calling, retrieval, or browser automation, the risk is no longer just prompt injection. Watch for unauthenticated credential APIs, unsafe command execution, origin-less websocket listeners, and poor behavior validation across tool chains.
+- **Browser prompt-layer visibility is still a gap:** community discussion keeps circling the question of whether enterprise browser tools can see prompts before submission or only visited sites. For bounty selection, any product that inspects prompt text, extension traffic, or in-browser AI workflows deserves extra weight.
+- **Tracking pixels often need companion JavaScript to become interesting:** the recurring “pixels can see everything” question is a reminder that native image requests are limited. The real quality signal is when a pixel is paired with page JS that reads DOM content, form data, or keystrokes and ships it back.
+- **Hardened image / SBOM / patch-latency expectations are now part of program quality:** if a vendor owns build/release, artifact provenance, or container-image trust boundaries, ask whether they publish signed SBOMs, fast CVE rebuilds, and explicit FIPS/regulated-environment support.
+- **Supply-chain and dependency-confusion exposure keeps showing up as bounty-worthy:** fresh npm/package compromise chatter reinforces that unpublished package namespaces, dynamic module resolution, and private-registry assumptions deserve extra attention in JS-heavy programs.
+
+
 - **Assessment latency can dwarf fix time:** researchers report cases where a valid issue is actively being worked but remains **unrated/unassessed for many months**. Treat “slow severity assignment” as its own red flag (it delays payout certainty and makes it hard to plan your time).
 - **Identity / anti-abuse friction matters:** targets requiring strong identity verification (e.g., ID upload) or that aggressively block IPs via WAF/CDN can be *high value* but impose extra operational overhead. Prefer programs that explicitly document safe testing guidance (rate limits, account policy, test accounts) to avoid accidental ToS violations.
 - **Duplicates without actionable feedback remain a top complaint:** especially when the original report is old and the behavior appears to persist. Programs that provide even minimal, non-sensitive “same root cause” explanations are easier to work with and reduce wasted cycles.
