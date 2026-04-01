@@ -121,6 +121,12 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **Duplicate pressure:** if you keep hitting duplicates, shift to *less scanned* surfaces (authenticated APIs, admin/partner tools, lesser-known subdomains) or a different bug class (logic/authZ chains vs “classic” XSS/SQLi).
 - **Timebox discipline:** set a fixed window (e.g., 2–6 hours) to map the app + build a test plan; if you don’t find promising seams (weird authZ edges, complex flows, brittle integrations), rotate.
 
+## Recent community signals (2026-04-01)
+
+- **Triage fairness is still the core quality signal:** a fresh r/bugbounty complaint described valid reports being marked duplicate, informational, or N/A despite later fixes. That reinforces the heuristic that the best programs explain duplicate decisions clearly and do not silently patch while leaving researchers in the dark.
+- **Duplicate handling matters as much as raw payout:** repeated complaints about old reports, unclear duplicate attribution, and delayed triage are a strong warning sign. High-value programs should be able to say, in a sentence or two, why something was considered a duplicate and what root cause it mapped to.
+- **AI/tooling programs are becoming a separate class of EV:** AskNetsec discussion around agent frameworks highlighted wrong-tool execution, tool-chaining drift, context/state drift, and policy bypass across alternate paths. For programs that ship agentic tooling, those behaviors should be treated as first-class scope quality signals, not edge cases.
+
 ## OSINT inputs we currently monitor
 
 - Reddit (bug bounty + netsec communities)
