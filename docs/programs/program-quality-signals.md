@@ -115,25 +115,13 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
-<<<<<<< HEAD
-## Recent Community Signals (2026-03-31)
+## Recent Community Signals (2026-04-01)
 
 These are **durable observations** from this run that reinforce the heuristics above:
 
-- **Prompt-layer visibility is now a real program-quality discussion.** Security teams are asking whether browser controls can inspect user input *before* submission, not just which sites are visited. That pushes high-value programs toward products with AI assistants, enterprise browser controls, and extension/plugin surfaces.
-- **Tracking pixels are increasingly treated as a companion-JS problem, not a pixel-only problem.** The useful signal is whether a program has first-party JS that can collect DOM/form state in addition to passive image beacons.
-- **Hardened images / SBOM expectations are part of modern bounty-worthy surface area.** Communities now explicitly compare SBOM availability, patch cadence, and SLA transparency when judging a vendor’s security posture.
-- **MCP / AI-agent tooling remains a high-EV niche.** Recent discussion keeps surfacing zero-auth APIs, prompt injection in tool docs, unsandboxed command execution, and exposure of decrypted credentials as recurring failure modes.
-- **Supply-chain compromise is still a high-signal bounty theme.** Malicious package swaps and dependency hygiene continue to generate security-relevant discussion, especially when paired with lockfile review and credential rotation advice.
-- **Public HackerOne target discovery still favors a small set of big-name programs.** The latest public program page again highlighted 1Password, Akamai, Airbnb, Airlock Secure Access Hub, Amazon VRP, Anduril Industries, and Atlassian as practical high-value starting points when you want broad surface plus meaningful bounty potential.
-- **Manual, workflow-aware testing still looks better than scanner-first hunting on mature programs.** The public copy for 1Password and several enterprise programs explicitly steers researchers toward creative, reproducible findings rather than commodity fuzzing.
-=======
-## Recent Community Signals (2026-04-01)
-
-- **Triage fairness is still the core quality signal:** a fresh r/bugbounty complaint described valid reports being marked duplicate, informational, or N/A despite later fixes. That reinforces the heuristic that the best programs explain duplicate decisions clearly and do not silently patch while leaving researchers in the dark.
-- **Duplicate handling matters as much as raw payout:** repeated complaints about old reports, unclear duplicate attribution, and delayed triage are a strong warning sign. High-value programs should be able to say, in a sentence or two, why something was considered a duplicate and what root cause it mapped to.
-- **AI/tooling programs are becoming a separate class of EV:** AskNetsec discussion around agent frameworks highlighted wrong-tool execution, tool-chaining drift, context/state drift, and policy bypass across alternate paths. For programs that ship agentic tooling, those behaviors should be treated as first-class scope quality signals, not edge cases.
->>>>>>> d6c39a0 (Update program quality signals from community scan)
+- **Triage fairness is still the core quality signal.** A fresh r/bugbounty complaint described valid reports being marked duplicate, informational, or N/A despite later fixes. That reinforces the heuristic that the best programs explain duplicate decisions clearly and do not silently patch while leaving researchers in the dark.
+- **Duplicate handling matters as much as raw payout.** Repeated complaints about old reports, unclear duplicate attribution, and delayed triage are a strong warning sign. High-value programs should be able to say, in a sentence or two, why something was considered a duplicate and what root cause it mapped to.
+- **AI/tooling programs are becoming a separate class of EV.** AskNetsec discussion around agent frameworks highlighted wrong-tool execution, tool-chaining drift, context/state drift, and policy bypass across alternate paths. For programs that ship agentic tooling, those behaviors should be treated as first-class scope quality signals, not edge cases.
 
 ## Recent Community Signals (2026-02-07)
 
