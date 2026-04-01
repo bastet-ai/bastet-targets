@@ -257,6 +257,9 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **AI / agent plumbing is now a repeatable high-value surface.** Fresh r/netsec discussion highlighted MCP/server-style ecosystems where a single unauthenticated endpoint can expose credentials, permit command execution, or pivot into SSRF/prompt injection. The durable takeaway for bounty work: if a program ships AI tooling, agent orchestration, or plugin-like extension surfaces, assess the control plane first.
   - Heuristic: auth defaults, origin checks, filesystem reads, tool invocation, and hidden prompt channels are high-EV review points.
 
+- **Behavior validation beats prompt-only checks once tools enter the loop.** AskNetsec’s agent discussion keeps converging on the same point: the interesting bugs are often wrong-tool execution, state drift across sub-agents, context poisoning, or policy bypass on alternate paths — not just the presence of a prompt box.
+  - Heuristic: if the product can call tools, remember state, or hand work to another component, score it higher than a prompt-only surface.
+
 - **Container image quality is becoming a real buying criterion, which also maps to bounty expectations.** Recent AskNetsec discussion around Chainguard, Docker Hardened Images, Distroless, and Iron Bank emphasized signed SBOMs, prompt CVE rebuilds, and FIPS compatibility as differentiators.
   - Heuristic: programs that publish stronger supply-chain posture (SBOMs, provenance, rebuild SLAs, attestation) often signal a more mature security culture and clearer expectations for reporting.
 
