@@ -139,6 +139,7 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **AI/tooling programs are now a separate EV class:** AskNetsec’s OpenClaw discussion and similar agent-validation threads keep pointing to wrong-tool execution, tool-chaining drift, state bleed, and sandbox escapes. Programs shipping agent orchestration, local plugins, or browser/tool workflows should be scored higher when they publish patch cadence and safety boundaries.
 - **Browser-level prompt visibility remains a premium trust boundary:** if a product can inspect prompt text, extension traffic, or in-browser AI flows, that is deeper than ordinary domain filtering and should raise priority in bounty selection.
 - **Vendor patch management for agent frameworks matters:** teams asking how to track framework updates for workflow automation are a reminder that core orchestration layers need normal vulnerability-management discipline, not “ship and forget” treatment.
+- **Triaging with contradictions is a durable warning sign:** when a program calls something “intentional design” or “informational” but then quietly ships an emergency fix, the issue taxonomy is weaker than the actual risk model. Programs that can explain root cause and duplicate mappings in one sentence are higher value.
 
 ## OSINT inputs we currently monitor
 
