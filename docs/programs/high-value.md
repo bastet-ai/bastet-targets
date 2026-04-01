@@ -31,6 +31,10 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
+### Program-quality cue from community chatter (2026-04-01)
+- April 1 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
+- AI/agent tooling programs should be weighted higher when they expose behavior-validation surfaces like sub-agents, retrieval, browser extensions, or tool-calling, because the high-EV bugs now live in state drift and wrong-tool execution as much as in prompt text.
+
 ### Program-quality cue from community chatter (2026-03-31)
 - AskNetsec’s latest agent-validation discussion is another reminder that AI/tooling programs should be scored higher when they expose browser extensions, retrieval, sub-agents, or tool-calling flows. The EV is in behavior drift and policy bypass across alternate paths, not just prompt text visibility.
 

@@ -132,6 +132,14 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **Silent-fix stories are a strong negative signal:** when researchers report that a program says “intentional design” or “duplicate” but then quietly ships an emergency fix, that usually means the program’s issue taxonomy is weaker than its actual risk model. Treat contradiction between triage language and product behavior as a process-quality red flag.
 - **AI-agent programs need behavior-validation coverage, not just prompt-testing:** community discussion keeps pointing at tool choice, chaining drift, and state bleed across sub-agents and retrieval paths. Programs shipping agentic features are higher value when they expose audit logs, stable patch cadences, and explicit safe paths for validating tool behavior.
 
+## Fresh signal from Apr 1, 2026
+
+- **Triage contradictions are now the loudest quality signal:** r/bugbounty complaints about “informative” or duplicate closures before an eventual fix keep reinforcing the same heuristic — programs that explain duplicate calls briefly and consistently are worth more than programs that merely advertise big payouts.
+- **Silent-fix behavior is a major red flag:** when a project says a control is “intentional” but then ships an emergency mitigation immediately after escalation, the program’s issue taxonomy is weaker than its actual risk model. Treat contradictions between triage language and product behavior as a process-quality warning.
+- **AI/tooling programs are now a separate EV class:** AskNetsec’s OpenClaw discussion and similar agent-validation threads keep pointing to wrong-tool execution, tool-chaining drift, state bleed, and sandbox escapes. Programs shipping agent orchestration, local plugins, or browser/tool workflows should be scored higher when they publish patch cadence and safety boundaries.
+- **Browser-level prompt visibility remains a premium trust boundary:** if a product can inspect prompt text, extension traffic, or in-browser AI flows, that is deeper than ordinary domain filtering and should raise priority in bounty selection.
+- **Vendor patch management for agent frameworks matters:** teams asking how to track framework updates for workflow automation are a reminder that core orchestration layers need normal vulnerability-management discipline, not “ship and forget” treatment.
+
 ## OSINT inputs we currently monitor
 
 - Reddit (bug bounty + netsec communities)
