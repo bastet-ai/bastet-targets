@@ -125,6 +125,11 @@ These are **durable observations** from this run that reinforce the heuristics a
 - **Enterprise auth policy drift is a bounty signal, not just an ops detail.** The NTLMv1 / LmCompatibilityLevel discussion showed that server-side auth request paths can override the policy admins think they set. For bounty selection, identity and trust-boundary programs get more interesting when enforcement depends on multiple layers that can disagree.
 - **Public “intentional design” defenses deserve extra skepticism when product behavior changes immediately afterward.** That contradiction is a useful OSINT quality marker. If a program’s response language and its emergency mitigation diverge, assume the triage model is weaker than the real risk surface.
 - **Patch cadence on core AI frameworks is now part of program quality.** The OpenClaw thread suggests that vendor-shipped agent framework fixes, especially around privilege escalation and sandbox escape, should be treated like normal security patch management. Programs that own agentic tooling should document upgrade paths, pairing logs, and host/file-access boundaries.
+- **UUID-based access-control reports need impact-first framing, not entropy arguments.** A fresh r/bugbounty thread again showed that “UUIDs are not guessable” is not a valid defense when authenticated users can reach or modify another account’s data.
+  - Heuristic: prove cross-account read/write impact cleanly and name the broken authZ boundary; don’t let identifier format distract from server-side authorization failure.
+- **AskNetsec’s agent discussion keeps converging on behavior validation.** Once tools, sub-agents, or retrieval are in play, the most durable findings are wrong-tool execution, state drift, context poisoning, and policy bypass on alternate paths.
+- **Web3 bounty quietness can indicate a shift toward audits over live bounty coverage.** That changes target economics even if technical risk remains high.
+  - Heuristic: compare bounty cadence with audit cadence before investing heavily in a DeFi/program surface.
 
 ## Recent Community Signals (2026-02-07)
 
