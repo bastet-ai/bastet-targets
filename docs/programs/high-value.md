@@ -31,8 +31,9 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
-### Program-quality cue from community chatter (2026-04-01)
-- April 1 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
+### Program-quality cue from community chatter (2026-04-02)
+- April 2 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
+- Community distrust itself is a selection signal: when hunters start talking about boycotts, duplicate gaming, or reward leakage, treat that as a durable warning that the program’s process quality may be degrading even if the technical surface is still interesting.
 - AI/agent tooling programs should be weighted higher when they expose behavior-validation surfaces like sub-agents, retrieval, browser extensions, or tool-calling, because the high-EV bugs now live in state drift and wrong-tool execution as much as in prompt text.
 
 ### Program-quality cue from community chatter (2026-03-31)
