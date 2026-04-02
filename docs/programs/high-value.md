@@ -35,6 +35,8 @@ These showed up again in the public HackerOne program page as especially worth a
 - April 2 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
 - Community distrust itself is a selection signal: when hunters start talking about boycotts, duplicate gaming, or reward leakage, treat that as a durable warning that the program’s process quality may be degrading even if the technical surface is still interesting.
 - AI/agent tooling programs should be weighted higher when they expose behavior-validation surfaces like sub-agents, retrieval, browser extensions, or tool-calling, because the high-EV bugs now live in state drift and wrong-tool execution as much as in prompt text.
+- Governance and browser-side mediation products are now a separate EV bucket: if a target’s value depends on observing or constraining user prompts, shadow-AI usage, or policy-bypass paths outside inline controls, score it higher than an ordinary SaaS with similar payout tables.
+- Build/release and dependency-provenance boundaries keep showing up in public incidents; if a program owns its own delivery pipeline or agent framework updates, treat patch cadence and version guidance as part of program quality.
 
 ### Program-quality cue from community chatter (2026-03-31)
 - AskNetsec’s latest agent-validation discussion is another reminder that AI/tooling programs should be scored higher when they expose browser extensions, retrieval, sub-agents, or tool-calling flows. The EV is in behavior drift and policy bypass across alternate paths, not just prompt text visibility.
