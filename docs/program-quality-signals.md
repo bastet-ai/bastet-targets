@@ -147,6 +147,9 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **NTLMv1 still hiding behind server-side auth paths is a useful reminder:** the r/netsec NTLMv1 bypass discussion reinforces that “disabled by policy” is not always the same as actually gone. Enterprise programs with hybrid auth, delegation, or server-side auth forwarding deserve extra scrutiny.
 - **UUID-based IDORs should be judged on server-side authorization, not identifier guessability:** if swapping one UUID for another returns or mutates another account’s data, the finding is about broken authorization, full stop. Programs that explain impact in server-side terms are easier to work and usually better calibrated.
 - **Supply-chain and release-boundary trust remains a durable selection signal:** when a vendor owns build/release, support tooling, or account-handoff infrastructure, treat those surfaces as first-class bounty targets rather than back-office noise.
+- **Shadow-AI governance is a stronger bounty cue when it touches browser extensions and data egress:** the Apr 3 AskNetsec thread adds a concrete selection hint — programs that can see or broker prompts, clipboard content, or extension traffic need explicit policy boundaries and logging, or they become high-value trust-boundary targets.
+- **Agentic products should be scored on fallback-path safety, not just primary-path demos:** if a system degrades from normal tool execution into alternate interpreters, code runners, or “assistant fallback” flows, that is where privilege drift and data exposure tend to appear.
+- **Support/recovery handoffs remain a durable seam when the organization outsources them:** any externalized identity, moderation, or customer-support workflow can become the weakest link if it is not held to the same authorization and audit standards as the core product.
 
 ## OSINT inputs we currently monitor
 
