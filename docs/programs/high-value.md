@@ -37,6 +37,7 @@ These showed up again in the public HackerOne program page as especially worth a
 - AI/agent tooling programs should be weighted higher when they expose behavior-validation surfaces like sub-agents, retrieval, browser extensions, or tool-calling, because the high-EV bugs now live in state drift and wrong-tool execution as much as in prompt text.
 - Governance and browser-side mediation products are now a separate EV bucket: if a target’s value depends on observing or constraining user prompts, shadow-AI usage, or policy-bypass paths outside inline controls, score it higher than an ordinary SaaS with similar payout tables.
 - Build/release and dependency-provenance boundaries keep showing up in public incidents; if a program owns its own delivery pipeline or agent framework updates, treat patch cadence and version guidance as part of program quality.
+- Fairness for hard-to-demo classes is a selection signal in its own right: programs that clearly accept blind SSRF/OAST, authZ edge cases, cache poisoning, or desync-style evidence tend to have better ROI than programs that demand unsafe max-exploit proof.
 
 ### Program-quality cue from community chatter (2026-03-31)
 - AskNetsec’s latest agent-validation discussion is another reminder that AI/tooling programs should be scored higher when they expose browser extensions, retrieval, sub-agents, or tool-calling flows. The EV is in behavior drift and policy bypass across alternate paths, not just prompt text visibility.

@@ -151,6 +151,17 @@ Themes showing up repeatedly:
   - *Signal:* programs/teams that explicitly document trusted-proxy requirements (or deploy mTLS/ZTNA) usually have more mature threat modeling and cleaner impact discussions.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1qvoxq3/reported_ip_whitelisted_restriction_bypass/
 
+- **Community distrust itself is a selection signal.** When multiple hunters independently talk about boycotts, duplicate gaming, silent downgrades, or reward leakage, that often predicts worse process quality than the bounty table suggests.
+  - *Heuristic:* downgrade a program’s priority if public chatter repeatedly frames it as unfair, opaque, or adversarial — even when the technical surface is still interesting.
+
+- **AI governance / browser-side mediation is becoming a separate EV bucket.** The interesting bugs are often in prompt visibility, browser extensions, shadow-AI discovery, and policy enforcement gaps rather than ordinary web app flaws.
+  - *Heuristic:* weight programs higher when they expose tool-calling, extensions, local agents, or browser-mediated content controls.
+
+- **Build/release and dependency-provenance boundaries keep paying.** Public incidents around package compromise and pipeline trust show that “who can ship code?” is increasingly part of a program’s attack surface.
+  - *Heuristic:* prioritize programs with release pipelines, package publishing, webhooks, or build-integrity claims; these often have higher-severity failure modes.
+
+- **Fairness shows up in how programs handle hard-to-demo classes.** Programs that clearly document what evidence counts for blind SSRF, authZ edge cases, cache poisoning, or desync-like chains are usually better ROI than those that force unsafe max-exploit proof.
+
 ## Public-signal watchlist: recent community themes worth treating as durable
 
 The most recent Reddit chatter keeps reinforcing a few repeatable program-quality cues:
