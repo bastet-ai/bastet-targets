@@ -310,6 +310,20 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity/Directory pages remain JS-heavy and yielded no new public program detections in this run.
 
+## Recent Community Signals (2026-04-03)
+
+- **Program trust is now a first-class EV signal.** Fresh r/bugbounty posts about boycotts, repeated N/A closures, and reward leakage complaints reinforce a durable warning: even technically rich programs can become low-EV if the process feels adversarial or opaque.
+  - Heuristic: favor programs that explain duplicate/N/A decisions clearly, preserve reporter context, and avoid post-fix reward games.
+
+- **AI governance / browser-control surfaces are becoming separate bounty buckets.** AskNetsec discussion around browser-based AI usage, shadow-AI discovery, and policy enforcement shows that programs shipping extensions, prompt mediation, or AI governance tooling should be scored on whether those paths are actually observable and enforceable.
+  - Heuristic: if the product depends on controlling prompts, browser-side AI flows, or alternate data paths, treat that as higher-value than a generic SaaS of similar size.
+
+- **Supply-chain and release-provenance boundaries keep paying out as real risk.** Current netsec chatter around Cisco/Trivy and Adobe/BPO compromise highlights that build pipelines, vendor handoffs, and third-party access are still strong signals for high-value targets.
+  - Heuristic: programs that own delivery pipelines, dependency trust, or outsourced support paths deserve priority when those surfaces are in scope.
+
+- **High-value programs still win by making impact easy to prove.** The metric/ROI discussion in AskNetsec is a reminder that mature security orgs care about evidence that maps to actual risk reduction, not just scan counts.
+  - Heuristic: programs that document acceptable proof, remediation metrics, and post-fix validation criteria tend to produce better researcher ROI.
+
 ## Recent Community Signals (2026-03-28)
 
 - **Delegated identity flows are still a durable high-value seam.** Fresh AskNetsec discussion around Entra OAuth consent-grant abuse and device-code phishing reinforces that auth flows beyond the login page — consent, token persistence, and user-driven authorization grants — remain especially valuable bounty surfaces.

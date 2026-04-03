@@ -31,6 +31,15 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
+### Program-quality cue from community chatter (2026-04-03)
+- Triage trust is still the strongest quality signal. Fresh Reddit chatter about boycotts, repeated N/A closures, and reward leakage reinforces that process quality can outweigh raw payout tables.
+- AI governance / browser-control products deserve their own EV bucket. If a program’s value depends on observing prompts, shadow-AI use, or policy enforcement across browser-side and alternate data paths, score it higher than a generic SaaS with the same payout range.
+- Supply-chain and release-provenance boundaries remain high-value. Public chatter around Cisco/Trivy and Adobe support compromise is another reminder that build pipelines, third-party support paths, and dependency trust are real attack surfaces when in scope.
+- Metrics-minded teams care about evidence that maps to actual risk reduction. Programs that define acceptable proof, remediation metrics, and re-validation criteria tend to be easier to work with and to profit from.
+- April 2’s heuristics still stand: prioritize programs that explain duplicate or “informative” closures, preserve context, and do not silently patch while refusing mediation.
+- Community distrust itself is a selection signal: when hunters start talking about boycotts, duplicate gaming, or reward leakage, treat that as a durable warning that the program’s process quality may be degrading even if the technical surface is still interesting.
+- Fairness for hard-to-demo classes is a selection signal in its own right: programs that clearly accept blind SSRF/OAST, authZ edge cases, cache poisoning, or desync-style evidence tend to have better ROI than programs that demand unsafe max-exploit proof.
+
 ### Program-quality cue from community chatter (2026-04-02)
 - April 2 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
 - Community distrust itself is a selection signal: when hunters start talking about boycotts, duplicate gaming, or reward leakage, treat that as a durable warning that the program’s process quality may be degrading even if the technical surface is still interesting.
