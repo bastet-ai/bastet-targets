@@ -150,6 +150,9 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **Shadow-AI governance is a stronger bounty cue when it touches browser extensions and data egress:** the Apr 3 AskNetsec thread adds a concrete selection hint — programs that can see or broker prompts, clipboard content, or extension traffic need explicit policy boundaries and logging, or they become high-value trust-boundary targets.
 - **Agentic products should be scored on fallback-path safety, not just primary-path demos:** if a system degrades from normal tool execution into alternate interpreters, code runners, or “assistant fallback” flows, that is where privilege drift and data exposure tend to appear.
 - **Support/recovery handoffs remain a durable seam when the organization outsources them:** any externalized identity, moderation, or customer-support workflow can become the weakest link if it is not held to the same authorization and audit standards as the core product.
+- **Apr 3 also reinforced a classic enterprise trust-boundary lesson:** the AWS CodeBuild/CodeConnections writeup is a reminder that build bootstrap, connection tokens, and “pre-user-code” request paths can expose high-value secrets before the app ever runs. Programs owning CI/CD or managed code-integration surfaces should be scored accordingly.
+- **Third-party support and BPO compromise chatter is a durable EV cue:** if a company outsources support, identity, or ticket handling, the weakest link may be outside the main product. That should raise the priority of recovery, moderation, and outsourced helpdesk flows.
+- **Public HackerOne surface remains a tooling constraint, not a target-quality signal:** lightweight fetches still only expose the JS shell on the public overview/directory paths, so target discovery from H1’s public pages remains limited without heavier browser-backed crawling.
 
 ## OSINT inputs we currently monitor
 
