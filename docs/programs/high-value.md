@@ -31,7 +31,7 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
-### Program-quality cue from community chatter (2026-04-03)
+### Program-quality cue from community chatter (2026-04-04)
 - Triage trust is still the strongest quality signal. Fresh Reddit chatter about boycotts, repeated N/A closures, and reward leakage reinforces that process quality can outweigh raw payout tables.
 - AI governance / browser-control products deserve their own EV bucket. If a program’s value depends on observing prompts, shadow-AI use, or policy enforcement across browser-side and alternate data paths, score it higher than a generic SaaS with the same payout range.
 - Supply-chain and release-provenance boundaries remain high-value. Public chatter around Cisco/Trivy and Adobe support compromise is another reminder that build pipelines, third-party support paths, and dependency trust are real attack surfaces when in scope.
@@ -39,9 +39,10 @@ These showed up again in the public HackerOne program page as especially worth a
 - April 2’s heuristics still stand: prioritize programs that explain duplicate or “informative” closures, preserve context, and do not silently patch while refusing mediation.
 - Community distrust itself is a selection signal: when hunters start talking about boycotts, duplicate gaming, or reward leakage, treat that as a durable warning that the program’s process quality may be degrading even if the technical surface is still interesting.
 - Fairness for hard-to-demo classes is a selection signal in its own right: programs that clearly accept blind SSRF/OAST, authZ edge cases, cache poisoning, or desync-style evidence tend to have better ROI than programs that demand unsafe max-exploit proof.
-
-- **Support/BPO and CI bootstrap trust boundaries are now a stronger target filter.** Fresh netsec chatter around Adobe-style support compromise and AWS CodeBuild/CodeConnections token extraction reinforces that vendor handoffs, helpdesk actions, and pre-user-code build steps can be more valuable than the marketing surface.
-  - Heuristic: programs that own outsourced support, source connectors, or build/bootstrap flows deserve extra weight when those paths are in scope.
+- Browser-side AI governance and shadow-AI monitoring are now a distinct premium target class: products that can inspect prompts, extension traffic, or in-browser copilots are exposing a trust boundary, not just a DLP use case.
+- VMs/process hygiene is a selection clue: if a team can’t connect scan volume to risk reduction, expect weaker prioritization and slower remediation, which usually means more triage friction for researchers.
+- Hidden build/bootstrap paths are still gold: CodeConnections-style connector tokens and CodeBuild pre-user-code requests are exactly the kind of seams that turn ordinary platform work into high-value trust-boundary research.
+- Outsourced support and account-recovery paths should be scored as first-class attack surfaces whenever the program can influence identity, tickets, or escalation state.
 
 ### Program-quality cue from community chatter (2026-04-02)
 - April 2 Reddit chatter reinforced that triage transparency and contradiction handling matter more than raw payout numbers. Favor programs that explain duplicate or “informative” closures, preserve context, and don’t silently patch while refusing mediation.
