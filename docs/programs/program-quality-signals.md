@@ -306,6 +306,17 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 - **Big systems and auth/abuse boundaries stay high-value because they are hard to model exhaustively.** Current netsec discussion again highlighted NTLM relay to web servers, Magento upload/RCE, and AI trust-boundary mistakes as durable examples of why broad, real-world attack surfaces remain better manual-EV targets than narrow commodity apps.
   - Heuristic: prioritize targets with complex authZ, workflow, partner/admin, payment, or identity layers; de-prioritize programs that only expose a thin marketing surface.
 
+## Recent Community Signals (2026-04-04)
+
+- **Support/BPO and vendor handoff paths are now a first-class trust boundary.** Fresh community chatter about Adobe support compromise and outsourced support abuse reinforces a durable heuristic: if a program relies on third-party service desks, regional BPOs, or delegated identity/admin workflows, those handoff points can be higher-value than the primary product UI.
+  - Heuristic: prioritize programs that expose support tooling, vendor portals, account-recovery flows, or delegated helpdesk actions in scope, because process compromise there can bypass otherwise strong product controls.
+
+- **Build/bootstrap and connector tokens remain premium surfaces.** The AWS CodeBuild / CodeConnections write-up is another reminder that CI bootstrap steps, connector credentials, and “pre-user-code” execution paths can expose highly privileged tokens.
+  - Heuristic: when a program owns build pipelines, source connectors, or deployment automation, treat bootstrap hooks, metadata endpoints, and token handoff paths as high-EV review points.
+
+- **2FA bypass discussion keeps pointing back to auth boundary clarity.** The bug bounty thread about a pre-auth 2FA bypass is a useful reminder that programs score better when they explain how they classify pre-auth and post-auth boundary failures, rather than forcing researchers to argue CVSS fields in the dark.
+  - Heuristic: clear written standards for auth-flow bypass, factor-skipping, and account-takeover prerequisites are a strong quality signal.
+
 ## Notes / Source Log
 
 - Sources are currently Reddit RSS (r/bugbounty, r/netsec, r/AskNetsec). HackerOne Hacktivity/Directory pages remain JS-heavy and yielded no new public program detections in this run.
