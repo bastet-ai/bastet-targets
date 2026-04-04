@@ -154,6 +154,14 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **Third-party support and BPO compromise chatter is a durable EV cue:** if a company outsources support, identity, or ticket handling, the weakest link may be outside the main product. That should raise the priority of recovery, moderation, and outsourced helpdesk flows.
 - **Public HackerOne surface remains a tooling constraint, not a target-quality signal:** lightweight fetches still only expose the JS shell on the public overview/directory paths, so target discovery from H1’s public pages remains limited without heavier browser-backed crawling.
 
+## Fresh signal from Apr 4, 2026
+
+- **A `.git` exposure is still a useful selection cue, but only when it leaks repo history or credentials:** the latest r/bugbounty thread is a reminder that partial `.git` visibility can be worth a report, yet the real program-quality takeaway is broader — orgs with exposed source-control artifacts tend to have brittle deployment hygiene, and programs that understand that boundary usually reward it more consistently than those treating it as a novelty finding.
+- **AI governance remains a premium trust-boundary theme:** current AskNetsec discussion keeps converging on browser extensions, embedded copilots, and prompt/data egress controls. Programs with browser-side AI inspection or policy enforcement should stay high on the EV list because they touch shadow-AI leakage and control bypass outside inline network filters.
+- **Vulnerability-management ROI chatter is a useful proxy for process maturity:** when defenders can’t connect scans to actual risk reduction, it often reflects weak prioritization and remediation loops. For bounty selection, that same pattern can map to programs with noisy tooling but poor fix discipline; process maturity matters as much as surface area.
+- **Undocumented build/bootstrap token paths remain high-value trust boundaries:** the AWS CodeConnections/CodeBuild writeup keeps reinforcing that pre-user-code request paths, bootstrap endpoints, and repo-integrator tokens can expose privileged access before the app proper runs. Any program owning CI/CD or code-integration surfaces should be scored accordingly.
+- **Third-party support/BPO compromise stories remain a durable EV cue:** the Adobe support-BPO chatter is another reminder that outsourced support, ticket handling, and identity handoff flows can be the weakest link even when the main app looks mature. Programs that document those boundaries clearly are usually easier to work and less likely to mis-score impact.
+
 ## OSINT inputs we currently monitor
 
 - Reddit (bug bounty + netsec communities)
