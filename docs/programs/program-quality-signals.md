@@ -115,6 +115,21 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-05-20)
+
+These are **durable observations** from public advisories and research summarized by the operator. They are useful for target selection because they point to repeatable trust boundaries, not one-off CVEs.
+
+- **AI coding agents are now repository-control-file targets, not just prompt-injection targets.** Hacktron's VS Code Copilot Chat `applyPatchTool` writeup showed a patch approval/execution mismatch where the reviewed path and the effective move destination diverged, allowing writes into sensitive files such as `.git/config` or `.vscode/settings.json` and follow-on RCE through local trust hooks. Programs shipping coding agents, Codespaces-style flows, PR/issue-to-agent automation, or workspace-edit tools should score higher when protected-path policies, exact-effect approvals, and untrusted issue/PR isolation are in scope.
+  - Source: https://www.hacktron.ai/blog/rce-in-vscode-copilot
+- **Identity-provider disablement must be tested as an authorization boundary.** GitHub Security Advisories from May 20 included a Keycloak SAML broker case where disabled IdPs could still mint sessions through IdP-initiated login. Programs with SSO brokers, tenant identity federation, or emergency IdP disable/revoke flows deserve extra weight when those paths are explicitly in scope.
+  - Source: https://github.com/advisories/GHSA-x4p7-7chp-64hq
+- **Parser differentials remain high-EV around API gateways and backend stacks.** Jetty chunk-extension parsing, Axios CRLF header inheritance after prototype pollution, and similar HTTP-client/server edge cases reinforce that gateway/backend parser disagreement can be more valuable than ordinary endpoint fuzzing when a program owns proxies, caches, or service-to-service clients.
+  - Sources: https://github.com/advisories/GHSA-355h-qmc2-wpwf, https://github.com/advisories/GHSA-fvcv-3m26-pcqx
+- **Control-plane and developer-helper APIs are premium targets when reachable.** Rclone RC unauthenticated handler exposure, MLflow model-serving shell boundaries, setup-php workflow command injection, Diffusers `trust_remote_code` TOCTOU, and RTK project-local LLM output filters all point to the same selection rule: prioritize programs where automation, model serving, CI/CD, and developer tools are part of the accepted attack surface.
+  - Sources: https://github.com/advisories/GHSA-x5gf-qvw8-r2rm, https://github.com/advisories/GHSA-rvhj-8chj-8v3c, https://github.com/advisories/GHSA-pqwm-q9pv-ph8r, https://github.com/advisories/GHSA-7wx4-6vff-v64p, https://github.com/advisories/GHSA-fvvm-949w-qj4w
+- **Algorithm confusion and tenant-null collapse are still practical identity bugs.** The PAN-OS GlobalProtect CAS JWT `alg` confusion writeup and Flowise/wger tenant-boundary advisories reinforce two high-value testing patterns: bind verifier algorithm/key type/issuer policy together, and make unset tenant/workspace/gym values fail closed rather than compare equal.
+  - Sources: https://www.hacktron.ai/blog/cve-2026-0265-panos-globalprotect-cas-auth-bypass, https://github.com/advisories/GHSA-c2c9-mfw7-p8hw, https://github.com/advisories/GHSA-mw8f-w6p8-xrf4
+
 ## Recent Community Signals (2026-04-01)
 
 These are **durable observations** from this run that reinforce the heuristics above:

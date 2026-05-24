@@ -31,6 +31,12 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
+### Operator-quality cue from public advisories/research (2026-05-20)
+- AI coding-agent and workspace-edit products deserve a sharper EV bucket after Hacktron's VS Code Copilot `applyPatchTool` TOCTOU writeup: prioritize programs where issue/PR-to-agent automation, exact-effect approval, protected-path writes, Codespaces/dev-token exposure, or repository-control-file policies are in scope. Source: https://www.hacktron.ai/blog/rce-in-vscode-copilot
+- Identity federation disable/revoke paths are high-value when in scope. The May 20 Keycloak SAML broker advisory reinforces that “disabled IdP” must be enforced at every assertion/session-minting entrypoint, not just in admin UI discovery. Source: https://github.com/advisories/GHSA-x4p7-7chp-64hq
+- Developer control planes and automation glue are still underpriced target surface: Rclone RC, MLflow model serving, setup-php workflows, Diffusers `trust_remote_code`, and project-local LLM filters all show how tooling defaults can cross command, tenant, or trust boundaries.
+- JWT algorithm confusion and tenant-null authorization collapse remain practical identity seams. Prefer programs that explicitly include SSO, VPN/CAS, tenant/workspace administration, or support tooling in scope and allow safe negative testing.
+
 ### Program-quality cue from community chatter (2026-04-04)
 - Triage trust is still the strongest quality signal. Fresh Reddit chatter about boycotts, repeated N/A closures, and reward leakage reinforces that process quality can outweigh raw payout tables.
 - AI governance / browser-control products deserve their own EV bucket. If a program’s value depends on observing prompts, shadow-AI use, or policy enforcement across browser-side and alternate data paths, score it higher than a generic SaaS with the same payout range.
