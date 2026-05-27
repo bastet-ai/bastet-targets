@@ -121,6 +121,10 @@ These are *not* “program quality” per se, but they strongly affect expected 
 - **Duplicate pressure:** if you keep hitting duplicates, shift to *less scanned* surfaces (authenticated APIs, admin/partner tools, lesser-known subdomains) or a different bug class (logic/authZ chains vs “classic” XSS/SQLi).
 - **Timebox discipline:** set a fixed window (e.g., 2–6 hours) to map the app + build a test plan; if you don’t find promising seams (weird authZ edges, complex flows, brittle integrations), rotate.
 
+## Recent public-release signals (2026-05-27)
+
+- **AI pentesting runners are a separate high-EV target class:** KeygraphHQ/Shannon describes itself as an autonomous white-box AI pentester for web apps and APIs; v1.3.0 added auth-validation/email-login preflights, cloud metadata-range blocking in target URL checks, and npm install hardening with `--ignore-scripts`. Prioritize similar programs when runner sandboxing, source-code ingestion, credential handling, target allow/block rules, dependency install hooks, and network egress controls are in scope. Sources: https://github.com/KeygraphHQ/shannon, https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0
+
 ## Recent community signals (2026-04-02)
 
 - **Triage fairness is still the core quality signal:** a fresh r/bugbounty complaint described valid reports being marked duplicate, informational, or N/A despite later fixes. That reinforces the heuristic that the best programs explain duplicate decisions clearly and do not silently patch while leaving researchers in the dark.

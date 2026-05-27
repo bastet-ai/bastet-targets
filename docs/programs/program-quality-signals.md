@@ -115,6 +115,17 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-05-27)
+
+These are durable public-release signals for AI security-testing and agentic-pentesting targets. They do not imply a vulnerability by themselves; they help rank programs where the same boundaries are explicitly in scope.
+
+- **Agentic pentesting runners should be scored like control planes.** KeygraphHQ/Shannon describes itself as an autonomous white-box AI pentester for web applications and APIs, which means the valuable target surface is not just the UI: source-code ingestion, auth credential preflights, exploit execution, target URL validation, network egress policy, and runner/container setup are all relevant trust boundaries when a program allows testing there.
+  - Sources: https://github.com/KeygraphHQ/shannon, https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0
+- **Release hardening is a positive quality signal, but it also names the seams to test.** Shannon v1.3.0 added auth-validation/email-login preflight support, blocked cloud metadata ranges during target URL checks, and hardened Docker/global npm installation with `--ignore-scripts`. For similar programs, prefer targets that publish clear behavior for credential storage, SSRF/metadata blocking, dependency install hooks, container isolation, and safe target allowlisting.
+  - Release / commits: https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0, https://github.com/KeygraphHQ/shannon/commit/1af42339b9c2054cf726d12f4b5aa9e30aad107e, https://github.com/KeygraphHQ/shannon/commit/32c01a39b1245c1bc1ce1fac6bf264e3d7c70b07, https://github.com/KeygraphHQ/shannon/commit/72c424f6879d53bcb18544295f0a62a5e130e5e3
+- **Dependency-response cadence is part of target quality.** The May 27 `fast-uri` CVE bump shows this class of project moves quickly on parser/dependency risk. That should raise priority when a program also offers a clear safe harbor for testing the runner’s parser, URL, and package-install boundaries instead of limiting reports to prompt text.
+  - Source: https://github.com/KeygraphHQ/shannon/commit/8f5d639
+
 ## Recent Operator Signals (2026-05-20)
 
 These are **durable observations** from public advisories and research summarized by the operator. They are useful for target selection because they point to repeatable trust boundaries, not one-off CVEs.

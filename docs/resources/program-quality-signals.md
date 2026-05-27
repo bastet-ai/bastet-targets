@@ -162,6 +162,10 @@ Themes showing up repeatedly:
 
 - **Fairness shows up in how programs handle hard-to-demo classes.** Programs that clearly document what evidence counts for blind SSRF, authZ edge cases, cache poisoning, or desync-like chains are usually better ROI than those that force unsafe max-exploit proof.
 
+## Public-release signal: agentic pentesting products (2026-05-27)
+
+- **AI pentesting runners are now a distinct target-selection bucket.** KeygraphHQ/Shannon publicly positions itself as an autonomous white-box AI pentester for web apps and APIs; v1.3.0 added auth-validation/email-login preflights, cloud metadata-range blocking in target URL checks, and npm install hardening with `--ignore-scripts`. For similar programs, score higher when source-code ingestion, runner sandboxing, credential handling, target allow/block rules, dependency install hooks, and network egress controls are explicitly in scope. Sources: https://github.com/KeygraphHQ/shannon, https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0
+
 ## Public-signal watchlist: recent community themes worth treating as durable
 
 The most recent Reddit chatter keeps reinforcing a few repeatable program-quality cues:

@@ -31,6 +31,9 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
 - **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
+### Operator-quality cue from public releases (2026-05-27)
+- Continuous agentic-pentesting products deserve an explicit watchlist bucket when their scope includes source-code ingestion, exploit execution, auth preflights, network egress checks, or local/container runner setup. KeygraphHQ/Shannon describes itself as an autonomous white-box AI pentester for web apps and APIs; its v1.3.0 release added auth-validation/email-login preflight support, blocked cloud metadata ranges in target URL checks, and hardened global npm installs with `--ignore-scripts`. Those are useful public signals for scoring AI security-testing targets: prioritize programs that document runner sandboxing, credential handling, target allow/block rules, and dependency-install boundaries. Sources: https://github.com/KeygraphHQ/shannon, https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0
+
 ### Operator-quality cue from public advisories/research (2026-05-20)
 - AI coding-agent and workspace-edit products deserve a sharper EV bucket after Hacktron's VS Code Copilot `applyPatchTool` TOCTOU writeup: prioritize programs where issue/PR-to-agent automation, exact-effect approval, protected-path writes, Codespaces/dev-token exposure, or repository-control-file policies are in scope. Source: https://www.hacktron.ai/blog/rce-in-vscode-copilot
 - Identity federation disable/revoke paths are high-value when in scope. The May 20 Keycloak SAML broker advisory reinforces that “disabled IdP” must be enforced at every assertion/session-minting entrypoint, not just in admin UI discovery. Source: https://github.com/advisories/GHSA-x4p7-7chp-64hq
