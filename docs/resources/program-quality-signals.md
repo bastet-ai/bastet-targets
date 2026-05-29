@@ -162,6 +162,10 @@ Themes showing up repeatedly:
 
 - **Fairness shows up in how programs handle hard-to-demo classes.** Programs that clearly document what evidence counts for blind SSRF, authZ edge cases, cache poisoning, or desync-like chains are usually better ROI than those that force unsafe max-exploit proof.
 
+## Public-release signal: agentic pentesting products (2026-05-29)
+
+- **Authenticated-agent orchestration is a target-selection cue.** KeygraphHQ/Shannon v1.4.0 added sharing of preflight authenticated sessions across agents, forwarded `/etc/hosts` entries into worker containers, and bumped `fast-uri` for CVE-2026-6321. For similar AI security-testing programs, score higher when runner session custody, per-agent cookie/token isolation, local name resolution, URL/parser validation, metadata/local-network blocking, and dependency patch cadence are explicitly in scope. Sources: https://github.com/KeygraphHQ/shannon/releases/tag/v1.4.0, https://github.com/KeygraphHQ/shannon/commit/7813baf16a9ca6ff76a8fcbd42cafdd84c0726dd, https://github.com/KeygraphHQ/shannon/commit/35f59f30f6a36676627ee44d7c23487e6d570b1b, https://github.com/KeygraphHQ/shannon/commit/8f5d639f0d95ce29be918c81fb3f35d73e25d671
+
 ## Public-release signal: agentic pentesting products (2026-05-27)
 
 - **AI pentesting runners are now a distinct target-selection bucket.** KeygraphHQ/Shannon publicly positions itself as an autonomous white-box AI pentester for web apps and APIs; v1.3.0 added auth-validation/email-login preflights, cloud metadata-range blocking in target URL checks, and npm install hardening with `--ignore-scripts`. For similar programs, score higher when source-code ingestion, runner sandboxing, credential handling, target allow/block rules, dependency install hooks, and network egress controls are explicitly in scope. Sources: https://github.com/KeygraphHQ/shannon, https://github.com/KeygraphHQ/shannon/releases/tag/v1.3.0

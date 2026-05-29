@@ -115,6 +115,17 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-05-29)
+
+These are fresh public-release signals from agentic-pentesting tooling. They are target-selection cues, not vulnerability claims.
+
+- **Authenticated preflight state is now a concrete agent-runner trust boundary.** KeygraphHQ/Shannon v1.4.0 added sharing of the preflight authenticated session across agents. For similar products, that raises the priority of programs where session custody, cookie/token isolation, replay across worker agents, logout/revocation handling, and least-privilege propagation are explicitly in scope.
+  - Source: https://github.com/KeygraphHQ/shannon/releases/tag/v1.4.0
+- **Worker container network assumptions deserve explicit scoring.** Shannon v1.4.0 also forwards `/etc/hosts` entries into worker containers, which is operationally useful but highlights a repeatable target class: runner DNS/hosts overrides, local-service reachability, split-horizon names, metadata blocking, and whether per-target allow/block rules survive the handoff into isolated workers.
+  - Release / commit: https://github.com/KeygraphHQ/shannon/releases/tag/v1.4.0, https://github.com/KeygraphHQ/shannon/commit/35f59f30f6a36676627ee44d7c23487e6d570b1b
+- **Parser/dependency response cadence remains a quality signal for AI testing products.** The v1.4.0 `fast-uri` bump for CVE-2026-6321 reinforces that URL parsing and dependency hygiene are part of the runner attack surface. Prefer programs that allow safe validation of URL/parser edge cases and publish fast, visible patch cadence for runner dependencies.
+  - Source: https://github.com/KeygraphHQ/shannon/commit/8f5d639f0d95ce29be918c81fb3f35d73e25d671
+
 ## Recent Operator Signals (2026-05-27)
 
 These are durable public-release signals for AI security-testing and agentic-pentesting targets. They do not imply a vulnerability by themselves; they help rank programs where the same boundaries are explicitly in scope.
