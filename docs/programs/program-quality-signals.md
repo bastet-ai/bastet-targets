@@ -125,6 +125,8 @@ These are durable public-advisory signals for agentic-pentesting tooling. They a
   - Source: https://github.com/KeygraphHQ/shannon/commit/023cc953db742602964b7826105278d15c28a420
 - **Repository ownership controls are part of runner sandbox quality.** A public Shannon issue called out Docker's global `git safe.directory '*'` setting, which disables Git's ownership-safety checks while the product processes arbitrary third-party repositories; the current Dockerfile still shows the wildcard system config. For similar AI/code-runner programs, score higher when cloned workspaces have narrow safe-directory allowlists, per-job users/volumes, and clear untrusted-repository handling rather than global trust overrides.
   - Sources: https://github.com/KeygraphHQ/shannon/issues/316, https://github.com/KeygraphHQ/shannon/blob/main/Dockerfile
+- **Model/provider safety gates can become product blind spots, not just policy trivia.** Shannon issue #339 reports exploit-phase failures when the execution path uses a Claude-Code-compatible CLI/provider that rejects prompts containing attack payloads, while earlier phases continue. For AI pentesting products, prioritize programs that document provider support, phase-specific failure handling, payload-safe validation modes, audit logs for blocked exploit attempts, and clear fallback routing when model safety filters prevent authorized testing.
+  - Source: https://github.com/KeygraphHQ/shannon/issues/339
 
 ## Recent Operator Signals (2026-05-29)
 
