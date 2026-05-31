@@ -127,6 +127,8 @@ These are durable public-advisory signals for agentic-pentesting tooling. They a
   - Sources: https://github.com/KeygraphHQ/shannon/issues/316, https://github.com/KeygraphHQ/shannon/blob/main/Dockerfile
 - **Model/provider safety gates can become product blind spots, not just policy trivia.** Shannon issue #339 reports exploit-phase failures when the execution path uses a Claude-Code-compatible CLI/provider that rejects prompts containing attack payloads, while earlier phases continue. For AI pentesting products, prioritize programs that document provider support, phase-specific failure handling, payload-safe validation modes, audit logs for blocked exploit attempts, and clear fallback routing when model safety filters prevent authorized testing.
   - Source: https://github.com/KeygraphHQ/shannon/issues/339
+- **AI developer-agent advisories now map to ordinary local trust seams.** A May 31 GitHub Advisory batch for Aider 0.86.3 describes pre-commit hook bypass, architect-mode code injection, generated SQL injection, and an API-doc metadata-endpoint SSRF claim. For similar coding-agent/agentic-devtool programs, score higher when repository hooks, generated-code execution, local CLI privilege, untrusted-doc fetching, metadata blocking, and prompt-to-code audit trails are in scope and backed by responsive patch handling.
+  - Sources: https://github.com/advisories/GHSA-c3wr-3c4v-6rmh, https://github.com/advisories/GHSA-7w7m-v5vp-w699, https://github.com/advisories/GHSA-f9g4-qjmq-f49r, https://github.com/advisories/GHSA-hchg-qm84-cj9p
 
 ## Recent Operator Signals (2026-05-29)
 
