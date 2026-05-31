@@ -115,6 +115,15 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-05-31)
+
+These are durable public-advisory signals for agentic-pentesting tooling. They are target-selection cues and should be validated only through authorized, non-invasive testing.
+
+- **Router/control-plane exposure is now a concrete AI-runner scoring cue.** CVE-2026-29023 / GHSA-qrvr-jqxg-65rv documents a KeygraphHQ/Shannon hard-coded router API key issue: if the router component was enabled and reachable, a network attacker could authenticate with the public static key and proxy requests through the instance using the victim's configured upstream provider credentials. For similar AI security-testing products, score higher when router ports bind to localhost by default, deployment guides forbid public exposure, per-instance keys are generated/rotated, upstream LLM/API credentials are scoped, and proxy/audit logs make abuse visible. Do not publish or reuse any static key material; track the trust boundary and mitigation pattern only.
+  - Sources: https://github.com/advisories/GHSA-qrvr-jqxg-65rv, https://nvd.nist.gov/vuln/detail/CVE-2026-29023, https://www.vulncheck.com/advisories/keygraph-shannon-hard-coded-router-api-key
+- **Mitigation commits are useful target intel when they name the real seam.** Shannon commit `023cc95` bound Docker service ports to `127.0.0.1`, restricted subprocess environment inheritance, pinned Playwright MCP, removed host IPC, added prompt-include traversal guards, and documented prompt-injection risk from untrusted repositories. For adjacent programs, prioritize router exposure, subprocess secret inheritance, dependency pinning, container isolation, prompt-template include paths, and untrusted-repository ingestion when these surfaces are explicitly in scope.
+  - Source: https://github.com/KeygraphHQ/shannon/commit/023cc953db742602964b7826105278d15c28a420
+
 ## Recent Operator Signals (2026-05-29)
 
 These are fresh public-release signals from agentic-pentesting tooling. They are target-selection cues, not vulnerability claims.
