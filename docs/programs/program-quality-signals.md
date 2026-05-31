@@ -123,6 +123,8 @@ These are durable public-advisory signals for agentic-pentesting tooling. They a
   - Sources: https://github.com/advisories/GHSA-qrvr-jqxg-65rv, https://nvd.nist.gov/vuln/detail/CVE-2026-29023, https://www.vulncheck.com/advisories/keygraph-shannon-hard-coded-router-api-key
 - **Mitigation commits are useful target intel when they name the real seam.** Shannon commit `023cc95` bound Docker service ports to `127.0.0.1`, restricted subprocess environment inheritance, pinned Playwright MCP, removed host IPC, added prompt-include traversal guards, and documented prompt-injection risk from untrusted repositories. For adjacent programs, prioritize router exposure, subprocess secret inheritance, dependency pinning, container isolation, prompt-template include paths, and untrusted-repository ingestion when these surfaces are explicitly in scope.
   - Source: https://github.com/KeygraphHQ/shannon/commit/023cc953db742602964b7826105278d15c28a420
+- **Repository ownership controls are part of runner sandbox quality.** A public Shannon issue called out Docker's global `git safe.directory '*'` setting, which disables Git's ownership-safety checks while the product processes arbitrary third-party repositories; the current Dockerfile still shows the wildcard system config. For similar AI/code-runner programs, score higher when cloned workspaces have narrow safe-directory allowlists, per-job users/volumes, and clear untrusted-repository handling rather than global trust overrides.
+  - Sources: https://github.com/KeygraphHQ/shannon/issues/316, https://github.com/KeygraphHQ/shannon/blob/main/Dockerfile
 
 ## Recent Operator Signals (2026-05-29)
 
