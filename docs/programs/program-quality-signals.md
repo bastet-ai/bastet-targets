@@ -331,6 +331,8 @@ These are **examples** from recent public discussion that reinforce (or nuance) 
 
 ## Recent Community Signals (2026-03-25)
 
+- **Media transformation and local-agent approval paths are target-quality cues when explicitly in scope.** Public advisories for elFinder (`GHSA-8q4h-8crm-5cvc` / `CVE-2026-41247`) and Claude Code (`GHSA-qgqw-h4xq-7w8w`) reinforce two reusable seams: user-controlled media options crossing into ImageMagick CLI execution, and shell-backed filesystem tooling bypassing an intended approval gate. Prefer programs that expose clear safe-harbor boundaries for CMS/DAM file managers, upload transformations, IDE agents, local assistants, or CI runners, and that document shell-free execution, structured tool authorization, sandboxing, and worker privilege isolation. Sources: https://github.com/advisories/GHSA-8q4h-8crm-5cvc, https://github.com/advisories/GHSA-qgqw-h4xq-7w8w
+
 - **Triage latency appears to be worsening on some Bugcrowd programs (platform-wide perception).** Multiple hunters report that reports which previously moved in ~3–5 days are now sitting ~20 days without action.
   - Thread: https://www.reddit.com/r/bugbounty/comments/1s3g040/bugcrowd_triage_getting_slower_lately/
 
