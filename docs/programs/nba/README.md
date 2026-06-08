@@ -152,44 +152,26 @@ Given the potential for double payouts and the NBA's massive digital infrastruct
 - How does the NBA's security posture compare to our current high-value targets?
 - What unique attack vectors exist in sports/entertainment digital platforms?
 
-## Vulnerability Assessment Results
+## Reconnaissance Notes
 
-### Confirmed Security Findings (September 2025)
-**Status**: 🔴 **CRITICAL VULNERABILITIES CONFIRMED**
+### Public-Safe Assessment Summary (September 2025)
+**Status**: High-value target with large, complex public attack surface.
 
-#### High-Priority Vulnerabilities
-1. **CORS Misconfiguration** (Medium-High Severity)
-   - **Location**: `https://developerportal.nba.com/`
-   - **Issue**: Permissive CORS allowing localhost:3000 with credentials
-   - **Headers**: `Access-Control-Allow-Origin: http://127.0.0.1:3000` + `Access-Control-Allow-Credentials: true`
-   - **Impact**: Cross-site request forgery potential, unauthorized API access
+Detailed vulnerability observations, exact endpoints, headers, identifiers, and proof material are intentionally excluded from this public target wiki. Keep report-ready evidence in local private logs only, and disclose any validated issues through the official HackerOne program.
 
-2. **Information Disclosure** (Medium Severity)
-   - **Location**: `https://picks.nba.com/nba-bracket/` JavaScript bundle
-   - **Issue**: Hardcoded PROJECT_ID exposed in client-side code
-   - **Value**: `a2a51d7e-bc99-47fd-b720-5e8042c993c2` (Monterosa Cloud integration)
-   - **Impact**: Third-party API enumeration, potential unauthorized access
-
-#### Technical Architecture Discoveries
-- **Frontend Framework**: React.js with styled-components
-- **GraphQL Integration**: Monterosa Cloud platform for interactive features
-- **Authentication System**: Points-based access control with login states
-- **CDN Services**: Akamai (primary bot protection), CloudFront (secondary)
-- **WebSocket Configuration**: Real-time communication via Monterosa
-
-#### Third-Party Service Analysis
-- **Monterosa Cloud Platform**: Interactive application backend
-  - **GraphQL Endpoints**: `getElement`, `addLastReaction`, `updateElementReactions`
-  - **WebSocket Servers**: `edgeservers-nlb-us.monterosa.cloud` (ports 80/443)
-  - **Configuration**: `/config/enmasse.json` publicly accessible
-  - **Authentication**: PROJECT_ID-based access control system
+#### Technology Architecture Themes
+- **Frontend**: Modern JavaScript applications across fan engagement and content properties
+- **API Surface**: Public and authenticated API gateways serving web, mobile, and partner experiences
+- **CDN / Edge**: Enterprise CDN and bot-management controls protecting high-traffic properties
+- **Streaming / Media**: Subscription, entitlement, video delivery, and content-protection workflows
+- **Third-Party Integrations**: Interactive fan experiences, analytics, commerce, and media partners
 
 #### Security Controls Observed
-- **Bot Protection**: Akamai implementation with advanced filtering
-- **Rate Limiting**: Basic protections on main API endpoints (`api.nba.com`)
-- **Authentication**: Proper 401 responses on protected resources
-- **HTTPS**: Enforced across all services with HSTS headers
-- **Content Security**: Video DRM and content protection mechanisms
+- Bot and abuse protection on major properties
+- HTTPS and HSTS on core services
+- Authentication gates on protected resources
+- CDN-backed caching and edge controls
+- Content-protection mechanisms around streaming/media workflows
 
 ### Comprehensive Attack Surface Analysis
 - **Total Subdomains Analyzed**: 1,132 domains
@@ -199,10 +181,10 @@ Given the potential for double payouts and the NBA's massive digital infrastruct
 - **Team-Specific Services**: 30+ team subdomain integrations
 
 ### Recommended Next Steps
-1. **Immediate**: Responsible disclosure of confirmed vulnerabilities via HackerOne
-2. **Short-term**: Deep investigation of Monterosa Cloud GraphQL API security
-3. **Medium-term**: Mobile application security assessment (iOS/Android)
-4. **Long-term**: Business logic testing for competition manipulation
+1. Verify current in-scope assets against the official HackerOne policy before testing.
+2. Keep any vulnerability-specific notes and evidence out of public documentation.
+3. Prioritize business-logic review of authentication, subscription, media entitlement, commerce, and mobile API flows.
+4. Re-check the public policy periodically for payout, scope, and rule changes.
 
 ## Notes
 
@@ -215,4 +197,4 @@ Given the potential for double payouts and the NBA's massive digital infrastruct
 
 ---
 
-**Status**: 🎯 **HIGH-VALUE TARGET CONFIRMED** - Active vulnerabilities discovered requiring immediate attention and responsible disclosure.
+**Status**: 🎯 **HIGH-VALUE TARGET CONFIRMED** - Large public attack surface; keep vulnerability-specific evidence private and disclose validated issues through HackerOne.
