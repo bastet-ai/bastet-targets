@@ -115,6 +115,13 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-06-29)
+
+These public-advisory signals are target-selection cues, not vulnerability claims. Validate only through authorized, non-invasive testing.
+
+- **Identity, webhook, and callback integrations need explicit precondition and state-binding tests.** A June 29 updated-advisory pass surfaced slack-go accepting an empty signing secret (`GHSA-gxhx-2686-5h9g`), Turbo login callback CSRF/session fixation (`GHSA-hcf7-66rw-9f5r`), and SCIM filter stack exhaustion in `scim_proto`/`kanidm_proto` (`GHSA-r5fr-9gmv-jggh`). For SaaS, chatops, SSO, HRIS, and provisioning programs, score non-empty shared-secret enforcement, fail-closed webhook verification, OAuth/login callback state+nonce binding, session rotation after callback completion, and parser recursion/depth ceilings. Sources: https://github.com/advisories/GHSA-gxhx-2686-5h9g, https://github.com/advisories/GHSA-hcf7-66rw-9f5r, https://github.com/advisories/GHSA-r5fr-9gmv-jggh
+- **Edge stacks and config/control panels still need parser and fix-regression coverage.** Netty request-smuggling metadata refresh (`GHSA-p979-4mfw-53vg`), JS-YAML merge-key quadratic DoS (`GHSA-h67p-54hq-rp68`), and Froxlor incomplete-fix drift (`GHSA-j6fm-9rfm-j5hx`) reinforce target-selection cues for Java API gateways, config-ingestion services, IaC/CI pipelines, and hosting panels. Prefer programs that publish request-smuggling-safe canary rules, YAML/config parser resource ceilings, patch-version clarity, and authorization-preserving regression tests around prior CVEs. Sources: https://github.com/advisories/GHSA-p979-4mfw-53vg, https://github.com/advisories/GHSA-h67p-54hq-rp68, https://github.com/advisories/GHSA-j6fm-9rfm-j5hx
+
 ## Recent Operator Signals (2026-06-11)
 
 These are durable public-advisory signals for edge, identity, CI, and agent/control-plane tooling. They are target-selection cues and should be validated only through authorized, non-invasive testing.
