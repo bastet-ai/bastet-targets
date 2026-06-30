@@ -115,6 +115,12 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-06-30)
+
+These public-advisory signals are target-selection cues, not vulnerability claims. Validate only through authorized, non-invasive testing.
+
+- **HTTP/2 edges, graph queries, integration parsers, CMS admin flows, and chatops plugins remain high-signal.** A June 30 advisory refresh surfaced Undertow MadeYouReset HTTP/2 DoS (`GHSA-95h4-w6j8-2rp8`), Dgraph GraphQL/DQL password-query injection (`GHSA-q2m9-6jp9-c6mc`), Apache CXF LDAP/XML/JMS trust-boundary issues (`GHSA-pg32-686q-qh6x`, `GHSA-vmm5-fjgx-2jhp`, `GHSA-2hvc-5c6v-f533`), Concrete CMS backend CSRF/IDOR/XSS (`GHSA-xjg6-5v39-v7fc`, `GHSA-jqvq-gv67-3567`, `GHSA-q9fm-mpg8-8jqm`), and additional Mattermost repository/WebSocket/plugin/image-processing flaws (`GHSA-r5vf-grcx-5vqp`, `GHSA-w9m8-p4cc-4qj9`, `GHSA-jmvr-r5hm-fxfr`, `GHSA-37j2-3vv8-cf24`). For API gateway, graph database, enterprise integration, CMS/site-builder, and collaboration programs, score HTTP/2 reset accounting, query parameterization, LDAP/XML/JMS parser configuration, per-action CSRF, parent-object authorization, WebSocket frame limits, plugin body-size enforcement, and media parser allocation ceilings. Sources: https://github.com/advisories/GHSA-95h4-w6j8-2rp8, https://github.com/advisories/GHSA-q2m9-6jp9-c6mc, https://github.com/advisories/GHSA-pg32-686q-qh6x, https://github.com/advisories/GHSA-vmm5-fjgx-2jhp, https://github.com/advisories/GHSA-2hvc-5c6v-f533, https://github.com/advisories/GHSA-xjg6-5v39-v7fc, https://github.com/advisories/GHSA-jqvq-gv67-3567, https://github.com/advisories/GHSA-q9fm-mpg8-8jqm, https://github.com/advisories/GHSA-r5vf-grcx-5vqp, https://github.com/advisories/GHSA-w9m8-p4cc-4qj9, https://github.com/advisories/GHSA-jmvr-r5hm-fxfr, https://github.com/advisories/GHSA-37j2-3vv8-cf24
+
 ## Recent Operator Signals (2026-06-29)
 
 These public-advisory signals are target-selection cues, not vulnerability claims. Validate only through authorized, non-invasive testing.
