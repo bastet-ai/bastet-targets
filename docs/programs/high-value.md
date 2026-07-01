@@ -21,6 +21,10 @@ Last updated: 2025-09-01
 
 ## Strategic High-Value Additions
 
+### Operator-quality cue from public advisories (2026-07-01)
+
+- A July 1 public-advisory refresh adds another durable target-selection cluster for agent/media fetchers, HTTP/3/API gateways, ML artifact loaders, certificate-backed identity, rich-text editors, JSON/multipart parser policy, and scientific file conversion. OpenClaw remote-media memory exhaustion, Netty HTTP/3 QPACK allocation, flash-attention/PyFory/OpenMed untrusted ML/model loading, Spring Security X.509 impersonation, TinyMCE media XSS, Jackson ignore-list bypass, Undertow multipart GET DoS, and Open Babel parser memory-safety advisories all favor programs that explicitly scope resource ceilings, untrusted-artifact sandboxing, certificate subject mapping, sanitizer coverage, parser regression tests, and non-destructive file-conversion validation. Sources: https://github.com/advisories/GHSA-4qwc-c7g9-4xcw, https://github.com/advisories/GHSA-2c5c-chwr-9hqw, https://github.com/advisories/GHSA-7g5w-pq96-8c5w, https://github.com/advisories/GHSA-m5gw-83w2-7749, https://github.com/advisories/GHSA-m3v4-v5gx-7wf5, https://github.com/advisories/GHSA-293q-567p-wmwq, https://github.com/advisories/GHSA-vg35-5wq7-3x7w, https://github.com/advisories/GHSA-5jmj-h7xm-6q6v, https://github.com/advisories/GHSA-3x3v-w654-m28m, https://github.com/advisories/GHSA-j35x-w4gj-pf7w, https://github.com/advisories/GHSA-8j3x-m868-cpw8
+
 ### Newly Interesting Public HackerOne Targets (2026-03-31 scan)
 These showed up again in the public HackerOne program page as especially worth a closer look:
 - **1Password** — creative/manual research is explicitly favored; scanners are unlikely to help.
