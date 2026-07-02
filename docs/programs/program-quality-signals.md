@@ -115,6 +115,12 @@ Score each 0–2 (max 10):
 - 5–7: selectively hunt with a plan
 - ≤4: avoid unless you have inside-out expertise
 
+## Recent Operator Signals (2026-07-02)
+
+These public-advisory signals are target-selection cues, not vulnerability claims. Validate only through authorized, non-invasive testing.
+
+- **Geospatial/catalog portals add a client-side template-injection target cue.** GitHub Advisory `GHSA-2v4m-fw6c-g78f` / `CVE-2026-39379` reports GeoNetwork reflected XSS through client-side template injection. For GIS/map search, open-data catalog, metadata-management, document portal, and site-builder programs, score template-expression escaping, query/route normalization before rendering, metadata preview isolation, CSP/sandbox coverage, and safe reflected-XSS proof guidance that avoids real-user targeting. Source: https://github.com/advisories/GHSA-2v4m-fw6c-g78f
+
 ## Recent Operator Signals (2026-07-01)
 
 These public-advisory signals are target-selection cues, not vulnerability claims. Validate only through authorized, non-invasive testing.

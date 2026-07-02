@@ -162,6 +162,10 @@ Themes showing up repeatedly:
 
 - **Fairness shows up in how programs handle hard-to-demo classes.** Programs that clearly document what evidence counts for blind SSRF, authZ edge cases, cache poisoning, or desync-like chains are usually better ROI than those that force unsafe max-exploit proof.
 
+## Public-advisory signal: geospatial portals and client-side template injection (2026-07-02)
+
+- **Geospatial/catalog and metadata portals need client-side template-injection coverage.** GeoNetwork `GHSA-2v4m-fw6c-g78f` / `CVE-2026-39379` describes reflected XSS through client-side template injection, adding a durable target-selection cue for GIS/map search, open-data catalogs, document/metadata portals, and site-builder search UIs. Score template-expression escaping, route/query normalization before rendering, metadata preview isolation, CSP/sandbox coverage, and safe reflected-XSS validation guidance. Source: https://github.com/advisories/GHSA-2v4m-fw6c-g78f
+
 ## Public-advisory signal: runners, MCP env filters, support portals, and remote-control authZ (2026-06-28)
 
 - **Self-hosted CI runners need container-option allowlists and privilege boundaries.** Gitea `act_runner` with Docker backend (`GHSA-8qf9-pc52-j7cm`) highlights a recurring runner seam: workflow-controlled container options can cross into host/daemon privilege if not constrained. For git forges, CI/CD, release automation, and AI-code-runner programs, weight Docker option filtering, privileged-mode denial, mount/network policy, untrusted-contributor isolation, and per-job runner tenancy. Source: https://github.com/advisories/GHSA-8qf9-pc52-j7cm
