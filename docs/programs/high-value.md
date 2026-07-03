@@ -21,6 +21,10 @@ Last updated: 2025-09-01
 
 ## Strategic High-Value Additions
 
+### Operator-quality cue from public advisories (2026-07-03)
+
+- A July 3 catch-up over late July 2 reviewed GitHub Advisories adds database driver, legacy LDAP auth, JVM/Python interop, image parser, and media-control-plane target cues. asyncmy dict-key SQL injection, Apache Derby LDAP authenticator injection, Jython deserialization, Go `x/image/tiff` PackBits decompression resource exhaustion, and xiaomusic unauthenticated path traversal all reinforce prioritizing programs that explicitly scope query construction, LDAP filter escaping, deserialization class allowlists/sandboxing, image decompression ceilings, and normalized file-root containment. Sources: https://github.com/advisories/GHSA-qhqw-rrw9-25rm, https://github.com/advisories/GHSA-rcjc-c4pj-xxrp, https://github.com/advisories/GHSA-6r7r-jj8h-pq6v, https://github.com/advisories/GHSA-q675-qj96-32m9, https://github.com/advisories/GHSA-5j8p-5rrj-8wjg
+
 ### Operator-quality cue from public advisories (2026-07-02)
 
 - A July 2 GitHub Advisory Database update adds a geospatial/catalog and metadata-portal cue: GeoNetwork reflected XSS through client-side template injection (`GHSA-2v4m-fw6c-g78f` / `CVE-2026-39379`) reinforces prioritizing programs that explicitly scope search/catalog front ends, map/geospatial portals, metadata preview pages, and client-side templating boundaries. Score server-side and client-side output encoding parity, template-expression escaping, search-parameter normalization, CSP/sandbox coverage for previews, and safe reflected-XSS evidence paths that do not target real users. Source: https://github.com/advisories/GHSA-2v4m-fw6c-g78f
