@@ -6,6 +6,12 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-04)
+
+These are durable public-research and public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Test-management bootstrap routes and agent SQL layers are program-quality cues.** GitHub Advisories for Kiwi TCMS (`GHSA-v8rp-6xcv-fwgh`) and agno (`GHSA-82m5-3pcp-hccq`) reinforce two repeatable target-selection seams: initialization/setup endpoints that remain reachable after first use, and AI/agent framework persistence layers that construct SQL from attacker-influenced inputs. For QA/test-management SaaS, admin consoles, AI-agent platforms, and workflow builders, score programs higher when setup routes are one-time, authenticated, and disabled after bootstrap; SQL query construction is parameterized across tool/memory/session layers; and safe evidence guidance avoids destructive database writes. Sources: https://github.com/advisories/GHSA-v8rp-6xcv-fwgh, https://github.com/advisories/GHSA-82m5-3pcp-hccq
+
 ## Recent Operator Signals (2026-07-03)
 
 These are durable public-research and public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
