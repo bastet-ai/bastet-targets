@@ -6,6 +6,14 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-03)
+
+These are durable public-advisory signals from the late July 2 GitHub Advisory tail. They are target-selection cues and should be validated only through authorized, non-invasive testing.
+
+- **Launcher/static-file and MCP bridge paths need exact canonicalization.** LaunchServer `GHSA-5g75-477j-2c2f`, Algernon `GHSA-mm6c-5j6x-hq8m`, and fast-mcp-telegram `GHSA-rxw2-pc8j-vxwm` reinforce scoring for path traversal/source disclosure across game launchers, cross-platform static servers, and chatbot/MCP bridges. Prefer programs that document canonical path containment, OS-specific filename normalization, reserved credential/session-file protection, and safe file-boundary evidence.
+- **Image codecs and media processors need sandbox/resource ceilings.** `jxl-grid` / `jxl-oxide` advisories (`GHSA-5pmv-rx8r-wmv5`, `GHSA-66m8-c62j-h6v5`, `GHSA-2v8p-fqpx-2q3w`) add another signal for media pipelines where parser integer overflow, OOB writes, or panic/DoS can matter. Score codec isolation, worker memory/CPU ceilings, format allowlists, and patch-cadence visibility.
+- **Identity and crypto wrappers must fail closed.** Keycloak encrypted-SAML validation (`GHSA-794g-x443-36f7`) and Steeltoe OAEP padding drift (`GHSA-4j9m-h44m-2hv8`) reinforce prioritizing IAM/SAML and crypto-wrapper programs that publish negative tests for encrypted assertions, issuer/audience/session binding, algorithm/padding selection, and downgrade-resistant defaults. Kimai `GHSA-j5mc-p8qg-39j7` adds an adjacent SaaS object-ownership cue for cross-user bookmark/favorite-like state.
+
 ### 1) Fast + predictable triage
 - Consistently short *time-to-first-triage* (days, not months).
 - Clear states and communication cadence (triage → reproduce → fix → bounty → disclosure).
