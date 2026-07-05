@@ -6,6 +6,13 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-05)
+
+These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Repository import, cache restore, and desktop/workspace loaders are program-quality cues.** July 5 follow-ups for TidGi-Desktop (`GHSA-vv7r-8584-6pm6`) and AD_Miner (`GHSA-2rqq-j7w9-23vp`) reinforce that note-taking, knowledge-base, recon, and assessment tools should treat imported repositories, sub-wikis, project caches, and restored analysis artifacts as untrusted code/data boundaries. Score programs higher when imports default to safe mode, active loaders/plugins require explicit trust, cache formats avoid unsafe deserialization, and safe evidence guidance uses inert marker repositories or synthetic cache files only. Sources: https://github.com/advisories/GHSA-vv7r-8584-6pm6, https://github.com/advisories/GHSA-2rqq-j7w9-23vp
+- **Identity broker claim binding and agent/developer control planes deserve separate scoring.** Keycloak's OIDC broker `trustEmail`/userinfo advisory (`GHSA-c96p-56gh-3pvw`) and recent developer-control advisories around Coder dotfiles, Dulwich submodule paths, Kerberos Hub redirects, Grackle/PowerLine worktree branches, and snapshot/SSR/sudoers boundaries reinforce target selection for IAM brokers, developer workspaces, Git-library clients, camera/agent upload clients, agent orchestration, test frameworks, SSR auth forms, and monitoring plugins. Prioritize issuer/request/email claim binding, explicit workspace-create confirmation, submodule path containment, custom credential-header stripping on redirects, shell-free Git worktree execution, snapshot-root confinement, pre-hydration form safety, and sudoers exact-argv policy. Sources: https://github.com/advisories/GHSA-c96p-56gh-3pvw, https://github.com/advisories/GHSA-m3cr-vc2j-pm27, https://github.com/advisories/GHSA-gfhv-vqv2-4544, https://github.com/advisories/GHSA-h5gx-45rj-2h5j, https://github.com/advisories/GHSA-vv65-f55v-xm6g, https://github.com/advisories/GHSA-322x-v876-g883, https://github.com/advisories/GHSA-gj2h-2fpw-fhv9, https://github.com/advisories/GHSA-8w6w-23mq-h8rg
+
 ## Recent Operator Signals (2026-07-04)
 
 These are durable public-research and public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
