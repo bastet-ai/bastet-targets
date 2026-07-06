@@ -6,6 +6,12 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-06)
+
+These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Admission controllers and policy engines need egress-scoped helper functions.** Kyverno `GHSA-rggm-jjmc-3394` / `CVE-2026-4789` describes SSRF through CEL `http.Get()` / `http.Post()` in `NamespacedValidatingPolicy`, where namespace-scoped policy authors could make the admission controller contact arbitrary URLs, including other namespaces or cloud metadata endpoints, with response data potentially exposed in policy errors. For Kubernetes management, policy-as-code, CI admission, workflow-controller, and multi-tenant platform programs, score higher when CEL/Rego/template helper libraries enforce URL allowlists, namespace/tenant boundaries, metadata/private-network blocking, response redaction, and safe non-destructive SSRF evidence guidance. Sources: https://github.com/advisories/GHSA-rggm-jjmc-3394, https://github.com/kyverno/kyverno/security/advisories/GHSA-rggm-jjmc-3394, https://www.kb.cert.org/vuls/id/655822
+
 ## Recent Operator Signals (2026-07-05)
 
 These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
