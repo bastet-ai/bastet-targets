@@ -6,6 +6,13 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-07)
+
+These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Workspace agents and local routers need redirect, header, and database-control boundaries.** Coder workspace-agent redirect handling (`GHSA-qrwj-vh9x-gw5v`) and 9router advisories for `X-Forwarded-For` brute-force bypass plus exposed database import/export (`GHSA-7cfm-pqrj-xgq7`, `GHSA-qvfm-67h2-2qfx`) reinforce prioritizing developer-workspace, remote-agent, local-router, and admin-appliance programs when they explicitly scope cross-agent file APIs, redirect credential/file handling, trusted-proxy header policy, rate-limit identity binding, database backup/import routes, and safe test-instance evidence. Sources: https://github.com/advisories/GHSA-qrwj-vh9x-gw5v, https://github.com/advisories/GHSA-7cfm-pqrj-xgq7, https://github.com/advisories/GHSA-qvfm-67h2-2qfx
+- **CMS, QA, and parser-heavy developer tools remain high-signal when helper routes are in scope.** Craft CMS advisories for authenticated referrer-redirect RCE, server-side file read, and stored XSS (`GHSA-f74w-488g-8x5r`, `GHSA-287w-mxq6-x2cp`, `GHSA-xrqc-p465-2xvg`), Kiwi TCMS open redirect and stored XSS (`GHSA-hmj5-jm8h-h9fh`, `GHSA-473p-56xx-vg67`), SQLFluff parser resource exhaustion (`GHSA-73jc-5mrq-prw7`, `GHSA-wmhf-fqc8-vxhh`), and Ruby Net::IMAP command-injection/raw-argument advisories (`GHSA-46q3-7gv7-qmgg`, `GHSA-8p34-64r3-mwg8`, `GHSA-c4fp-cxrr-mj66`) add durable scoring seams for CMS/admin panels, test-management SaaS, SQL linting/CI, and mail/IMAP automation. Score referrer/return URL canonicalization, file-template include boundaries, stored-content sanitization, parser recursion/size ceilings, and protocol argument quoting. Sources: https://github.com/advisories/GHSA-f74w-488g-8x5r, https://github.com/advisories/GHSA-287w-mxq6-x2cp, https://github.com/advisories/GHSA-xrqc-p465-2xvg, https://github.com/advisories/GHSA-hmj5-jm8h-h9fh, https://github.com/advisories/GHSA-473p-56xx-vg67, https://github.com/advisories/GHSA-73jc-5mrq-prw7, https://github.com/advisories/GHSA-wmhf-fqc8-vxhh, https://github.com/advisories/GHSA-46q3-7gv7-qmgg, https://github.com/advisories/GHSA-8p34-64r3-mwg8, https://github.com/advisories/GHSA-c4fp-cxrr-mj66
+
 ## Recent Operator Signals (2026-07-06)
 
 These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
