@@ -17,6 +17,12 @@ Think in terms of:
 
 ## Positive signals (green flags)
 
+## Recent Operator Signals (2026-07-08)
+
+These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Local agent dashboards with browser-reachable fixed ports are now a high-value target-selection cue.** The July 8 GitHub Advisory Database entry for Serena (`GHSA-37h2-6p4f-mp3q` / `CVE-2026-49471`) describes an unauthenticated Flask dashboard on fixed TCP port 24282 with no CSRF or Host-header validation, enabling DNS rebinding into persistent agent memory poisoning and potential shell-command execution in default contexts. Prioritize AI coding agents, local developer assistants, MCP/agent bridges, and desktop copilots when they explicitly scope localhost dashboards, DNS-rebinding defenses, Host/Origin validation, CSRF tokens, dashboard authentication, fixed-port discovery, persistent-memory trust boundaries, and tool-execution approval gates. Source: https://github.com/advisories/GHSA-37h2-6p4f-mp3q
+
 ### 1) Fast, predictable response cadence
 
 - Auto-ack quickly *and* a **human triage update** within a published window.
