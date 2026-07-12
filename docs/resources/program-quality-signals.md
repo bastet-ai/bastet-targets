@@ -15,6 +15,12 @@ A program can be high-value in different ways:
 
 ## Program signals that correlate with good ROI
 
+## Recent Operator Signals (2026-07-12)
+
+These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **WebSocket edge stacks deserve fresh handshake-smuggling and frame-ceiling review.** Late July 11 GitHub Advisories for Daphne describe WebSocket handshake header smuggling through Autobahn line-separator parsing (`GHSA-xh68-hfp5-5x5m` / `CVE-2026-44546`) and unauthenticated excessive memory consumption from arbitrarily large WebSocket messages or frames (`GHSA-rrc9-mx66-ffcm` / `CVE-2026-44545`). Prioritize realtime collaboration, chat, API-gateway, ASGI/Python backend, GraphQL-subscription, IoT, and control-plane programs that explicitly scope WebSocket upgrades, proxy/origin parser agreement, header canonicalization, frame/message size limits, connection quotas, and safe canary evidence that avoids cross-user desync or service disruption. Sources: https://github.com/advisories/GHSA-xh68-hfp5-5x5m, https://github.com/advisories/GHSA-rrc9-mx66-ffcm
+
 ## Recent Operator Signals (2026-07-11)
 
 These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
