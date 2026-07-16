@@ -6,6 +6,14 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (late 2026-07-15)
+
+These are durable public-advisory signals published after the prior July 15 snapshot. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Document, invoice, and host-inventory parsers added quiet RCE/DoS seams.** `adawolfa/isdoc` uncontrolled resource consumption through ISDOCX/PDF decompression bombs (`GHSA-xg43-5579-qw6v`) and `systeminformation` Linux `networkInterfaces()` command injection via attacker-influenced `interfaces(5)` source-directive paths (`GHSA-5xpp-75jx-m839`) reinforce prioritizing document ingestion, e-invoicing, asset inventory, monitoring agents, and endpoint-management programs that explicitly scope archive/decompression ceilings, parser sandboxing, file-path canonicalization, shell-free inventory collection, and synthetic non-customer corpus evidence. Sources: https://github.com/advisories/GHSA-xg43-5579-qw6v, https://github.com/advisories/GHSA-5xpp-75jx-m839
+- **Rails component rendering and feature-flag operators gained cross-request and namespace-boundary signals.** ViewComponent advisories for reused component instances retaining stale render context and an `around_render` HTML-safety bypass (`GHSA-9h85-g7w3-rh49`, `GHSA-97jw-64cj-jc58`) plus `open-feature-operator` cross-namespace `FeatureFlagSource`/`InProcessConfiguration` exposure (`GHSA-398h-7f66-3h4p`) favor SaaS, admin-console, developer-platform, and Kubernetes/operator programs that scope render-context isolation, HTML-safe marker propagation, tenant/namespace ownership, and safe researcher-owned flag/config objects. Sources: https://github.com/advisories/GHSA-9h85-g7w3-rh49, https://github.com/advisories/GHSA-97jw-64cj-jc58, https://github.com/advisories/GHSA-398h-7f66-3h4p
+- **Data-structure and container DNS helpers added resource and command-construction cues.** `serde_with` KeyValueMap serialization panics on empty sequence/map entries (`GHSA-7gcf-g7xr-8hxj`) and Apple `container` pf rule injection through `container system dns create --localhost` domain arguments (`GHSA-39g5-644c-qwcg`) reinforce scoring for API serializers, config importers, CLI-backed container/dev-environment products, and local networking helpers on empty/edge-case input handling, argv-only command construction, domain-name validation, and non-destructive lab proof. Sources: https://github.com/advisories/GHSA-7gcf-g7xr-8hxj, https://github.com/advisories/GHSA-39g5-644c-qwcg
+
 ## Recent Operator Signals (2026-07-15)
 
 These are durable public-advisory signals. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
