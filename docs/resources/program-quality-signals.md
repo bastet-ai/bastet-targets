@@ -15,6 +15,13 @@ A program can be high-value in different ways:
 
 ## Program signals that correlate with good ROI
 
+## Recent Operator Signals (2026-07-16)
+
+These are durable public-advisory signals published after the late July 15 snapshot. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
+
+- **Proxy-bypass and SSH agent/certificate advisories sharpen edge and developer-platform scoring.** Axios `NO_PROXY` bypass via IPv4-mapped IPv6 handling (`GHSA-pjwm-pj3p-43mv`) and the July 16 `golang.org/x/crypto/ssh` advisory refresh covering callback permission enforcement, revoked host keys, certificate-restriction bypass, forwarded-agent constraint dropping, pathological-key DoS, server deadlock, and host-key/authentication panic paths (`GHSA-x527-x647-q7gg`, `GHSA-5cgq-3rg8-m6cv`, `GHSA-45gg-vh54-h5m9`, `GHSA-f5wc-c3c7-36mc`, `GHSA-w879-237q-wc7r`, `GHSA-vgwf-h737-ff37`, `GHSA-78mq-xcr3-xm33`) reinforce prioritizing API clients, server-side fetchers, CI/deployment platforms, git hosting, bastions, SSH/SFTP-backed SaaS, and device-management programs that explicitly scope proxy/no-proxy canonicalization, IPv4/IPv6 normalization, host-key revocation, certificate constraints, agent-forwarding policy, and resource ceilings. Sources: https://github.com/advisories/GHSA-pjwm-pj3p-43mv, https://github.com/advisories/GHSA-x527-x647-q7gg, https://github.com/advisories/GHSA-5cgq-3rg8-m6cv, https://github.com/advisories/GHSA-45gg-vh54-h5m9, https://github.com/advisories/GHSA-f5wc-c3c7-36mc, https://github.com/advisories/GHSA-w879-237q-wc7r, https://github.com/advisories/GHSA-vgwf-h737-ff37, https://github.com/advisories/GHSA-78mq-xcr3-xm33
+- **AI model-loading and local container DNS helpers added fresh trust-boundary cues.** Diffusers `custom_pipeline` / local custom-component `trust_remote_code` bypass (`GHSA-j7w6-vpvq-j3gm`) and Apple `container` pf rule injection through `container system dns create --localhost` domain arguments (`GHSA-39g5-644c-qwcg`) favor AI inference, model-serving, notebook, developer-environment, container, and local-networking programs that scope explicit remote-code opt-in, model/component provenance, sandboxed loaders, argv-only command construction, domain-name validation, and lab-only proof that does not execute untrusted third-party models or alter production network policy. Sources: https://github.com/advisories/GHSA-j7w6-vpvq-j3gm, https://github.com/advisories/GHSA-39g5-644c-qwcg
+
 ## Recent Operator Signals (late 2026-07-15)
 
 These are durable public-advisory signals published after the prior July 15 snapshot. They are target-selection cues, not vulnerability claims; validate only in owned labs or explicitly authorized programs.
