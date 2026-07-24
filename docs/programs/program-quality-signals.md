@@ -6,6 +6,13 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (late 2026-07-23)
+
+These source-backed target-selection cues were published after the earlier July 23 snapshot. They are not vulnerability claims about any bounty target; confirm application reachability and validate only in owned labs or explicitly authorized programs.
+
+- **Client-side routers can disagree with browsers about where a navigation value points.** Four React Router advisories cover mixed slash/backslash forms, relative colon-bearing paths, unsupported schemes in unstable RSC redirect handling, and attacker-selected constructors during manual SSR error hydration. Favor SSR/framework-mode web applications, identity return flows, CMS-managed navigation, and RSC-enabled programs that scope canonicalization at the final browser sink, routing-mode/version evidence, redirect handling on error paths, and serialized hydration metadata. Sources: https://github.com/advisories/GHSA-wrjc-x8rr-h8h6, https://github.com/advisories/GHSA-jjmj-jmhj-qwj2, https://github.com/advisories/GHSA-h8fp-f39c-q6mh, https://github.com/advisories/GHSA-337j-9hxr-rhxg
+- **Java deserialization risk is often created by classpath composition rather than one dependency alone.** A c3p0 advisory shows JavaBeans introspection exposing JDBC connection getters as properties that an automatic bean-property carrier can invoke during deserialization. Raise priority for Java enterprise, data-platform, reporting, and integration programs that provide source or approved bundle access and scope effective runtime classpaths, reachable deserializers, bean-property carriers, JDBC driver behavior, and marker-only fixed-version controls. Source: https://github.com/advisories/GHSA-w6w4-rjh9-9r58
+
 ## Recent Operator Signals (2026-07-23)
 
 These are durable, source-backed target-selection cues published after the July 22 snapshot. They are not vulnerability claims about any bounty target; validate only in owned labs or explicitly authorized programs.
