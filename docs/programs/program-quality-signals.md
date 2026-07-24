@@ -6,6 +6,14 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Recent Operator Signals (2026-07-24)
+
+These source-backed target-selection cues come from public July 24 advisories. They are not vulnerability claims about any bounty target; confirm the affected component, configuration, and application-controlled reachability before testing in an owned lab or explicitly authorized program.
+
+- **Identity headers can collide only after a trusted proxy hands them to FastCGI.** Caddy's `forward_auth copy_headers` removed exact trusted field names, but underscore aliases could survive and later normalize to the same `HTTP_*` variable as hyphenated fields at a FastCGI backend. Favor Caddy/PHP and other FastCGI programs that scope trusted identity headers, underscore acceptance across every proxy hop, backend normalization, and fixed-version negative controls. Source: https://github.com/advisories/GHSA-f59h-q822-g45g
+- **A configured file policy is only as strong as the least-checked image operation.** ImageMagick's concatenate path could miss read/write policy authorization, with adjacent advisories documenting incomplete policy and HTML-encoder fixes. Raise priority for media conversion, thumbnail, document-preview, and tenant-configurable image pipelines that scope effective policy, operation-specific file opens, denied marker paths, and harmless rendering canaries. Sources: https://github.com/advisories/GHSA-82mp-vp5c-9pf7, https://github.com/advisories/GHSA-56m6-8q75-f2rw, https://github.com/advisories/GHSA-hc76-7mpc-qjqh
+- **Desktop update and launch helpers can create credential and loader boundaries outside the application UI.** Electron tooling could relay nonstandard credential headers across redirect authorities, while generated AppImage launchers could add the current directory to the library search path through an empty environment-path component. Favor private update channels and Linux desktop programs that scope per-hop sensitive-header stripping, redirect authority changes, generated `AppRun` behavior, writable launch directories, loader provenance, and fake-token or inert-library proofs. Sources: https://github.com/advisories/GHSA-p2f4-r6v6-j797, https://github.com/advisories/GHSA-7g7r-gx96-252g
+
 ## Recent Operator Signals (late 2026-07-23)
 
 These source-backed target-selection cues were published after the earlier July 23 snapshot. They are not vulnerability claims about any bounty target; confirm application reachability and validate only in owned labs or explicitly authorized programs.
