@@ -15,6 +15,14 @@ A program can be high-value in different ways:
 
 ## Program signals that correlate with good ROI
 
+## Recent Operator Signals (2026-08-01)
+
+These public, source-backed cues are target-selection heuristics, not vulnerability claims about any bounty target. Confirm exact product, version, route exposure, deployment mode, and authorization before testing; use inert files, owned listeners, and synthetic sessions in disposable labs.
+
+- **AI workflow programs become higher-value when low-trust artifact placement can reach a privileged loader.** A ComfyUI advisory describes unauthenticated upload and prompt routes composing with a dataset node whose `torch.load` call omitted the restrictive `weights_only=True` argument. Favor AI workflow, model, dataset, checkpoint, and agent programs that expose upload-to-loader reachability, per-loader policy parity, canonical storage paths, optional-node trust, and recorder-only sink validation. Source: https://github.com/advisories/GHSA-6p72-9j26-4rmx
+- **Scheduler execution authority must come from the stored job, not a trigger-time destination supplied by the caller.** An xxl-job advisory describes an authenticated trigger request overriding the configured executor through `addressList`. Favor scheduler, CI/CD, automation, webhook, and control-plane programs that let researchers compare stored versus request-selected destinations, job ownership, role requirements, redirect handling, and final connected authority using owned listeners only. Source: https://github.com/advisories/GHSA-xw47-r6m7-qrhr
+- **Logout and other revocation events must invalidate server-side authority, not merely clear browser state.** A FeehiCMS advisory describes a pre-logout session remaining usable after logout. Favor identity and session-management programs that support safe owned-account comparisons across logout, password change, role change, SSO unlink, and “log out all sessions,” with exact pre-event cookies redacted from evidence. Source: https://github.com/advisories/GHSA-jhhh-39pj-vgq6
+
 ## Late Operator Signals (2026-07-31)
 
 These public, source-backed cues are target-selection heuristics, not vulnerability claims about any bounty target. Review status varied across the cited GitHub records when collected. Confirm exact product, version, feature state, deployment mode, and authorization before testing; keep control-plane, filesystem, identity, and parser work inside owned labs.
