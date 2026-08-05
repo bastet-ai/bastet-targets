@@ -6,6 +6,12 @@ This page tracks **durable heuristics** for identifying **high-value / high-sign
 
 ## Quick Heuristics (What “High-Value” Usually Looks Like)
 
+## Late Operator Signal (2026-08-04)
+
+This public, source-backed pattern is a target-selection heuristic, not a vulnerability claim about any bounty target. Confirm the exact source revision, deployment mode, role model, route family, and corrected behavior before testing; use disposable users, synthetic canaries, and an owned no-content recorder only.
+
+- **Multi-user AI platforms are stronger targets when a merely authenticated user can select a server-wide model backend.** Odysseus project issues and fixes show how embedding endpoint administration can combine an authorization gap, an immediate outbound health check, persistent global configuration, and later cross-user runtime consumption. Favor AI, RAG, memory, vault, and agent programs where set/clear/download/delete routes, caller role, configuration revision, redirect policy, final network peer, background-worker state, and each runtime consumer can be compared independently. Sources: https://github.com/odysseus-dev/odysseus/issues/132, https://github.com/odysseus-dev/odysseus/issues/80, https://github.com/odysseus-dev/odysseus/commit/bf325f6b2185cb42bc5d8f5713a64aecffb766d4, https://github.com/odysseus-dev/odysseus/commit/87babb58d57897089b133b313e2ab6d09e7ef54e, https://github.com/advisories/GHSA-7jfx-c8jj-p569, https://github.com/advisories/GHSA-pp2c-7vpq-xf5f
+
 ## Recent Operator Signals (2026-08-04)
 
 These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact release, route, role, backend, deployment mode, and corrected behavior before testing; use synthetic objects, owned appliances, and patched no-op sinks.
