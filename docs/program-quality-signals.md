@@ -17,6 +17,13 @@ Think in terms of:
 
 ## Positive signals (green flags)
 
+## Operator Signals (2026-08-06)
+
+These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact revision, deployment mode, route, policy configuration, and final sink before testing; use disposable instances, synthetic objects, owned no-content peers, and patched deny-only sinks.
+
+- **Agent platforms are stronger targets when effective tool policy can change after the first authorization pass.** Public NanoClaw, Hermes Agent, IronClaw, and super-agent-party records show recurring seams between requested deny sets and later provider-tool injection, approval parsing and shell parsing, path checks and delivery helpers, or URL warnings and the connector that ultimately runs. Favor agent, MCP, copilot, and automation programs where tool provenance, post-injection allow/deny state, approval classification, canonical path or final network peer, and dispatcher reachability can be recorded independently without reading files, executing commands, or contacting private services. Sources: https://github.com/advisories/GHSA-q94p-g4rh-r9rf, https://github.com/NousResearch/hermes-agent/issues/46171, https://github.com/advisories/GHSA-6rr9-mpp7-j4mp, https://github.com/nearai/ironclaw/issues/4861, https://github.com/nearai/ironclaw/pull/4869, https://github.com/advisories/GHSA-m39w-xf3h-v4h2, https://github.com/advisories/GHSA-fvhg-m33v-6wqx
+- **Equivalent route families and asynchronous workers must enforce the same authority as the front-door control.** Red Hat Quay's repository-mirror record and VuFind's controller record highlight two durable checks: URL policy must survive queue serialization and worker-side destination selection, and an access-denied response must terminate dispatch before object resolution or side effects. Favor registry, importer, controller, export, and background-job programs where API/UI or repository/organization route parity, queue handoff, final peer, deny decision, handler entry, and no-op sink invocation can be compared. Sources: https://access.redhat.com/security/cve/CVE-2026-15927, https://bugzilla.redhat.com/show_bug.cgi?id=2501256, https://github.com/advisories/GHSA-9rpm-rwwc-xw43, https://vufind.org/wiki/security:cve-2026-52466, https://github.com/advisories/GHSA-4m6p-2r8v-vvqp
+
 ## Operator Signals (2026-08-05)
 
 These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm exact product versions, configuration branches, caller roles, object ownership, and corrected behavior before testing; use synthetic objects, disposable accounts, and patched no-op sinks only.
