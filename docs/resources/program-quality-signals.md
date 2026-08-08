@@ -15,6 +15,13 @@ A program can be high-value in different ways:
 
 ## Program signals that correlate with good ROI
 
+## Operator Signals (2026-08-08)
+
+These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact product, affected build, installation mode, principal, and final consumer before testing; use isolated lab clients or appliances, synthetic files, owned hostnames, and denied execution/cache sinks.
+
+- **Privileged Windows clients and agents deserve install-path and helper-command review.** WatchGuard advisories for Mobile VPN with SSL Client and Terminal Services Agent describe a standard-user-to-`SYSTEM` command-injection boundary plus privilege escalation when non-default installation directories expose files later consumed with elevated authority. Favor endpoint, VPN, updater, support-agent, and desktop programs where ordinary-user input can reach privileged helpers, and where installer-selected roots, inherited ACLs, service identities, and final file/process consumers can be compared without altering production binaries. Sources: https://www.watchguard.com/wgrd-psirt/advisory/wgsa-2025-00008, https://github.com/advisories/GHSA-m27x-m5c5-4g53, https://www.watchguard.com/wgrd-psirt/advisory/wgsa-2025-00004, https://github.com/advisories/GHSA-wwp5-7982-8x96, https://www.watchguard.com/wgrd-psirt/advisory/wgsa-2025-00005, https://github.com/advisories/GHSA-r5wr-v3gv-93m3
+- **Management WebUIs are higher-signal when request authority can influence trusted navigation, script, or cache state.** WatchGuard's Fireware advisory says attacker-controlled `Host` handling could affect redirects, JavaScript responses, or intermediary caches. Favor firewall, appliance, reverse-proxy, and administrative-console programs that explicitly scope host/proxy-header handling and permit isolated comparison of TLS authority, canonical host, generated absolute URLs, executable response context, and cache identity. Keep reflection, redirect, script-context, and cross-client cache effects as separate claims. Sources: https://www.watchguard.com/wgrd-psirt/advisory/wgsa-2025-00003, https://github.com/advisories/GHSA-4h8g-6mc6-vxxj
+
 ## Late Operator Signals (2026-08-07)
 
 These source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact product, version, feature state, principal, policy, and final sink before testing; use disposable identities, synthetic files and sessions, owned no-content peers, and denied process/network sinks.
