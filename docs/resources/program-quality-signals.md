@@ -15,6 +15,13 @@ A program can be high-value in different ways:
 
 ## Program signals that correlate with good ROI
 
+## Early Operator Signals (2026-08-09)
+
+These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact revision, route exposure, caller role, framework configuration, canonical scan root, and final compiler or file sink before testing; use disposable projects, inert markers, script-disabled browser fixtures, and deny-only compiler/file recorders.
+
+- **Server-side escaping is not the final trust boundary when a client framework recompiles the parsed DOM.** A CTI-Transmute advisory describes stored low-privilege text being HTML-escaped by Jinja, reconstructed inside a Vue mount root, and then interpreted under application-configured template delimiters. Favor report, dashboard, low-code, CMS, and hybrid-rendering programs where stored value, escaped response, browser-parsed DOM, mounted region, configured delimiters, CSP/runtime-compiler state, and final compiler decision can be traced separately. Require an inert compiler recorder and fixed-revision controls; do not equate reflected delimiters or `unsafe-eval` alone with script execution. Sources: https://github.com/advisories/GHSA-6x7q-w685-49vg, https://github.com/MISP/cti-transmute/commit/ecfdaef63860a071c6f07afd30156ca77a77ad2b, https://github.com/MISP/cti-transmute/commit/522fa8ff8223b12a6128ea3fc2344a77b7b9108d
+- **Project identifiers become file capabilities when they select a recursive scan root.** A `react-analyzer-mcp` record describes caller-controlled `projectName` reaching a joined project path, recursive `.jsx`/`.tsx` enumeration, and file reads. Favor MCP, code-analysis, documentation, IDE, and repository-automation programs where transport authentication, schema coercion, canonical root confinement, symlink handling, visited-directory scope, extension filtering, and denied file reads can be verified independently. The GHSA mirror was unreviewed when collected and the cited project issue remained open; confirm current correction status and do not infer remote exposure from package functionality alone. Sources: https://github.com/advisories/GHSA-g23h-49jw-gw6q, https://github.com/azer/react-analyzer-mcp/issues/3
+
 ## Late Operator Signals (2026-08-08)
 
 These public, source-backed patterns are target-selection heuristics, not vulnerability claims about any bounty target. Confirm the exact product, revision, route exposure, principal, redirect behavior, and final file/process/network sink before testing; use disposable roots, synthetic identifiers, patched deny-only sinks, and owned no-content peers.
