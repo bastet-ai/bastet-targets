@@ -129,6 +129,10 @@ See [scope.md](scope.md) for full policy text and breakdown.
 - **Community Engagement**: Active participation in security research community
 - **Regular Updates**: Frequent security patches and feature updates
 
+### Recent Public Security Advisories
+
+- **2026-08-23 — Package Registry Path Traversal → RCE** (High). GitLab CE/EE: an authenticated user could achieve remote code execution via a path traversal in the package registry. Affected: 18.8 < 19.0.6, 19.1 < 19.1.4, 19.2 < 19.2.2. Durable attack-surface note: the package-registry stored-file and package-name canonicalization path is a testable boundary when a low-privilege account can influence package or artifact identifiers. Source: https://github.com/advisories/GHSA-2fpv-gqh2-qq5r (CVE-2026-10053)
+
 ### Technical Characteristics
 - **Ruby on Rails**: Primary application framework
 - **Microservices**: Modern distributed architecture
