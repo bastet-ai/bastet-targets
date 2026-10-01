@@ -149,5 +149,6 @@ See [scope.md](scope.md) for full policy text and breakdown.
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Next Review**: 2025-10-01  
+**Last Intel Review**: 2026-10-01 (advisory-wave sweep)  
+**Next Review**: 2026-11-01  
 **Analyst**: Bastet Security Research Team
