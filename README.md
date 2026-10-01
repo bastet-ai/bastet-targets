@@ -53,7 +53,9 @@ This installs the pinned Python dependencies into `.venv/` and builds a static s
 
 Connect `bastet-ai/bastet-targets` to `bastet-targets` in Workers Builds with repository root `/`, production branch `main`, build command `npm run build`, deploy command `npm run deploy`, and preview command `npm run deploy:preview`. `.nvmrc` and `.python-version` select Node.js 22 and Python 3.12 for builds. No application secrets or storage bindings are needed: the wiki and search index are static build outputs.
 
-The initial Wrangler configuration uses `workers.dev` for preview verification. After validating the preview, add the `targets.bastet.ai` custom domain to the configuration and deploy it. The existing GitHub Pages workflow and source `docs/CNAME` remain available until the Cloudflare custom domain is verified. The Cloudflare build excludes `CNAME` from its output. Workers logs and traces are configured for Worker execution; direct static asset responses do not run application code.
+Workers Builds is not connected yet. Until the Cloudflare GitHub app is installed and this repository is connected, deploy manually from an up-to-date `main` checkout with `npm ci && npm run deploy`. GitHub Actions validates builds and retains an artifact but no longer publishes to GitHub Pages. The last Pages deployment is retained for rollback.
+
+The Wrangler configuration attaches `targets.bastet.ai` and enables `workers.dev` and version preview URLs. The previous GitHub Pages deployment and source `docs/CNAME` remain available for rollback. The Cloudflare build excludes `CNAME` from its output. Workers logs and traces are configured for Worker execution; direct static asset responses do not run application code.
 
 ## 📁 Project Structure
 
