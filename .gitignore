@@ -51,6 +51,11 @@ config.json
 
 # Node modules (if using any Node.js tools)
 node_modules/
+.venv/
+.wrangler/
+tmp/
+.env.*
+.dev.vars*
 
 # Coverage reports
 htmlcov/

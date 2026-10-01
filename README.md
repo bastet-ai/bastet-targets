@@ -41,10 +41,19 @@ This repository serves as a centralized knowledge base for:
 ### Building for Production
 
 ```bash
-mkdocs build
+npm ci
+npm run build
 ```
 
-This generates a static site in the `site/` directory.
+This installs the pinned Python dependencies into `.venv/` and builds a static site in `site/` with strict MkDocs validation. Node.js 22 or newer and Python 3.11 or newer are required for Cloudflare deployment. Full Git history preserves page revision dates; the build fetches history if the checkout is shallow.
+
+### Cloudflare Workers Static Assets
+
+`npm run dev` serves the generated wiki in the local Workers runtime. `npm run check:deploy` validates deployment packaging without publishing. `npm run deploy` publishes the `bastet-targets` Worker. Directory URLs, full-text search, assets, sitemap, and the generated 404 page are served directly by Cloudflare.
+
+Connect `bastet-ai/bastet-targets` to `bastet-targets` in Workers Builds with repository root `/`, production branch `main`, build command `npm run build`, deploy command `npm run deploy`, and preview command `npm run deploy:preview`. `.nvmrc` and `.python-version` select Node.js 22 and Python 3.12 for builds. No application secrets or storage bindings are needed: the wiki and search index are static build outputs.
+
+The initial Wrangler configuration uses `workers.dev` for preview verification. After validating the preview, add the `targets.bastet.ai` custom domain to the configuration and deploy it. The existing GitHub Pages workflow and source `docs/CNAME` remain available until the Cloudflare custom domain is verified. The Cloudflare build excludes `CNAME` from its output. Workers logs and traces are configured for Worker execution; direct static asset responses do not run application code.
 
 ## 📁 Project Structure
 
