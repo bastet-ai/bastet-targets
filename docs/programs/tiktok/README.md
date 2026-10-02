@@ -141,11 +141,14 @@ See [scope.md](scope.md) for full policy text and breakdown.
 - Mobile security research prioritized
 - Regular program policy updates
 
-### Scope Watch (unverified against HackerOne directly — treat as lead)
-- **2026-08 (tracker-reported)**: Third-party HackerOne tracker (bountyhunte.rs) reports TikTok scope coverage changes on 2026-06-26 (in-scope target count contracted 36→35), 2026-07-02, 2026-08-03, and 2026-08-17. Current captured in-scope set includes commerce/pay assets not present in our 2025-09-01 snapshot: `shop.tiktok.com`, `partner.tiktokshop.com`, TikTok Shop Seller Center apps, Tokopedia assets (`affiliate-id/seller-id/shop-id.tokopedia.com`, `pay.tokopediax.com`), `*.pipopay.com` wildcard, `*.tiktokpublishers.com` wildcard, `fp-sg.tiktokv.com`. HackerOne pages are JS-rendered and could not be scraped directly this run — re-verify against https://hackerone.com/tiktok before relying on this. Hunting read: the payments (pipopay) and Tokopedia commerce additions are the freshest attack surface in this program. Source: https://bountyhunte.rs/programs/tiktok
+### Scope Watch (cross-verified via multiple independent trackers 2026-10-02; HackerOne page itself still JS-rendered)
+- **2026-08 (verified via 3 independent trackers)**: Prior single-tracker lead is now corroborated by bbscope.com, bountyhunte.rs, and bugrater-style mirrors. TikTok HackerOne program currently lists **68 scope entries / ~35 in-scope asset groups**. In-scope set confirmed to include commerce/pay assets absent from our 2025-09-01 snapshot: `*.pipopay.com` (wildcard, bounty-eligible, Critical), `*.soundon.global` + `www.soundon.global`, `*.tiktokpublishers.com`, Tokopedia commerce assets (`affiliate-id.tokopedia.com`, `seller-id.tokopedia.com`, `shop-id.tokopedia.com`, `pay.tokopediax.com`), `fp-sg.tiktokv.com`, TikTok Shop Seller Center app (`com.tiktokshop.seller`). Sources: https://bbscope.com/program/h1/tiktok , https://bountyhunte.rs/programs/tiktok
+- **2026-08-17 scope change (new, verified)**: Program **moved US-entity assets OUT of scope**: `drama.tiktok.com`, `shortdrama.tiktok.com`, Android `com.ss.android.ttmd.video`, iOS `6754134922`. This continues a clear pattern of US-joint-venture carve-outs — out-of-scope now also holds `*tiktokv.us`, `*us.tiktokv.com`, `usds.tiktok.com`, `usdsjv.tiktok.com`, `p16-*/p19-* tiktokcdn-us.com` endpoints, and `https://developers.tiktok.com/minis/`. The `ttmd` suffix and usds/usdsjv hosts align with the TikTok US JV entity structure. Hunting read: **do not submit against US-entity assets** (recently and deliberately excluded), while the non-US payments (pipopay) + Tokopedia commerce surface remains the freshest in-scope attack territory in this program. Scope-change history (158 entries) tracked at https://bbscope.com/program/h1/tiktok
+- **Caveat**: All of the above is tracker-derived, not scraped from hackerone.com/tiktok directly. Trackers lag and can duplicate entries (bbscope shows several doubled change rows). Re-verify on the program page before submitting any report that hinges on an asset's eligibility.
 
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Next Review**: 2025-10-01  
+**Last Intel Review**: 2026-10-02 (scope-watch cross-verified via trackers; US-entity carve-outs confirmed)  
+**Next Review**: 2026-11-01 (re-verify scope directly on hackerone.com/tiktok when accessible)  
 **Analyst**: Bastet Security Research Team
