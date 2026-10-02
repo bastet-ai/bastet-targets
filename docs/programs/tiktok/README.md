@@ -141,6 +141,9 @@ See [scope.md](scope.md) for full policy text and breakdown.
 - Mobile security research prioritized
 - Regular program policy updates
 
+### Scope Watch (unverified against HackerOne directly — treat as lead)
+- **2026-08 (tracker-reported)**: Third-party HackerOne tracker (bountyhunte.rs) reports TikTok scope coverage changes on 2026-06-26 (in-scope target count contracted 36→35), 2026-07-02, 2026-08-03, and 2026-08-17. Current captured in-scope set includes commerce/pay assets not present in our 2025-09-01 snapshot: `shop.tiktok.com`, `partner.tiktokshop.com`, TikTok Shop Seller Center apps, Tokopedia assets (`affiliate-id/seller-id/shop-id.tokopedia.com`, `pay.tokopediax.com`), `*.pipopay.com` wildcard, `*.tiktokpublishers.com` wildcard, `fp-sg.tiktokv.com`. HackerOne pages are JS-rendered and could not be scraped directly this run — re-verify against https://hackerone.com/tiktok before relying on this. Hunting read: the payments (pipopay) and Tokopedia commerce additions are the freshest attack surface in this program. Source: https://bountyhunte.rs/programs/tiktok
+
 ---
 
 **Last Enumeration**: 2025-09-01  
