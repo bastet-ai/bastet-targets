@@ -2,6 +2,13 @@
 
 Welcome to the **Bastet Targets** wiki - your comprehensive resource for documenting and analyzing observations from HackerOne's public, paid bounty programs.
 
+!!! info "Current scope and historical notes"
+    Start with the [current public scope directory](programs/current-public.md)
+    for maintained HackerOne policy and asset snapshots. The research notes,
+    payout rankings, activity counts, and reconnaissance claims elsewhere on
+    this site are historical and have not been independently revalidated.
+    They are not authorization to test a target.
+
 <!-- ![HackerOne Observatory](assets/images/hero-banner.png) -->
 
 ## 🎯 What is Bastet Targets?

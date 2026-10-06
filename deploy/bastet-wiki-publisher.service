@@ -1,0 +1,18 @@
+[Unit]
+Description=Verify and publish bounded public HackerOne wiki snapshots
+Requires=bastet-console-db-tunnel.service
+After=bastet-console-db-tunnel.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/projects/bastet-targets
+Environment=PATH=%h/.nvm/versions/node/v24.19.0/bin:/usr/local/bin:/usr/bin:/bin
+UMask=0077
+NoNewPrivileges=true
+ExecStartPre=%h/.nvm/versions/node/v24.19.0/bin/node %h/projects/bastet-targets/scripts/wiki-publisher.mjs refresh --config %h/.config/bastet-wiki/publisher.json
+# Let campaign agents observe refreshed hashes and request their immutable proposals.
+ExecStartPre=/usr/bin/sleep 60
+ExecStart=%h/.nvm/versions/node/v24.19.0/bin/node %h/projects/bastet-targets/scripts/wiki-publisher.mjs publish --config %h/.config/bastet-wiki/publisher.json --limit 21
+TimeoutStartSec=40min
+Restart=no
+KillMode=control-group

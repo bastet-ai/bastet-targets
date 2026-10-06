@@ -198,3 +198,11 @@ Detailed vulnerability observations, exact endpoints, headers, identifiers, and 
 ---
 
 **Status**: 🎯 **HIGH-VALUE TARGET CONFIRMED** - Large public attack surface; keep vulnerability-specific evidence private and disclose validated issues through HackerOne.
+
+<!-- bastet-public-scope-link:v1 -->
+## Current public scope
+
+[Verified public scope and policy](public-scope.md)
+
+Historical research notes on this page are not verified authorization or current scope. Consult the linked public snapshot and the current HackerOne policy before testing.
+<!-- /bastet-public-scope-link:v1 -->

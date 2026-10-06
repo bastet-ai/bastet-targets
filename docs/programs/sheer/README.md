@@ -47,3 +47,11 @@ See scope.md for full text capture and breakdown.
 
 - Track program policy updates and scope changes monthly.
 - **URGENT**: Beta environment shows high-risk exposures requiring immediate attention.
+
+<!-- bastet-public-scope-link:v1 -->
+## Current public scope
+
+[Verified public scope and policy](public-scope.md)
+
+Historical research notes on this page are not verified authorization or current scope. Consult the linked public snapshot and the current HackerOne policy before testing.
+<!-- /bastet-public-scope-link:v1 -->

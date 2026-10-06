@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "test": "node --test scripts/test/*.test.mjs",
     "build": "bash scripts/build-cloudflare.sh",
     "dev": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy",
@@ -11,6 +12,9 @@
   },
   "devDependencies": {
     "wrangler": "4.145.0"
+  },
+  "dependencies": {
+    "pg": "8.23.1"
   },
   "engines": {
     "node": ">=22"

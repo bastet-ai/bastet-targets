@@ -1,0 +1,11 @@
+[Unit]
+Description=Bounded public wiki maintenance every six hours while the user session is available
+
+[Timer]
+OnStartupSec=15min
+OnUnitInactiveSec=6h
+AccuracySec=1min
+Unit=bastet-wiki-publisher.service
+
+[Install]
+WantedBy=timers.target

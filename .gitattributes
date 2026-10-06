@@ -1,0 +1,4 @@
+# Generated public snapshots intentionally preserve upstream whitespace inside
+# inert, indented policy text, including indented blank lines. Keep all other
+# diff checks and all other paths unchanged.
+docs/programs/*/public-scope.md whitespace=-blank-at-eol

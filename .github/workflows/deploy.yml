@@ -43,6 +43,9 @@ jobs:
 
       - name: Install deployment tooling
         run: npm ci
+
+      - name: Test public source and publisher boundaries
+        run: npm test
       
       - name: Build and validate Cloudflare package
         run: npm run check:deploy

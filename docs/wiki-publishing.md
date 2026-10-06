@@ -1,0 +1,149 @@
+# Public scope publishing
+
+Each enabled campaign has a wiki-maintenance agent. The agent requests publication
+of the campaign's current source hash. It cannot write prose, select a destination,
+read other campaigns, hold Git/Cloudflare credentials, or run arbitrary commands.
+A trusted-host publisher independently verifies HackerOne is still public,
+re-fetches the complete anonymous scope, and requires an identical content hash.
+Only that anonymous response is rendered. Authenticated scope snapshots, research
+notes, findings and report drafts never enter this publishing pipeline.
+
+Public program status does not authorize public disclosure of vulnerabilities.
+This pipeline publishes public policy/scope only, not vulnerability evidence.
+
+## Documents and provenance
+
+Current snapshots live at `programs/<program>/public-scope/`. Human profile pages
+receive a small link and a warning that their historical research notes do not
+establish current scope. Existing `scope.md` and human sections are preserved.
+After a verified publication, the exact generated-file content hash is recorded
+in protected publisher state. Subsequent replacement requires that baseline to
+match the current file byte-for-byte. A retained generated marker alone is never
+sufficient: human edits, removal, or missing baseline cause a hold. README edits
+outside the small managed link block remain untouched.
+
+The source includes every current non-archived scope returned by the anonymous
+HackerOne API, without filtering on bounty eligibility. Separate exclusions that
+the anonymous API does not represent are explicitly marked unresolved; the
+canonical HackerOne policy remains authoritative. A snapshot is not a testing
+authorization. Its public source digest, fetch time and limitations are visible.
+
+## Trusted-host configuration
+
+Install locked dependencies with `npm ci`. Configuration must be an owner-only
+JSON file outside this checkout. Never add an actual configuration to this repo.
+It has these fields:
+
+- `repositoryPath`: absolute path to the dedicated wiki checkout.
+- `stateDirectory`: absolute owner-only directory outside the checkout.
+- `databaseUrl`: credential-bearing PostgreSQL URL for the narrow publisher role.
+  Do not use a database owner or research role. URL query parameters are normally rejected.
+- `databaseCaPath` and `databaseServerName`: verified PostgreSQL TLS CA and name.
+- `campaigns`: at most 21 fixed `{campaignId, handle}` mappings approved by the
+  operator. These internal identifiers belong only in the protected configuration.
+
+The default transport is verified TLS. One explicit exception is available for
+the operator-managed local SSH database tunnel: set `databaseTransport` to
+`ssh-loopback`, use exactly host `127.0.0.1`, port `6544`, dedicated login
+`bastet_wiki_publisher_local`, and the single query parameter `sslmode=disable`.
+Omit the CA/name fields in that mode. The existing SSH tunnel must be active and
+have its remote identity verified by the operator. No other unencrypted address,
+port, username, or URL options are accepted. This does not disable TLS globally.
+
+The publisher role calls only `bastet_wiki` publication functions. It does not need
+direct table grants or access to console/research tables. Credentials remain on
+the trusted host. Existing HackerOne credentials stay in the local console;
+anonymous wiki refresh does not use them or refresh the console's authenticated
+scope snapshot.
+
+## Initial reviewed publication
+
+Run this from the clean approved integration branch after campaign agents have
+requested proposals. The explicit limit permits initial onboarding only:
+
+```sh
+node scripts/wiki-publisher.mjs stage --config /absolute/private/publisher.json --limit 21
+```
+
+`stage` writes only the allowlisted generated scope file and its README link. It
+does not Git-stage, commit, push, build, deploy, or mark anything published. Review
+the exact diff, run tests/build, commit only reviewed public files, and publish
+through the repository's normal approved workflow. A pending lease lasts 45
+minutes: complete the reviewed initial release inside that window or reconcile
+the expired proposal explicitly. Never silently extend or reclaim it.
+
+After the approved release is on `main`, pushed, deployed and the checkout clean:
+
+```sh
+node scripts/wiki-publisher.mjs verify-staged --config /absolute/private/publisher.json
+```
+
+This rechecks file hashes, exact remote/main identity, current anonymous scope and
+public page digests before recording publication receipts.
+
+## Bounded maintenance
+
+On the trusted host, schedule these commands using an operator-installed user
+service/timer and the host's pinned Node executable:
+
+```sh
+node scripts/wiki-publisher.mjs refresh --config /absolute/private/publisher.json
+node scripts/wiki-publisher.mjs publish --config /absolute/private/publisher.json
+```
+
+Example user units are in `deploy/bastet-wiki-publisher.service` and
+`deploy/bastet-wiki-publisher.timer`. They use the pinned Node 24.19.0 installation,
+the existing loopback database tunnel service, and owner-only configuration at
+`~/.config/bastet-wiki/publisher.json`. Set its `stateDirectory` to
+`~/.local/state/bastet-wiki` expanded to an absolute path. The service refreshes
+anonymous sources, waits 60 seconds for campaign agents to request proposals,
+then publishes one bounded batch. It starts 15 minutes after the user manager
+starts and six hours after the previous invocation finishes. The host and user
+manager must be running; this is not a cloud scheduler or an implied always-on
+service. Installation/enabling is an explicit operator action, separate from
+adding these example files to the repository.
+
+`refresh` considers only the fixed configuration allowlist, at most 21 campaigns,
+and updates only public wiki-source projections. Failed anonymous verification
+invalidates publication availability. It does not fall back to authenticated data.
+Agents observe a changed source hash and request new proposals on their next
+poll. A timer can run more frequently for that handoff, but the publisher enforces
+at most one completed maintenance batch per six hours across the instance. A
+batch contains at most 21 changed campaign proposals and uses one commit and one
+deployment, so all enabled campaigns can progress within the freshness window.
+
+Automatic publication requires the exact `main` branch and
+`https://github.com/bastet-ai/bastet-targets.git` fetch/push remote, a clean checkout,
+a fast-forward-only refresh, an exclusive local lock and PostgreSQL advisory lock.
+It checks each fresh anonymous source twice, builds, stages only the two
+allowlisted paths per campaign, compares the remote head, commits, and pushes
+without force. A private detached worktree of that exact commit is then created
+under the external state directory. Locked dependencies are installed there and
+the existing `npm run deploy` runs there, so concurrent edits to the normal
+checkout cannot be included. Each public source digest is verified. Any unrelated
+edit, remote advancement, symlink/path violation, changed public status/hash,
+expired lease or failed public check stops the release.
+
+The deployment checkout must have access to the pinned Wrangler credentials, but
+the agent sandbox must not. Do not overlap manual deployment with this timer.
+The normal GitHub workflow validates builds; it is not a second deploy mechanism.
+
+## Failure and recovery
+
+No success receipt is recorded until public verification passes. Once files might
+have changed, interruption metadata is saved privately before each external phase.
+Ambiguous failures remain held, even when the push or deployment may have worked.
+There is no automatic lease reclamation, force push, rollback, deletion or retry.
+Branch protections are respected: a rejected push is held for the normal approved
+review/merge process, never bypassed. Exact-commit deployment worktrees are retained
+under the private state directory for operator-reviewed recovery and cleanup.
+
+Pause the timer before reconciliation. Inspect the protected receipt, exact commit,
+remote/main and public digest. Preserve any human edits and local generated
+commit. Restore or complete the exact reviewed release through the normal operator
+workflow; only then reconcile the held database proposal and private state. A
+leftover lock after process death requires the same check before removing that
+specific lock directory. Do not clear state simply to make the next cycle run.
+
+If a program stops being publicly verifiable, future publication is held. Existing
+historical wiki pages are not silently removed. Review their retention separately.
