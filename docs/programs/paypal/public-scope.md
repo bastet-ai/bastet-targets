@@ -6,9 +6,9 @@ This generated reference contains only an anonymously retrieved public policy an
 
 Canonical rules: [HackerOne program](https://hackerone.com/paypal) · [Scope](https://hackerone.com/paypal/policy_scopes)
 
-Publicly verified: 2026-10-06T23:26:52.082Z.
+Publicly verified: 2026-10-07T11:34:53.142Z.
 
-Public source digest: 6fa61e8563cf7a4fa97f6eeac5ff1a9ddb7f8700f794b13633761d090ae4c3d1
+Public source digest: 2a1abe5f301b31511c27cce59f821490b60bdb428cf7c269dc00862f103a89e1
 
 ### Program
 
@@ -309,6 +309,9 @@ Public source digest: 6fa61e8563cf7a4fa97f6eeac5ff1a9ddb7f8700f794b13633761d090a
     | After 60 days of discovery | Full standard bounty |
     
     Please note that the timeline for any zero-day submission begins from when the public security advisory and/or patch of the vulnerability are published. 
+    
+    ##Bypassed a fix? 
+    If a report has been fully resolved and you later find a working bypass of the fix, submit it as a new report. Bypasses are awarded 20% of the amount paid for the original report. A bypass is treated as the same underlying issue rather than a new finding, but we recognize the additional effort involved in defeating a remediation and reward it accordingly.
     
     ## Reports not Eligible for Rewards 
     - All out-of-scope assets are not eligible for rewards.  
