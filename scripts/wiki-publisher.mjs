@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchPublicSource, publicSourceDigest, renderPublicSection, validatePublicSource } from './lib/public-source.mjs';
 import { fetchPublicVisibility, confirmRetirement } from './lib/public-visibility.mjs';
 import { prepareRetirementFiles, retirementSmoke } from './lib/wiki-retirement.mjs';
+import { isOperatorExcluded } from './lib/operator-exclusions.mjs';
 
 export const REMOTE = 'https://github.com/bastet-ai/bastet-targets.git';
 export const SITE = 'https://targets.bastet.ai';
@@ -68,6 +69,7 @@ export function wikiPaths(handle) {
 
 export function validateProposal(row, config) {
   if (!row || !UUID.test(row.id) || !UUID.test(row.campaign_id) || !UUID.test(row.lease_token) || !SHA.test(row.source_hash)) fail('INVALID_PROPOSAL');
+  if (isOperatorExcluded(row.handle)) fail('OPERATOR_RETIRED_PROGRAM');
   if (!config.campaigns.some(c => c.campaignId === row.campaign_id && c.handle === row.handle)) fail('CAMPAIGN_NOT_ALLOWLISTED');
   if (row.renderer_version !== RENDERER || row.wiki_path !== wikiPaths(row.handle).scope) fail('PROPOSAL_CONTRACT_MISMATCH');
   return row;
@@ -117,6 +119,7 @@ async function writeExact(root, path, before, after) {
 }
 
 export async function prepareFiles(root, proposal, source, { previousContentHash } = {}) {
+  if (isOperatorExcluded(proposal.handle)) fail('OPERATOR_RETIRED_PROGRAM');
   validatePublicSource(source);
   if (source.program.handle !== proposal.handle || source.program.state !== 'public_mode' || publicSourceDigest(source) !== proposal.source_hash) fail('PUBLIC_SOURCE_CHANGED');
   const paths = wikiPaths(proposal.handle);
@@ -256,8 +259,9 @@ export async function runCycle(config, { mode = 'publish', limit = 21, db, store
     const base = mode === 'publish' ? synchronizeRepository(config.repositoryPath, run) : checkRepository(config.repositoryPath, mode, run);
     const output = [], batch = [], claimed = [];
     try {
-    for (let index = 0; index < limit; index++) {
-      const proposal = await store.claimProposal(db, { campaignIds: config.campaigns.map(c => c.campaignId) });
+    const campaignIds = config.campaigns.filter(c => !isOperatorExcluded(c.handle)).map(c => c.campaignId);
+    for (let index = 0; index < limit && campaignIds.length; index++) {
+      const proposal = await store.claimProposal(db, { campaignIds });
       if (!proposal) break;
       claimed.push(proposal);
         validateProposal(proposal, config);
@@ -363,6 +367,10 @@ async function refreshSources(config, { db, store, fetchSource, fetchVisibility 
   for (const row of campaigns) {
     const id = row.campaign_id ?? row.id;
     if (!config.campaigns.some(c => c.campaignId === id && c.handle === row.handle)) fail('CAMPAIGN_NOT_ALLOWLISTED');
+    if (isOperatorExcluded(row.handle)) {
+      await store.invalidateSource(db, id, 'operator_retired_program');
+      output.push({ handle: row.handle, status: 'operator_retired' }); continue;
+    }
     if (row.wiki_path !== wikiPaths(row.handle).scope) fail('PROPOSAL_CONTRACT_MISMATCH');
     if (state.retired[row.handle]) {
       await store.invalidateSource(db, id, 'retired_public_program');

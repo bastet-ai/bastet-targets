@@ -12,10 +12,8 @@ Last updated: 2025-09-01
 | 2 | Eternal | $9,300.00 | 12 | https://hackerone.com/eternal |
 | 3 | OKG | $7,500.00 | 6 | https://hackerone.com/okg |
 | 4 | TikTok | $6,000.00 | 12 | https://hackerone.com/tiktok |
-| 5 | Sheer | $900.00 | 6 | https://hackerone.com/sheer_bbp |
 | 6 | GitLab | $600.00 | 12 | https://hackerone.com/gitlab |
 | 7 | PayPal | $600.00 | 6 | https://hackerone.com/paypal |
-| 8 | Ferrero | $0.00 | 30 | https://hackerone.com/ferrero |
 | 10 | Zooplus | $0.00 | 18 | https://hackerone.com/zooplus |
 
 ## Strategic High-Value Additions
@@ -192,7 +190,6 @@ These showed up again in the public HackerOne program page as especially worth a
 | **Airbnb** | 🔥 **HIGH** | Massive real-world workflow surface plus rich public disclosure history; strong candidate for authZ, recovery, and trust-boundary chains | https://hackerone.com/airbnb |
 | **Amazon VRP** | 🔥 **HIGH** | Broad product surface with explicit reporting program and mature security posture; worth prioritizing for deep, chain-based testing | https://hackerone.com/amazonvrp |
 | **Anduril Industries** | 🔥 **HIGH** | Explicit reproducibility expectations and a mature disclosure policy suggest structured triage and higher-value operational/defense surfaces | https://hackerone.com/anduril_industries |
-| **Basecamp** | 🔥 **HIGH** | Publicly values researcher insight and pays for quality; workflow-heavy SaaS tends to reward careful manual work | https://hackerone.com/basecamp |
 
 
 ## Historical Notes (recent activity)
@@ -201,10 +198,9 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Eternal**: Frequent awards in late August; steady reporter engagement.
 - **OKG**: Notable award spikes mid-to-late August 2025.
 - **TikTok**: Regular bounty activity; multiple awards in August 2025.
-- **Sheer**: Lower absolute payouts but steady cadence of awards.
 - **GitLab**: Smaller individual awards; consistent monthly activity.
 - **PayPal**: Intermittent awards, including early September.
-- **Ferrero/Zooplus**: High volume of resolved activity; limited public award amount exposure.
+- **Zooplus**: High volume of resolved activity; limited public award amount exposure.
 
 ## Program Quality Signals (Community/Operational Heuristics)
 

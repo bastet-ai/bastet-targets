@@ -8,6 +8,7 @@ import { publicSourceDigest } from '../lib/public-source.mjs';
 import { REMOTE, validateConfig, databaseOptions, wikiPaths, validateProposal, linkReadme, safePath, prepareFiles, dirtyPaths, assertOnlyPaths, checkRepository, publicSmoke, runCycle, deployExactCommit, command, safeError } from '../wiki-publisher.mjs';
 import * as adapter from '../lib/publication-store.mjs';
 import { prepareRetirementFiles, rewriteRetirementReferences, retirementSmoke } from '../lib/wiki-retirement.mjs';
+import { OPERATOR_EXCLUSIONS } from '../lib/operator-exclusions.mjs';
 
 const CAMPAIGN = '11111111-1111-4111-8111-111111111111';
 const PROPOSAL = '22222222-2222-4222-8222-222222222222';
@@ -89,6 +90,36 @@ test('proposal cannot choose campaign, renderer, path or handle', async t => {
   assert.throws(() => validateProposal({ ...row, wiki_path: 'docs/index.md' }, config));
   assert.throws(() => validateProposal({ ...row, handle: 'uber' }, config));
   assert.throws(() => validateProposal({ ...row, renderer_version: 'evil' }, config));
+});
+test('explicit operator retirement blocks stale proposals and rendering for all three public programs', async t => {
+  const { config, root } = await fixture(t);
+  assert.deepEqual(Object.keys(OPERATOR_EXCLUSIONS).sort(), ['basecamp', 'ferrero', 'sheer_bbp']);
+  for (const handle of Object.keys(OPERATOR_EXCLUSIONS)) {
+    const value = source(handle), row = proposal(value);
+    const staleConfig = { ...config, campaigns: [{ campaignId: CAMPAIGN, handle }] };
+    assert.throws(() => validateProposal(row, staleConfig), /OPERATOR_RETIRED_PROGRAM/);
+    await assert.rejects(prepareFiles(root, row, value), /OPERATOR_RETIRED_PROGRAM/);
+  }
+});
+test('stale excluded campaign configuration cannot claim a publication', async t => {
+  const { config } = await fixture(t), runner = fakeCommands();
+  config.campaigns = [{ campaignId: CAMPAIGN, handle: 'basecamp' }];
+  let claims = 0;
+  const result = await runCycle(config, { mode: 'stage', db, run: runner.run,
+    store: { async claimProposal() { claims++; throw new Error('must not claim'); } },
+    fetchSource: async () => { throw new Error('must not fetch excluded source'); } });
+  assert.equal(result.status, 'idle'); assert.equal(claims, 0);
+});
+test('refresh invalidates an operator-retired public source without querying HackerOne', async t => {
+  const { config } = await fixture(t);
+  config.campaigns = [{ campaignId: CAMPAIGN, handle: 'sheer_bbp' }];
+  const calls = [];
+  const result = await runCycle(config, { mode: 'refresh', db,
+    store: { async listMaintenanceCampaigns() { return [{ id: CAMPAIGN, handle: 'sheer_bbp', wiki_path: wikiPaths('sheer_bbp').scope }]; },
+      async invalidateSource(_db, id, reason) { calls.push({ id, reason }); } },
+    fetchSource: async () => { throw new Error('must not fetch excluded source'); } });
+  assert.deepEqual(result.entries, [{ handle: 'sheer_bbp', status: 'operator_retired' }]);
+  assert.deepEqual(calls, [{ id: CAMPAIGN, reason: 'operator_retired_program' }]);
 });
 test('human README is preserved byte-for-byte and linked only once', () => {
   const human = '# Human title\n\nA hand-written section.\n'; const linked = linkReadme(human, 'gitlab');

@@ -23,6 +23,11 @@ choose paths, author Markdown, push Git, deploy, or access publication credentia
   Remove its maintained listing/navigation links, preserve other human notes and
   other programs' authoritative policy quotations. Keep Git history recoverable.
   Network, schema and generic API errors are holds, never deletion evidence.
+- An explicit operator retirement can remove a still-public program. The fixed
+  exclusions in `scripts/lib/operator-exclusions.mjs` prevent publication and
+  refresh from recreating Basecamp, Sheer, and Ferrero. Keep that decision in
+  force until the operator explicitly approves readmission; public visibility
+  alone does not reverse it.
 - Before publication, reconcile the current remote branch without force. Never
   publish arbitrary dirty files or erase work to make a checkout clean.
 - Use the existing pinned build/deploy scripts. Run

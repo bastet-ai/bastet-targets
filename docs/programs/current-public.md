@@ -12,15 +12,12 @@ restrictions on HackerOne before starting any work.
 | `airbnb` | [Airbnb](airbnb/public-scope.md) |
 | `amazonvrp` | [Amazon](amazonvrp/public-scope.md) |
 | `anduril_industries` | [Anduril](anduril_industries/public-scope.md) |
-| `basecamp` | [Basecamp](basecamp/public-scope.md) |
 | `coinbase` | [Coinbase](coinbase/public-scope.md) |
 | `eternal` | [Eternal](eternal/public-scope.md) |
-| `ferrero` | [Ferrero](ferrero/public-scope.md) |
 | `gitlab` | [GitLab](gitlab/public-scope.md) |
 | `nba-public` | [NBA](nba/public-scope.md) |
 | `okg` | [OKG](okg/public-scope.md) |
 | `paypal` | [PayPal](paypal/public-scope.md) |
-| `sheer_bbp` | [Sheer](sheer/public-scope.md) |
 | `tiktok` | [TikTok](tiktok/public-scope.md) |
 | `uber` | [Uber](uber/public-scope.md) |
 | `zooplus` | [Zooplus](zooplus/public-scope.md) |
@@ -39,5 +36,9 @@ retired. A transient API failure only holds updates; it does not authorize delet
 A program's absence from this list does not authorize testing. Separate exclusions and
 announcements may not be represented by the public structured-scope interface;
 the canonical HackerOne policy remains authoritative.
+
+The operator may also remove a public program when its rules are incompatible
+with the research workflow. Such programs remain excluded from automatic
+publication until the operator explicitly approves readmission.
 
 See [how publication works](../wiki-publishing.md).

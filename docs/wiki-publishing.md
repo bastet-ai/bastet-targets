@@ -149,6 +149,23 @@ specific lock directory. Do not clear state simply to make the next cycle run.
 
 ## Removing no-longer-public programs
 
+### Explicit operator retirement
+
+The operator can also retire a still-public program whose rules do not fit this
+research workflow. On 2026-10-07 the operator requested removal of Basecamp,
+Sheer, and Ferrero. Their exact program directories and maintained target
+listings were removed; this is not a claim that HackerOne removed those programs.
+
+`scripts/lib/operator-exclusions.mjs` records the fixed handles `basecamp`,
+`sheer_bbp`, and `ferrero`. Refresh invalidates their wiki sources without fetching
+new content, proposal claims exclude their campaign identifiers, and proposal
+validation and rendering reject them even if a stale configuration or proposal
+remains. Readmission requires an explicit reviewed change to this exclusion list.
+Historical notes in other documents and another program's authoritative policy
+quotes are preserved. Deleted pages remain recoverable from Git history.
+
+### Anonymous visibility retirement
+
 The owner requires programs that are no longer publicly visible to be removed
 from the deployed wiki. A separate visibility-only anonymous query distinguishes
 recognized non-public states, a complete null-metadata stub, and an exact
