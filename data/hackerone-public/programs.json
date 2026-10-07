@@ -1,18 +1,6 @@
 {
-  "generated_at": "2026-04-04T11:41:22+00:00",
-  "programs": [
-    {
-      "description": "This community-curated security page documents any known process for reporting a security vulnerability to 000webhost, often referred to as vulnerability disclosure (ISO 29147), a responsible disclosure policy, or bug bounty program.\n",
-      "fetched_at": "2026-01-31T04:10:48+00:00",
-      "handle": "000webhost",
-      "name": "",
-      "og_title": "",
-      "program_type": "bug-bounty",
-      "sitemap_lastmod": "2018-10-23",
-      "url": "https://hackerone.com/000webhost",
-      "verification": "public-meta"
-    }
-  ],
+  "generated_at": "2026-10-07T00:00:47+00:00",
+  "programs": [],
   "source": {
     "handles_seen": 298175,
     "page_fetch_cap": 200,

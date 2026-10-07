@@ -16,7 +16,6 @@ Last updated: 2025-09-01
 | 6 | GitLab | $600.00 | 12 | https://hackerone.com/gitlab |
 | 7 | PayPal | $600.00 | 6 | https://hackerone.com/paypal |
 | 8 | Ferrero | $0.00 | 30 | https://hackerone.com/ferrero |
-| 9 | MediaTek | $0.00 | 24 | https://hackerone.com/mediatek |
 | 10 | Zooplus | $0.00 | 18 | https://hackerone.com/zooplus |
 
 ## Strategic High-Value Additions
@@ -60,12 +59,9 @@ Last updated: 2025-09-01
 ### Newly Interesting Public HackerOne Targets (2026-03-31 scan)
 These showed up again in the public HackerOne program page as especially worth a closer look:
 - **1Password** — creative/manual research is explicitly favored; scanners are unlikely to help.
-- **Akamai** — CDN/origin/proxy trust boundaries; soft-launch / invite-only posture.
 - **Airbnb** — huge real-world workflow surface; strong fit for authZ, recovery, and trust-boundary chains.
-- **Airlock Secure Access Hub** — WAF + IAM stack protecting 30k+ apps; edge and identity bugs can be high impact.
 - **Amazon Vulnerability Research Program** — broad surface with mature triage expectations.
 - **Anduril Industries** — reproducible reports and structured disclosure language suggest higher signal.
-- **Atlassian** — large enterprise SaaS surface with frequent workflow/auth complexity.
 
 ### Operator-quality cue from public advisories (2026-06-30)
 
@@ -193,12 +189,9 @@ These showed up again in the public HackerOne program page as especially worth a
 | ------- | -------- | ------ | ------------ |
 | **Coinbase** | 🚨 **CRITICAL** | Major crypto exchange, $50K+ critical bounties, 519 subdomains discovered | https://hackerone.com/coinbase |
 | **1Password** | 🔥 **HIGH** | Public page explicitly asks for creative researchers; scanners are unlikely to help, which usually means higher manual-EV surface | https://hackerone.com/1password |
-| **Akamai** | 🔥 **HIGH** | Public soft-launch / invite-only posture focused on CDN/origin/proxy-layer trust boundaries | https://hackerone.com/akamai |
-| **Airlock Secure Access Hub** | 🔥 **HIGH** | WAF + IAM platform protecting 30k+ apps; complex auth and edge paths tend to pay off | https://hackerone.com/airlock |
 | **Airbnb** | 🔥 **HIGH** | Massive real-world workflow surface plus rich public disclosure history; strong candidate for authZ, recovery, and trust-boundary chains | https://hackerone.com/airbnb |
 | **Amazon VRP** | 🔥 **HIGH** | Broad product surface with explicit reporting program and mature security posture; worth prioritizing for deep, chain-based testing | https://hackerone.com/amazonvrp |
 | **Anduril Industries** | 🔥 **HIGH** | Explicit reproducibility expectations and a mature disclosure policy suggest structured triage and higher-value operational/defense surfaces | https://hackerone.com/anduril_industries |
-| **Atlassian** | 🔥 **HIGH** | Large enterprise software surface with frequent releases and plenty of auth/workflow complexity | https://hackerone.com/atlassian |
 | **Basecamp** | 🔥 **HIGH** | Publicly values researcher insight and pays for quality; workflow-heavy SaaS tends to reward careful manual work | https://hackerone.com/basecamp |
 
 
@@ -211,7 +204,7 @@ These showed up again in the public HackerOne program page as especially worth a
 - **Sheer**: Lower absolute payouts but steady cadence of awards.
 - **GitLab**: Smaller individual awards; consistent monthly activity.
 - **PayPal**: Intermittent awards, including early September.
-- **Ferrero/MediaTek/Zooplus**: High volume of resolved activity; limited public award amount exposure.
+- **Ferrero/Zooplus**: High volume of resolved activity; limited public award amount exposure.
 
 ## Program Quality Signals (Community/Operational Heuristics)
 

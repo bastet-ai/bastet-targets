@@ -15,7 +15,9 @@ This pipeline publishes public policy/scope only, not vulnerability evidence.
 
 Current snapshots live at `programs/<program>/public-scope/`. Human profile pages
 receive a small link and a warning that their historical research notes do not
-establish current scope. Existing `scope.md` and human sections are preserved.
+establish current scope. Existing `scope.md` and human sections are preserved
+while the program remains public; the retirement policy below is the explicit
+exception for a no-longer-public program's own directory.
 After a verified publication, the exact generated-file content hash is recorded
 in protected publisher state. Subsequent replacement requires that baseline to
 match the current file byte-for-byte. A retained generated marker alone is never
@@ -133,7 +135,7 @@ The normal GitHub workflow validates builds; it is not a second deploy mechanism
 No success receipt is recorded until public verification passes. Once files might
 have changed, interruption metadata is saved privately before each external phase.
 Ambiguous failures remain held, even when the push or deployment may have worked.
-There is no automatic lease reclamation, force push, rollback, deletion or retry.
+There is no automatic lease reclamation, force push, rollback or ambiguous retry.
 Branch protections are respected: a rejected push is held for the normal approved
 review/merge process, never bypassed. Exact-commit deployment worktrees are retained
 under the private state directory for operator-reviewed recovery and cleanup.
@@ -145,5 +147,53 @@ workflow; only then reconcile the held database proposal and private state. A
 leftover lock after process death requires the same check before removing that
 specific lock directory. Do not clear state simply to make the next cycle run.
 
-If a program stops being publicly verifiable, future publication is held. Existing
-historical wiki pages are not silently removed. Review their retention separately.
+## Removing no-longer-public programs
+
+The owner requires programs that are no longer publicly visible to be removed
+from the deployed wiki. A separate visibility-only anonymous query distinguishes
+recognized non-public states, a complete null-metadata stub, and an exact
+structured `NOT_FOUND` response from transport failures and schema changes.
+A null stub establishes only that the program is not publicly visible, not
+whether it was made private or removed. Public programs with paused or disabled
+submissions remain public; that status never authorizes testing.
+
+Retirement requires two matching target reads bracketed by two successful reads
+of a known-public control. The source is invalidated through the existing narrow
+database function and the protected local state queues the handle for retirement.
+Network failures, HTTP 429/5xx, malformed responses, unknown states, and generic
+GraphQL errors only hold publication. They do not queue a deletion.
+
+The next `publish` invocation prioritizes retirement over the six-hour content
+update cap. It independently repeats visibility confirmation before preparation,
+after building, and immediately before deployment. A clean, exact `main` checkout
+is required. Only exact tracked files in the fixed allowlisted program directory
+are deleted; its current-scope row and navigation references are removed. Links
+in other human notes become plain labels without erasing those notes. Another
+program's authoritative policy quotations are not altered. No path or prose from
+an agent can choose what is deleted, and no recursive filesystem deletion is used.
+
+Deletion/build/commit/push/deployment phases are journaled in private state. The
+ordinary non-force compare-and-swap Git workflow and exact-commit deployment
+remain mandatory. Completion requires real 404 responses for the old profile,
+scope and generated-scope URLs, plus absence from the public scope directory.
+A failed or ambiguous phase holds for operator review. Git history preserves
+recovery; this does not purge prior public Git history or third-party caches.
+
+A retired program stays blocked from automatic restoration even if it becomes
+public later. An operator must review its current scope and explicitly approve
+readmission. The old sitemap/HTML-metadata crawler's publication entrypoint is
+disabled because cached metadata alone could reintroduce removed listings.
+
+### Public listing cleanup, 2026-10-06
+
+The retirement change removes seven stale target listings after repeated anonymous
+HackerOne visibility checks with known-public controls. Six returned complete
+not-publicly-visible metadata stubs; one returned a structured not-found response.
+The unavailable program profile and legacy crawler record are removed, while the
+16 independently verified public scope pages remain. No private program content
+or authenticated scope data was used in this cleanup. Removed tracked pages remain
+recoverable in Git history; they are not retained as deployed archive pages.
+
+The release includes regression tests for transient failures, malformed responses,
+public-but-paused programs, scoped deletions, curated name-only recommendations,
+inline target lists, immutable deployment verification, and interrupted recovery.

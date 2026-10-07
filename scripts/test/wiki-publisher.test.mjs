@@ -7,6 +7,7 @@ import { writeFileSync } from 'node:fs';
 import { publicSourceDigest } from '../lib/public-source.mjs';
 import { REMOTE, validateConfig, databaseOptions, wikiPaths, validateProposal, linkReadme, safePath, prepareFiles, dirtyPaths, assertOnlyPaths, checkRepository, publicSmoke, runCycle, deployExactCommit, command, safeError } from '../wiki-publisher.mjs';
 import * as adapter from '../lib/publication-store.mjs';
+import { prepareRetirementFiles, rewriteRetirementReferences, retirementSmoke } from '../lib/wiki-retirement.mjs';
 
 const CAMPAIGN = '11111111-1111-4111-8111-111111111111';
 const PROPOSAL = '22222222-2222-4222-8222-222222222222';
@@ -258,4 +259,108 @@ test('adapter calls only narrow functions and holds any unallowlisted claim', as
 test('error logging never prints arbitrary upstream messages or credential strings', () => {
   assert.equal(safeError(new Error('postgres://user:password@host')), 'PUBLICATION_FAILED');
   assert.equal(safeError({ code: 'STAGED_FILE_CHANGED', message: 'secret' }), 'STAGED_FILE_CHANGED');
+});
+
+test('retirement removes only a scoped tracked directory and maintained references, preserving other human notes and policy quotations', async t => {
+  const { root } = await fixture(t);
+  const paths = ['docs/programs/gitlab/README.md', 'docs/programs/gitlab/public-scope.md', 'docs/programs/gitlab/scope.md', 'docs/programs/current-public.md', 'docs/other.md', 'docs/programs/uber/public-scope.md', 'mkdocs.yml'];
+  for (const path of paths) { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), '# Human content\n'); }
+  await writeFile(join(root, 'docs/programs/current-public.md'), '| `gitlab` | [GitLab](gitlab/public-scope.md) |\n| `uber` | [Uber](uber/public-scope.md) |\n');
+  await writeFile(join(root, 'docs/other.md'), '# Human note\n[GitLab](programs/gitlab/README.md) and [Uber](programs/uber/README.md).\n');
+  await writeFile(join(root, 'docs/programs/uber/public-scope.md'), '    [Canonical upstream mention](../gitlab/README.md)\n');
+  await writeFile(join(root, 'mkdocs.yml'), 'nav:\n  - GitLab: programs/gitlab/README.md\n  - Uber: programs/uber/README.md\n');
+  const run = () => paths.join('\0');
+  const files = await prepareRetirementFiles(root, ['gitlab'], { slugs: { gitlab: 'gitlab' }, run, safePath });
+  assert.deepEqual(files.filter(f => f.after === null).map(f => f.path), paths.slice(0, 3));
+  assert.equal(files.find(f => f.path === 'docs/other.md').after, '# Human note\nGitLab and [Uber](programs/uber/README.md).\n');
+  assert.equal(files.find(f => f.path === 'docs/programs/current-public.md').after, '| `uber` | [Uber](uber/public-scope.md) |\n');
+  assert.ok(!files.some(f => f.path === 'docs/programs/uber/public-scope.md'));
+  assert.equal(files.find(f => f.path === 'mkdocs.yml').after, 'nav:\n  - Uber: programs/uber/README.md\n');
+  await assert.rejects(prepareRetirementFiles(root, ['../'], { slugs: { gitlab: 'gitlab' }, run, safePath }), /INVALID_RETIREMENT_HANDLES/);
+});
+
+test('retirement publication is journaled, rechecked, built, committed, deployed and 404-verified before completion', async t => {
+  const { root, config } = await fixture(t), runner = fakeCommands({ mode: 'publish' });
+  const paths = [wikiPaths('gitlab').scope, wikiPaths('gitlab').readme, 'docs/programs/current-public.md'];
+  await mkdir(join(root, 'docs/programs/gitlab'), { recursive: true });
+  for (const path of paths) await writeFile(join(root, path), path.endsWith('current-public.md') ? '| `gitlab` | [GitLab](gitlab/public-scope.md) |\n' : 'previous public content\n');
+  const run = (cwd, bin, args) => args[0] === 'ls-files' ? paths.join('\0') : runner.run(cwd, bin, args);
+  const calls = [], visibilityCalls = [];
+  const fetchVisibility = async handle => { visibilityCalls.push(handle); return { handle, visibility: handle === 'coinbase' ? 'public' : 'non_public', reason: handle === 'coinbase' ? 'public_mode' : 'not_publicly_visible', state: handle === 'coinbase' ? 'public_mode' : null }; };
+  const store = { async listMaintenanceCampaigns() { return [{ id: CAMPAIGN, handle: 'gitlab', wiki_path: wikiPaths('gitlab').scope }]; },
+    async invalidateSource(_db, id, reason) { calls.push([id, reason]); }, async refreshSource() { throw new Error('not expected'); } };
+  const queued = await runCycle(config, { mode: 'refresh', db, store, fetchSource: async () => { throw Object.assign(new Error('not public'), { code: 'NOT_PUBLIC' }); }, fetchVisibility });
+  assert.equal(queued.entries[0].status, 'retirement_pending');
+  assert.equal(await readFile(join(root, paths[0]), 'utf8'), 'previous public content\n');
+  let smoked = false;
+  const result = await runCycle(config, { db, store, run, fetchVisibility, deploy: testDeploy, retireSmoke: async handles => { assert.deepEqual(handles, ['gitlab']); smoked = true; } });
+  assert.equal(result.status, 'retired'); assert.equal(smoked, true); assert.equal(visibilityCalls.length, 16);
+  await assert.rejects(readFile(join(root, paths[0])), { code: 'ENOENT' });
+  await assert.rejects(readFile(join(root, paths[1])), { code: 'ENOENT' });
+  const state = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
+  assert.equal(state.interrupted, null); assert.deepEqual(state.pendingRetirements, []); assert.equal(state.retired.gitlab.commit, 'b'.repeat(40));
+  assert.ok(runner.calls.some(c => c.join(' ') === 'git push origin HEAD:refs/heads/main'));
+  assert.ok(runner.calls.some(c => c.join(' ') === 'npm run deploy'));
+  assert.ok(calls.some(c => c[1] === 'retired_public_program'));
+  const after = await runCycle(config, { mode: 'refresh', db, store, fetchSource: async () => { throw new Error('retired programs must not auto-restore'); } });
+  assert.equal(after.entries[0].status, 'retired');
+});
+
+test('an ambiguous visibility failure holds publication without queuing deletion', async t => {
+  const { config } = await fixture(t);
+  const store = { async listMaintenanceCampaigns() { return [{ id: CAMPAIGN, handle: 'gitlab', wiki_path: wikiPaths('gitlab').scope }]; }, async invalidateSource() {} };
+  const result = await runCycle(config, { mode: 'refresh', db, store,
+    fetchSource: async () => { throw Object.assign(new Error('schema'), { code: 'NOT_PUBLIC' }); },
+    fetchVisibility: async () => { throw Object.assign(new Error('schema'), { code: 'VISIBILITY_SCHEMA_ERROR' }); } });
+  assert.equal(result.entries[0].status, 'held');
+  const state = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
+  assert.deepEqual(state.pendingRetirements, []);
+});
+
+test('retirement smoke requires 404s and absence from current index, not a success-shaped redirect', async () => {
+  let calls = 0;
+  const fetchImpl = async url => { calls++; return url.includes('current-public') ? new Response('<html>remaining listings</html>', { headers: { 'content-type': 'text/html' } }) : new Response('missing', { status: 404 }); };
+  assert.equal(await retirementSmoke(['gitlab'], { slugs: { gitlab: 'gitlab' }, site: 'https://targets.bastet.ai', fetchImpl }), true); assert.equal(calls, 4);
+  await assert.rejects(retirementSmoke(['gitlab'], { slugs: { gitlab: 'gitlab' }, site: 'https://targets.bastet.ai', fetchImpl: async () => new Response('redirect', { status: 302 }) }), /RETIREMENT_SMOKE_FAILED/);
+  await assert.rejects(retirementSmoke(['gitlab'], { slugs: { gitlab: 'gitlab' }, site: 'https://targets.bastet.ai', fetchImpl: async url => url.includes('current-public') ? new Response('gitlab/public-scope', { headers: { 'content-type': 'text/html' } }) : new Response('missing', { status: 404 }) }), /RETIREMENT_INDEX_STILL_LISTED/);
+});
+
+test('retirement smoke failure preserves the exact deletion journal and blocks ambiguous retry', async t => {
+  const { root, config } = await fixture(t), runner = fakeCommands({ mode: 'publish' });
+  await mkdir(config.stateDirectory, { mode: 0o700 });
+  await writeFile(join(config.stateDirectory, 'publisher-state.json'), JSON.stringify({ version: 1, staged: [], publishedFiles: {}, interrupted: null, pendingRetirements: ['gitlab'] }), { mode: 0o600 });
+  await mkdir(join(root, 'docs/programs/gitlab'), { recursive: true });
+  const paths = [wikiPaths('gitlab').scope, wikiPaths('gitlab').readme];
+  for (const path of paths) await writeFile(join(root, path), 'previously committed content\n');
+  const run = (cwd, bin, args) => args[0] === 'ls-files' ? paths.join('\0') : runner.run(cwd, bin, args);
+  const fetchVisibility = async handle => ({ handle, visibility: handle === 'coinbase' ? 'public' : 'non_public', reason: handle === 'coinbase' ? 'public_mode' : 'not_publicly_visible', state: handle === 'coinbase' ? 'public_mode' : null });
+  const store = { async invalidateSource() {} };
+  await assert.rejects(runCycle(config, { db, store, run, fetchVisibility, deploy: testDeploy,
+    retireSmoke: async () => { throw Object.assign(new Error('not removed'), { code: 'RETIREMENT_SMOKE_FAILED' }); } }), { code: 'RETIREMENT_SMOKE_FAILED' });
+  const state = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
+  assert.equal(state.interrupted.kind, 'retirement'); assert.equal(state.interrupted.phase, 'pushed');
+  assert.ok(state.interrupted.files.every(file => file.hash === null && /^[a-f0-9]{64}$/.test(file.beforeHash)));
+  assert.deepEqual(state.pendingRetirements, ['gitlab']); assert.deepEqual(state.retired, {});
+  await assert.rejects(runCycle(config, { db, store, run }), /INTERRUPTED_PUBLICATION_REQUIRES_REVIEW/);
+});
+
+test('recurring retirement removes fixed name-only recommendations and inline active listings, not advisory or policy mentions', () => {
+  const recommendations = '# Curated list\n\n- **1Password** — creative research.\n- **Airbnb** — workflow depth.\n- **GitLab**: Still listed.\n\nAn unrelated paragraph about 1Password stays.\n';
+  assert.equal(rewriteRetirementReferences(recommendations, 'docs/programs/high-value.md', ['1password', 'airbnb'], [], {}), '# Curated list\n\n- **GitLab**: Still listed.\n\nAn unrelated paragraph about 1Password stays.\n');
+  const activity = '- Dated candidates: `gitlab` (2026-01-01), `airbnb` (2026-01-02), and `uber` (2026-01-03).\n\n- [Airbnb](https://hackerone.com/airbnb) — historical listing.\n';
+  assert.equal(rewriteRetirementReferences(activity, 'docs/programs/active.md', ['airbnb'], [], {}), '- Dated candidates: `gitlab` (2026-01-01), `uber` (2026-01-03).\n\n');
+  assert.equal(rewriteRetirementReferences(recommendations, 'docs/resources/program-quality-signals.md', ['1password'], [], {}), recommendations);
+  assert.equal(rewriteRetirementReferences(recommendations, 'docs/programs/eternal/public-scope.md', ['1password'], [], {}), recommendations);
+});
+
+test('a network or control failure before retirement does not touch committed files', async t => {
+  const { root, config } = await fixture(t), runner = fakeCommands({ mode: 'publish' });
+  await mkdir(config.stateDirectory, { mode: 0o700 });
+  await writeFile(join(config.stateDirectory, 'publisher-state.json'), JSON.stringify({ version: 1, staged: [], publishedFiles: {}, interrupted: null, pendingRetirements: ['gitlab'] }), { mode: 0o600 });
+  await mkdir(join(root, 'docs/programs/gitlab'), { recursive: true });
+  await writeFile(join(root, wikiPaths('gitlab').scope), 'preserve on transient failure\n');
+  await assert.rejects(runCycle(config, { db, store: {}, run: runner.run,
+    fetchVisibility: async () => { throw Object.assign(new Error('network'), { code: 'VISIBILITY_UNAVAILABLE' }); } }), { code: 'VISIBILITY_UNAVAILABLE' });
+  assert.equal(await readFile(join(root, wikiPaths('gitlab').scope), 'utf8'), 'preserve on transient failure\n');
+  assert.ok(!runner.calls.some(c => c[1] === 'push' || c[1] === 'commit' || c[0] === 'npm'));
 });

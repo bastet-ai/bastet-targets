@@ -16,6 +16,13 @@ choose paths, author Markdown, push Git, deploy, or access publication credentia
 - Do not hand-edit generated scope documents. Correct the public source or the
   renderer. The README link block is publisher-managed; everything else remains
   human-owned.
+- The owner requires removal of programs that cease to be publicly visible.
+  Retirement is the explicit exception to preservation of a program's own
+  directory: delete only exact tracked files beneath its fixed allowlisted slug,
+  after repeated anonymous visibility checks bracketed by public controls.
+  Remove its maintained listing/navigation links, preserve other human notes and
+  other programs' authoritative policy quotations. Keep Git history recoverable.
+  Network, schema and generic API errors are holds, never deletion evidence.
 - Before publication, reconcile the current remote branch without force. Never
   publish arbitrary dirty files or erase work to make a checkout clean.
 - Use the existing pinned build/deploy scripts. Run

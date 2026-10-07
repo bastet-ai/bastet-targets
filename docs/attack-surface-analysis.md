@@ -168,20 +168,6 @@ This analysis conducted systematic attack surface enumeration across the highest
 - **Consumer Brand**: High reputation impact potential
 - **International Presence**: Likely multi-country operations
 
-### 9. MediaTek (mediatek.com) - $5,600 total payout  
-**Risk Level**: 🟡 MEDIUM
-
-#### Attack Surface
-- **Subdomains Discovered**: 12 active subdomains
-- **Live Web Services**: 13 responsive endpoints
-- **Critical Findings**: Semiconductor company with technical infrastructure
-
-#### Key Observations
-- **Semiconductor Industry**: Focus on chip design and mobile processors
-- **Technical Documentation**: Likely SDK and API documentation exposure
-- **Corporate Systems**: Multiple active services suggesting complex infrastructure
-- **Developer Resources**: Potential for technical specification leakage
-
 ### 10. Zooplus (zooplus.com) - $3,600 total payout
 **Risk Level**: 🟡 MEDIUM-LOW
 
@@ -254,7 +240,7 @@ This analysis conducted systematic attack surface enumeration across the highest
 ### Risk Distribution
 - **🚨 CRITICAL**: 1 target (Sheer - environment file exposure - CORRECTED: False positive)
 - **🔥 HIGH**: 4 targets (Uber, TikTok, OKX, Coinbase - complex financial/auth infrastructure)  
-- **🟡 MEDIUM**: 7 targets (GitLab, PayPal, Eternal, MediaTek, Ferrero, Zooplus, Others)
+- **🟡 MEDIUM**: Historical remaining targets include GitLab, PayPal, Eternal, Ferrero, Zooplus and others. Historical totals above are not a current target count.
 
 ### Major Cryptocurrency Exchange Analysis
 - **OKX**: 337 subdomains, 154 services, extensive Web3/DeFi integration

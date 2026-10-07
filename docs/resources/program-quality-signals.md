@@ -1102,7 +1102,6 @@ The most recent Reddit chatter keeps reinforcing a few repeatable program-qualit
 The public sitemap showed a cluster of recently updated pages that are worth a look as of this run:
 
 - [Scopely](https://hackerone.com/scopely) — lastmod 2026-03-28
-- [Sega](https://hackerone.com/sega) — lastmod 2026-03-31
 - [Shein](https://hackerone.com/shein) — lastmod 2026-03-31
 - [Shopify](https://hackerone.com/shopify) — lastmod 2026-03-30
 - [Stripe](https://hackerone.com/stripe) — lastmod 2026-03-30

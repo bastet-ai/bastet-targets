@@ -32,9 +32,11 @@ program. The trusted publisher independently rechecks the anonymous source befor
 rendering a page. It does not publish private program material, vulnerability
 reports, findings, credentials, or agent conversations.
 
-Existing research pages and historical program lists remain available, but are
-not verified current scope. A program's absence from this list does not establish
-its present availability or authorize testing. Separate exclusions and
+Research pages and historical program lists for remaining programs are not
+verified current scope. Programs that are independently confirmed no longer
+publicly visible are removed from this directory and their program pages are
+retired. A transient API failure only holds updates; it does not authorize deletion.
+A program's absence from this list does not authorize testing. Separate exclusions and
 announcements may not be represented by the public structured-scope interface;
 the canonical HackerOne policy remains authoritative.
 

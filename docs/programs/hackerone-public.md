@@ -1,9 +1,11 @@
-# HackerOne Public Program Index (Auto-generated)
+# Legacy program discovery index
 
-> **Public-only automation**: generated from HackerOne's public sitemap + public program landing pages.
+HTML page metadata is not proof of an active public program. This legacy discovery
+index no longer publishes candidates. Use the [current public scope directory](current-public.md),
+which independently verifies HackerOne's anonymous program state and complete scope.
 
-- Generated at (UTC): **2026-04-04T11:41:22+00:00**
-- Total public programs detected: **1** (bug bounty: 1, VDP: 0)
+- Revalidated: **2026-10-06**
+- Remaining independently verified legacy entries: **0**
 
 ## Passive OSINT Notes (Non-invasive)
 - Do **not** log in or use private scope information.
@@ -15,7 +17,7 @@
 ## Program List
 | Program | Handle | Type | Lastmod (sitemap) | URL |
 |---|---|---|---|---|
-|  | `000webhost` | bug-bounty | 2018-10-23 | https://hackerone.com/000webhost |
 
 ---
-*This page is generated. Do not hand-edit; update the crawler instead.*
+The old HTML-only publication command is disabled. Removed entries remain
+recoverable in Git history; they are not part of the deployed public wiki.

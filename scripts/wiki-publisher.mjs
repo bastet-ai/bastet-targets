@@ -2,10 +2,12 @@
 // Trusted-host publisher. Guests request immutable hashes, never author public text.
 import { createHash, randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { lstat, mkdir, readFile, realpath, rename, rmdir, writeFile } from 'node:fs/promises';
+import { lstat, mkdir, readFile, realpath, rename, rmdir, unlink, writeFile } from 'node:fs/promises';
 import { isAbsolute, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchPublicSource, publicSourceDigest, renderPublicSection, validatePublicSource } from './lib/public-source.mjs';
+import { fetchPublicVisibility, confirmRetirement } from './lib/public-visibility.mjs';
+import { prepareRetirementFiles, retirementSmoke } from './lib/wiki-retirement.mjs';
 
 export const REMOTE = 'https://github.com/bastet-ai/bastet-targets.git';
 export const SITE = 'https://targets.bastet.ai';
@@ -137,7 +139,13 @@ export async function prepareFiles(root, proposal, source, { previousContentHash
 }
 
 export async function applyFiles(root, files) {
-  for (const file of files) if (file.before !== file.after) await writeExact(root, file.path, file.before, file.after);
+  for (const file of files) if (file.before !== file.after) {
+    if (file.after === null) {
+      const path = await safePath(root, file.path);
+      if (!SHA.test(file.beforeHash ?? '') || digest(await readFile(path)) !== file.beforeHash) fail('CONCURRENT_FILE_EDIT');
+      await unlink(path); // One exact, tracked file. Recovery is through Git.
+    } else await writeExact(root, file.path, file.before, file.after);
+  }
 }
 
 export function command(root, executable, args) {
@@ -199,7 +207,7 @@ async function privateDirectory(path) {
 async function readState(config) {
   const path = join(config.stateDirectory, 'publisher-state.json');
   const text = await optionalRead(path);
-  if (text === null) return { version: 1, lastPublishedAt: null, staged: [], interrupted: null, publishedFiles: {} };
+  if (text === null) return { version: 1, lastPublishedAt: null, staged: [], interrupted: null, publishedFiles: {}, pendingRetirements: [], retired: {} };
   const stat = await lstat(path);
   if (!stat.isFile() || stat.isSymbolicLink() || (stat.mode & 0o077) || stat.uid !== process.getuid()) fail('STATE_FILE_NOT_PRIVATE');
   const value = JSON.parse(text);
@@ -208,6 +216,11 @@ async function readState(config) {
   if (typeof value.publishedFiles !== 'object' || Array.isArray(value.publishedFiles) || Object.keys(value.publishedFiles).length > 21) fail('INVALID_STATE');
   const scopePaths = Object.keys(HANDLES).map(handle => wikiPaths(handle).scope);
   for (const [path, hash] of Object.entries(value.publishedFiles)) if (!scopePaths.includes(path) || !SHA.test(hash)) fail('INVALID_STATE');
+  value.pendingRetirements ??= []; value.retired ??= {};
+  if (!Array.isArray(value.pendingRetirements) || value.pendingRetirements.length > 21 || new Set(value.pendingRetirements).size !== value.pendingRetirements.length ||
+      value.pendingRetirements.some(handle => !config.campaigns.some(c => c.handle === handle)) ||
+      !value.retired || typeof value.retired !== 'object' || Array.isArray(value.retired) || Object.keys(value.retired).length > 21 ||
+      Object.keys(value.retired).some(handle => !config.campaigns.some(c => c.handle === handle))) fail('INVALID_RETIREMENT_STATE');
   return value;
 }
 async function saveState(config, state) {
@@ -220,7 +233,7 @@ async function saveState(config, state) {
 // The adapter grants access only to the separate public-source publication schema.
 async function defaultStore() { return import('./lib/publication-store.mjs'); }
 
-export async function runCycle(config, { mode = 'publish', limit = 21, db, store, run = command, fetchSource = fetchPublicSource, smoke = publicSmoke, deploy = deployExactCommit, now = Date.now() } = {}) {
+export async function runCycle(config, { mode = 'publish', limit = 21, db, store, run = command, fetchSource = fetchPublicSource, fetchVisibility = fetchPublicVisibility, smoke = publicSmoke, retireSmoke = retirementSmoke, deploy = deployExactCommit, now = Date.now() } = {}) {
   validateConfig(config);
   if (!['publish', 'stage', 'verify-staged', 'refresh'].includes(mode) || !Number.isInteger(limit) || limit < 1 || limit > 21) fail('INVALID_MODE_OR_LIMIT');
   await privateDirectory(config.stateDirectory);
@@ -232,11 +245,13 @@ export async function runCycle(config, { mode = 'publish', limit = 21, db, store
     locked = result.rows[0]?.locked === true;
     if (!locked) fail('ANOTHER_PUBLISHER_RUNNING');
     store ??= await defaultStore();
-    if (mode === 'refresh') return await refreshSources(config, { db, store, fetchSource });
+    if (mode === 'refresh') return await refreshSources(config, { db, store, fetchSource, fetchVisibility });
     const state = await readState(config);
     if (state.interrupted) fail('INTERRUPTED_PUBLICATION_REQUIRES_REVIEW');
     if (mode === 'verify-staged') return await verifyStaged(config, state, { db, store, run, fetchSource, smoke, now });
     if (mode === 'publish' && state.staged.length) fail('STAGED_PUBLICATION_REQUIRES_REVIEW');
+    // Privacy retirement takes precedence over the six-hour content update cap.
+    if (mode === 'publish' && state.pendingRetirements.length) return await publishRetirements(config, state, { db, store, run, fetchVisibility, retireSmoke, deploy, now });
     if (mode === 'publish' && state.lastPublishedAt && now - Date.parse(state.lastPublishedAt) < INTERVAL_MS) return { status: 'rate_limited', published: 0 };
     const base = mode === 'publish' ? synchronizeRepository(config.repositoryPath, run) : checkRepository(config.repositoryPath, mode, run);
     const output = [], batch = [], claimed = [];
@@ -334,28 +349,92 @@ export async function deployExactCommit(config, { commit, files, run = command }
 }
 
 async function assertFiles(root, files) {
-  for (const file of files) if (digest(await readFile(await safePath(root, file.path))) !== file.hash) fail('STAGED_FILE_CHANGED');
+  for (const file of files) {
+    const path = await safePath(root, file.path);
+    if (file.hash === null) { if (await optionalRead(path) !== null) fail('RETIRED_FILE_REAPPEARED'); }
+    else if (digest(await readFile(path)) !== file.hash) fail('STAGED_FILE_CHANGED');
+  }
 }
-async function refreshSources(config, { db, store, fetchSource }) {
+async function refreshSources(config, { db, store, fetchSource, fetchVisibility }) {
+  const state = await readState(config);
+  if (state.interrupted) fail('INTERRUPTED_PUBLICATION_REQUIRES_REVIEW');
   const campaigns = await store.listMaintenanceCampaigns(db);
   const output = [];
   for (const row of campaigns) {
     const id = row.campaign_id ?? row.id;
     if (!config.campaigns.some(c => c.campaignId === id && c.handle === row.handle)) fail('CAMPAIGN_NOT_ALLOWLISTED');
     if (row.wiki_path !== wikiPaths(row.handle).scope) fail('PROPOSAL_CONTRACT_MISMATCH');
+    if (state.retired[row.handle]) {
+      await store.invalidateSource(db, id, 'retired_public_program');
+      output.push({ handle: row.handle, status: 'retired' }); continue;
+    }
     try {
       const source = await fetchSource(row.handle);
       validatePublicSource(source);
       if (source.program.handle !== row.handle || source.program.state !== 'public_mode') fail('PUBLIC_SOURCE_UNAVAILABLE');
       await store.refreshSource(db, id, source);
+      state.pendingRetirements = state.pendingRetirements.filter(handle => handle !== row.handle);
       output.push({ handle: row.handle, status: 'refreshed' });
     } catch (error) {
       // An absent/changed public source disables publication, never falls back to authenticated data.
       await store.invalidateSource(db, id, 'anonymous_refresh_failed');
-      output.push({ handle: row.handle, status: 'held', code: safeError(error) });
+      let status = 'held', code = safeError(error);
+      if (['NOT_PUBLIC', 'UPSTREAM_ERROR'].includes(code)) {
+        try {
+          await confirmRetirement(row.handle, { fetchVisibility });
+          if (!state.pendingRetirements.includes(row.handle)) state.pendingRetirements.push(row.handle);
+          status = 'retirement_pending';
+        } catch (visibilityError) { code = safeError(visibilityError); }
+      }
+      output.push({ handle: row.handle, status, code });
     }
   }
+  await saveState(config, state);
   return { status: 'refreshed', entries: output };
+}
+
+async function publishRetirements(config, state, { db, store, run, fetchVisibility, retireSmoke, deploy, now }) {
+  const handles = [...state.pendingRetirements];
+  for (const handle of handles) await confirmRetirement(handle, { fetchVisibility });
+  const base = synchronizeRepository(config.repositoryPath, run);
+  const files = await prepareRetirementFiles(config.repositoryPath, handles, { slugs: HANDLES, run, safePath });
+  const receiptFiles = files.map(({ path, hash, beforeHash }) => ({ path, hash, beforeHash }));
+  const allowed = files.map(file => file.path);
+  state.interrupted = { kind: 'retirement', handles, files: receiptFiles, phase: 'preparing' };
+  await saveState(config, state);
+  for (const handle of handles) await store.invalidateSource(db, config.campaigns.find(c => c.handle === handle).campaignId, 'retired_public_program');
+  await applyFiles(config.repositoryPath, files);
+  assertOnlyPaths(dirtyPaths(run(config.repositoryPath, 'git', ['status', '--porcelain=v1', '-z', '--untracked-files=all'])), allowed);
+  run(config.repositoryPath, 'npm', ['run', 'build']);
+  for (const handle of handles) await confirmRetirement(handle, { fetchVisibility });
+  await assertFiles(config.repositoryPath, receiptFiles);
+  assertOnlyPaths(dirtyPaths(run(config.repositoryPath, 'git', ['status', '--porcelain=v1', '-z', '--untracked-files=all'])), allowed);
+  if (remoteHead(config.repositoryPath, run) !== base) fail('REMOTE_COMPARE_AND_SWAP_FAILED');
+  if (allowed.length) {
+    run(config.repositoryPath, 'git', ['add', '--', ...allowed]);
+    assertOnlyPaths(run(config.repositoryPath, 'git', ['diff', '--cached', '--name-only', '-z']).split('\0').filter(Boolean), allowed);
+    run(config.repositoryPath, 'git', ['diff', '--cached', '--check']);
+    if (git(config.repositoryPath, ['diff', '--cached', '--name-only'], run))
+      run(config.repositoryPath, 'git', ['commit', '-m', `Retire ${handles.length} no-longer-public program listing${handles.length === 1 ? '' : 's'}`, '--', ...allowed]);
+  }
+  const commit = git(config.repositoryPath, ['rev-parse', 'HEAD'], run);
+  if (!COMMIT.test(commit)) fail('INVALID_COMMIT');
+  state.interrupted.phase = 'committed'; state.interrupted.commit = commit; await saveState(config, state);
+  run(config.repositoryPath, 'git', ['push', 'origin', 'HEAD:refs/heads/main']);
+  if (remoteHead(config.repositoryPath, run) !== commit) fail('REMOTE_COMPARE_AND_SWAP_FAILED');
+  state.interrupted.phase = 'pushed'; await saveState(config, state);
+  if (checkRepository(config.repositoryPath, 'publish', run) !== commit) fail('DEPLOYMENT_COMMIT_DRIFT');
+  for (const handle of handles) await confirmRetirement(handle, { fetchVisibility });
+  await deploy(config, { commit, files: receiptFiles, run });
+  if (checkRepository(config.repositoryPath, 'publish', run) !== commit || remoteHead(config.repositoryPath, run) !== commit) fail('DEPLOYMENT_COMMIT_DRIFT');
+  await retireSmoke(handles, { slugs: HANDLES, site: SITE });
+  for (const handle of handles) {
+    state.retired[handle] = { commit, retiredAt: new Date(now).toISOString() };
+    delete state.publishedFiles[wikiPaths(handle).scope];
+  }
+  state.pendingRetirements = []; state.interrupted = null; state.lastPublishedAt = new Date(now).toISOString();
+  await saveState(config, state);
+  return { status: 'retired', entries: handles.map(handle => ({ handle, status: 'retired', commit })) };
 }
 async function verifyStaged(config, state, { db, store, run, fetchSource, smoke, now }) {
   const commit = checkRepository(config.repositoryPath, 'publish', run);

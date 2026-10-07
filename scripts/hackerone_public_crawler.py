@@ -403,6 +403,14 @@ def diff_snapshots(prev: dict, curr: dict) -> dict:
 
 
 def main() -> int:
+    # HTML metadata can survive a program becoming private or being removed.
+    # Never republish cached discovery records as verified public programs.
+    print("Legacy HTML-only publication is disabled. Use the anonymous verified wiki publisher.", file=sys.stderr)
+    return 2
+
+
+def historical_crawler_main() -> int:
+    """Retained for history only; no public entrypoint invokes this publisher."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", default=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     ap.add_argument("--cache-dir", default=None)
