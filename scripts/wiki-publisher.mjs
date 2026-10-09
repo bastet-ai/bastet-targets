@@ -9,6 +9,7 @@ import { fetchPublicSource, publicSourceDigest, renderPublicSection, validatePub
 import { fetchPublicVisibility, confirmRetirement } from './lib/public-visibility.mjs';
 import { prepareRetirementFiles, retirementSmoke } from './lib/wiki-retirement.mjs';
 import { isOperatorExcluded } from './lib/operator-exclusions.mjs';
+import { BUILD_MARKER_PATH, waitForBuildCommit } from './lib/git-deployment.mjs';
 
 export const REMOTE = 'https://github.com/bastet-ai/bastet-targets.git';
 export const SITE = 'https://targets.bastet.ai';
@@ -334,22 +335,17 @@ export async function runCycle(config, { mode = 'publish', limit = 21, db, store
   }
 }
 
-export async function deployExactCommit(config, { commit, files, run = command }) {
+export async function deployExactCommit(config, { commit, files, run = command, wait = waitForBuildCommit }) {
   if (!COMMIT.test(commit)) fail('INVALID_COMMIT');
-  const releases = join(config.stateDirectory, 'releases'); await privateDirectory(releases);
-  const checkout = join(releases, commit);
-  try { await lstat(checkout); fail('RELEASE_CHECKOUT_ALREADY_EXISTS'); } catch (error) { if (error.code !== 'ENOENT') throw error; }
-  // Dedicated immutable-source checkout prevents unrelated live checkout edits
-  // from entering the build between clean-worktree checks and deployment.
-  run(config.repositoryPath, 'git', ['worktree', 'add', '--detach', checkout, commit]);
-  if (git(checkout, ['rev-parse', 'HEAD'], run) !== commit || git(checkout, ['branch', '--show-current'], run)) fail('RELEASE_COMMIT_DRIFT');
-  await assertFiles(checkout, files);
-  run(checkout, 'npm', ['ci', '--ignore-scripts', '--no-audit', '--no-fund']);
-  if (run(checkout, 'git', ['status', '--porcelain=v1', '-z', '--untracked-files=all'])) fail('DIRTY_RELEASE_CHECKOUT');
-  run(checkout, 'npm', ['run', 'deploy']);
-  if (git(checkout, ['rev-parse', 'HEAD'], run) !== commit || run(checkout, 'git', ['status', '--porcelain=v1', '-z', '--untracked-files=all'])) fail('RELEASE_COMMIT_DRIFT');
-  await assertFiles(checkout, files);
-  // Retained for recovery. Operator cleanup must target this exact receipt path.
+  // The main push triggers Cloudflare's build. Waiting does not deploy locally or
+  // need Cloudflare credentials. Preserve the exact source and remote safeguards.
+  return wait(`${SITE}${BUILD_MARKER_PATH}`, commit, {
+    verifyCheckout: async () => {
+      if (checkRepository(config.repositoryPath, 'publish', run) !== commit || remoteHead(config.repositoryPath, run) !== commit)
+        fail('DEPLOYMENT_COMMIT_DRIFT');
+      await assertFiles(config.repositoryPath, files);
+    },
+  });
 }
 
 async function assertFiles(root, files) {

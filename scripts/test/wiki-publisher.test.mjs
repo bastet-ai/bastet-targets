@@ -3,9 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, rm, symlink, unlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { writeFileSync } from 'node:fs';
 import { publicSourceDigest } from '../lib/public-source.mjs';
-import { REMOTE, validateConfig, databaseOptions, wikiPaths, validateProposal, linkReadme, safePath, prepareFiles, dirtyPaths, assertOnlyPaths, checkRepository, publicSmoke, runCycle, deployExactCommit, command, safeError } from '../wiki-publisher.mjs';
+import { REMOTE, validateConfig, databaseOptions, wikiPaths, validateProposal, linkReadme, safePath, prepareFiles, dirtyPaths, assertOnlyPaths, checkRepository, publicSmoke, runCycle, deployExactCommit, safeError } from '../wiki-publisher.mjs';
 import * as adapter from '../lib/publication-store.mjs';
 import { prepareRetirementFiles, rewriteRetirementReferences, retirementSmoke } from '../lib/wiki-retirement.mjs';
 import { OPERATOR_EXCLUSIONS } from '../lib/operator-exclusions.mjs';
@@ -38,7 +37,12 @@ function fakeStore(value) {
     async holdPublication(_db, _lease, code) { calls.push(['hold', code]); } };
 }
 const db = { async query(sql) { return { rows: sql.includes('try_advisory') ? [{ locked: true }] : [] }; } };
-const testDeploy = async (config, { run }) => run(config.repositoryPath, 'npm', ['run', 'deploy']);
+const testDeploy = async (config, { commit, run }) => deployExactCommit(config, { commit, files: [], run,
+  wait: async (_url, expected, { verifyCheckout }) => {
+    await verifyCheckout();
+    run(config.repositoryPath, 'native-deployment', [expected]);
+    await verifyCheckout();
+  } });
 function fakeCommands({ mode = 'stage', failBuild = false, drift = false } = {}) {
   const calls = []; let head = 'a'.repeat(40), remote = head;
   const run = (_root, bin, args) => {
@@ -192,12 +196,13 @@ test('initial verify-staged records the trusted published content baseline for l
   assert.equal(after.publishedFiles[wikiPaths('gitlab').scope], before.staged[0].contentHash);
   assert.equal(after.staged.length, 0);
 });
-test('maintenance completes only after fresh source, build, CAS push, deploy and smoke', async t => {
+test('maintenance completes only after fresh source, build, CAS push, native deployment and smoke', async t => {
   const { config } = await fixture(t), value = source(), store = fakeStore(value), runner = fakeCommands({ mode: 'publish' }); let reads = 0, smoked = false;
   const result = await runCycle(config, { db, store, run: runner.run, deploy: testDeploy, fetchSource: async () => { reads++; return value; }, smoke: async (handle, hash) => { assert.equal(hash, value.provenance.sha256); smoked = true; return wikiPaths(handle).url; } });
   assert.equal(result.entries[0].status, 'published'); assert.equal(reads, 2); assert.equal(smoked, true);
   assert.ok(runner.calls.some(c => c.join(' ') === 'git push origin HEAD:refs/heads/main'));
-  assert.ok(runner.calls.some(c => c.join(' ') === 'npm run deploy'));
+  assert.ok(runner.calls.some(c => c[0] === 'native-deployment'));
+  assert.ok(!runner.calls.some(c => c.join(' ') === 'npm run deploy'));
   assert.ok(store.calls.some(c => Array.isArray(c) && c[0] === 'complete'));
   const published = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
   assert.match(published.publishedFiles[wikiPaths('gitlab').scope], /^[a-f0-9]{64}$/);
@@ -232,33 +237,39 @@ test('one maintenance batch publishes multiple campaigns with exactly one commit
     fetchSource: async handle => values.find(value => value.program.handle === handle), smoke: async handle => wikiPaths(handle).url });
   assert.deepEqual(completed, ['gitlab', 'uber']); assert.equal(result.entries.length, 2);
   assert.equal(runner.calls.filter(c => c[1] === 'commit').length, 1);
-  assert.equal(runner.calls.filter(c => c.join(' ') === 'npm run deploy').length, 1);
+  assert.equal(runner.calls.filter(c => c[0] === 'native-deployment').length, 1);
+  assert.equal(runner.calls.filter(c => c.join(' ') === 'npm run deploy').length, 0);
   assert.equal(runner.calls.filter(c => c[1] === 'push').length, 1);
 });
-test('exact-commit deployment uses a private detached worktree and excludes later normal-checkout edits', async t => {
-  const { root, config } = await fixture(t); await mkdir(config.stateDirectory, { mode: 0o700 });
-  command(root, 'git', ['init', '-q']);
-  await mkdir(join(root, 'docs/programs/gitlab'), { recursive: true });
-  const path = wikiPaths('gitlab').scope;
-  await writeFile(join(root, path), 'pinned public content\n');
-  command(root, 'git', ['add', '--', path]);
-  command(root, 'git', ['-c', 'user.name=Publisher Test', '-c', 'user.email=publisher-test@example.invalid', 'commit', '-qm', 'Fixture']);
-  const commit = command(root, 'git', ['rev-parse', 'HEAD']).trim();
-  let deployedFrom;
-  const run = (cwd, bin, args) => {
-    if (bin !== 'npm') return command(cwd, bin, args);
-    assert.notEqual(cwd, root);
-    if (args.join(' ') === 'run deploy') {
-      deployedFrom = cwd;
-      writeFileSync(join(root, path), 'later human change must not deploy\n');
-    }
-    return '';
-  };
-  await deployExactCommit(config, { commit, files: [], run });
-  assert.ok(deployedFrom.startsWith(config.stateDirectory));
-  assert.equal(await readFile(join(deployedFrom, path), 'utf8'), 'pinned public content\n');
-  assert.equal(await readFile(join(root, path), 'utf8'), 'later human change must not deploy\n');
-  await assert.rejects(deployExactCommit(config, { commit, files: [], run }), /RELEASE_CHECKOUT_ALREADY_EXISTS/);
+test('native deployment waits for exact pushed source without local deployment or release worktrees', async t => {
+  const { config } = await fixture(t), runner = fakeCommands({ mode: 'publish' });
+  await deployExactCommit(config, { commit: 'a'.repeat(40), files: [], run: runner.run,
+    wait: async (url, commit, { verifyCheckout }) => {
+      assert.equal(url, 'https://targets.bastet.ai/.well-known/bastet-build.json');
+      assert.equal(commit, 'a'.repeat(40));
+      await verifyCheckout();
+    } });
+  assert.ok(runner.calls.length > 0);
+  assert.ok(runner.calls.every(([bin, op]) => bin === 'git' && op !== 'worktree'));
+  await assert.rejects(readFile(join(config.stateDirectory, 'releases')), { code: 'ENOENT' });
+});
+test('native deployment rejects remote drift and changed source before acknowledgement', async t => {
+  const { config, root } = await fixture(t), runner = fakeCommands({ mode: 'publish' });
+  await assert.rejects(deployExactCommit(config, { commit: 'b'.repeat(40), files: [], run: runner.run }), /DEPLOYMENT_COMMIT_DRIFT/);
+  const remoteDrift = (cwd, bin, args) => args[0] === 'ls-remote' ? `${'b'.repeat(40)}\trefs/heads/main\n` : runner.run(cwd, bin, args);
+  await assert.rejects(deployExactCommit(config, { commit: 'a'.repeat(40), files: [], run: remoteDrift }), /DEPLOYMENT_COMMIT_DRIFT/);
+  await mkdir(join(root, 'docs'), { recursive: true }); await writeFile(join(root, 'docs/page.md'), 'human change');
+  await assert.rejects(deployExactCommit(config, { commit: 'a'.repeat(40), files: [{ path: 'docs/page.md', hash: 'a'.repeat(64) }], run: runner.run,
+    wait: async (_url, _commit, { verifyCheckout }) => verifyCheckout() }), /STAGED_FILE_CHANGED/);
+});
+test('native deployment timeout holds the proposal and retains pushed interruption evidence', async t => {
+  const { config } = await fixture(t), value = source(), store = fakeStore(value), runner = fakeCommands({ mode: 'publish' });
+  await assert.rejects(runCycle(config, { db, store, run: runner.run, fetchSource: async () => value,
+    deploy: async () => { throw Object.assign(new Error('GIT_DEPLOYMENT_TIMEOUT'), { code: 'GIT_DEPLOYMENT_TIMEOUT' }); } }), /GIT_DEPLOYMENT_TIMEOUT/);
+  const state = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
+  assert.equal(state.interrupted.phase, 'pushed');
+  assert.ok(store.calls.some(call => Array.isArray(call) && call[0] === 'hold' && call[1] === 'GIT_DEPLOYMENT_TIMEOUT'));
+  assert.ok(!store.calls.some(call => Array.isArray(call) && call[0] === 'complete'));
 });
 test('anonymous refresh never changes console data and invalidates unverifiable public sources', async t => {
   const { config } = await fixture(t), actions = [];
@@ -331,7 +342,8 @@ test('retirement publication is journaled, rechecked, built, committed, deployed
   const state = JSON.parse(await readFile(join(config.stateDirectory, 'publisher-state.json'), 'utf8'));
   assert.equal(state.interrupted, null); assert.deepEqual(state.pendingRetirements, []); assert.equal(state.retired.gitlab.commit, 'b'.repeat(40));
   assert.ok(runner.calls.some(c => c.join(' ') === 'git push origin HEAD:refs/heads/main'));
-  assert.ok(runner.calls.some(c => c.join(' ') === 'npm run deploy'));
+  assert.ok(runner.calls.some(c => c[0] === 'native-deployment'));
+  assert.ok(!runner.calls.some(c => c.join(' ') === 'npm run deploy'));
   assert.ok(calls.some(c => c[1] === 'retired_public_program'));
   const after = await runCycle(config, { mode: 'refresh', db, store, fetchSource: async () => { throw new Error('retired programs must not auto-restore'); } });
   assert.equal(after.entries[0].status, 'retired');

@@ -119,16 +119,31 @@ Automatic publication requires the exact `main` branch and
 a fast-forward-only refresh, an exclusive local lock and PostgreSQL advisory lock.
 It checks each fresh anonymous source twice, builds, stages only the two
 allowlisted paths per campaign, compares the remote head, commits, and pushes
-without force. A private detached worktree of that exact commit is then created
-under the external state directory. Locked dependencies are installed there and
-the existing `npm run deploy` runs there, so concurrent edits to the normal
-checkout cannot be included. Each public source digest is verified. Any unrelated
+without force. Cloudflare Workers Builds fetches that pushed commit and publishes
+the locked strict build. The publisher waits up to 20 minutes for
+`/.well-known/bastet-build.json` to report that exact public Git commit SHA. The
+marker contains no publisher configuration or credentials and is served with
+`Cache-Control: no-store`. Missing markers, older commits and temporary HTTP or
+network failures remain pending until the bounded timeout; malformed evidence
+holds the release. A failed build can leave an older marker until timeout.
+The publisher checks its clean branch, remote head and exact source files while
+waiting, then verifies each public source digest. Any unrelated
 edit, remote advancement, symlink/path violation, changed public status/hash,
 expired lease or failed public check stops the release.
 
-The deployment checkout must have access to the pinned Wrangler credentials, but
-the agent sandbox must not. Do not overlap manual deployment with this timer.
-The normal GitHub workflow validates builds; it is not a second deploy mechanism.
+No Cloudflare credentials are required by the publisher or GitHub Actions.
+Cloudflare retains its own Git connection and deployment credentials. Do not
+overlap manual deployment with native Git deployment. The normal GitHub workflow
+validates builds; Cloudflare Workers Builds is the deployment mechanism.
+
+For an existing installation, keep the timer and service stopped while updating
+the configured trusted-host checkout with a fast-forward-only pull and installing
+locked dependencies. Verify the native connection and public commit marker before
+the next cycle. Updating only the checkout from inside an older running publisher
+does not replace its already imported Node modules; that process can still run
+the previous manual deployment adapter. Restart only after the checkout contains
+this native deployment implementation. Do not erase protected pending state or
+retained release worktrees during this cutover.
 
 ## Failure and recovery
 
@@ -137,8 +152,9 @@ have changed, interruption metadata is saved privately before each external phas
 Ambiguous failures remain held, even when the push or deployment may have worked.
 There is no automatic lease reclamation, force push, rollback or ambiguous retry.
 Branch protections are respected: a rejected push is held for the normal approved
-review/merge process, never bypassed. Exact-commit deployment worktrees are retained
-under the private state directory for operator-reviewed recovery and cleanup.
+review/merge process, never bypassed. Older exact-commit deployment worktrees remain
+under the private state directory for operator-reviewed recovery and cleanup;
+native Git deployments do not create new local release worktrees.
 
 Pause the timer before reconciliation. Inspect the protected receipt, exact commit,
 remote/main and public digest. Preserve any human edits and local generated

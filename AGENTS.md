@@ -32,6 +32,11 @@ choose paths, author Markdown, push Git, deploy, or access publication credentia
   publish arbitrary dirty files or erase work to make a checkout clean.
 - Use the existing pinned build/deploy scripts. Run
   `node --test scripts/test/*.test.mjs` and `npm run build` for relevant changes.
+- Cloudflare Workers Builds owns production deployment after a push to `main`.
+  The trusted-host publisher waits for the exact public build marker and never
+  deploys locally. Do not overlap a manual deployment with Git deployment.
+  Update the stopped trusted-host checkout before restarting an older publisher;
+  its loaded Node modules do not change during a fast-forward inside a cycle.
 - Successful deployment commands alone are not proof: verify the public page's
   source digest before recording a publication receipt.
 - Keep publisher configuration, credentials, leases, state and recovery records
