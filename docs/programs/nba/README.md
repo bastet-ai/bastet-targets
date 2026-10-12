@@ -188,6 +188,7 @@ Detailed vulnerability observations, exact endpoints, headers, identifiers, and 
 
 ## Notes
 
+- **2026-10-11 — live program-status verification (public page re-check).** The HackerOne program [hackerone.com/nba-public](https://hackerone.com/nba-public) was read-verified against the public program page on 2026-10-11: **paid bounty program**, **Global Security Scope and Safe Harbor (GSSH) participation**, and **Closed Scope** mode. Published 90-day average payout figures on the program page: **~$458 average bounty, ~$3k average critical, ~$8k top band**, with a **~2h average first response**. This resolves the open question in the Intelligence Assessment above ("What are the current payout ranges?"). Hunting-read value: short-response SLA plus closed-scope means triage is active and fast — always verify in-scope status against the generated [public-scope.md](public-scope.md) snapshot before any testing, and expect quick turnaround on valid submissions.
 - **Global Impact**: NBA has worldwide audience with localized digital properties
 - **Seasonal Traffic**: Huge traffic spikes during playoffs, finals, draft
 - **Partnership Complexity**: Numerous third-party integrations create expanded attack surface
