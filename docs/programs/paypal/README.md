@@ -126,6 +126,7 @@ See [scope.md](scope.md) for full policy text and breakdown.
 
 ## Notes & Intelligence
 
+- **Policy refreshes through 2026 (program page re-check via public projection, 2026-10-15)**: the Overview section was last updated **2026-10-07** (prior revisions 2026-09-03 and 2026-07-16 — the program is actively churning policy text, unlike the stale 2024 rewards table beneath it). Current published terms include: **min bounty $50 / max bounty $30,000** per validated submission; **set-payout schedule** for named classes — Subdomain Takeover: $200 (Low/Med) / $3,000 (High) / $5,000 (Critical); XSS: $50–$500 / $500–$3,000 / $3,000–$6,000 / $6,000; a **separate zero-day payout structure** (percentage modifiers on standard bounties); an explicit scope clause covering **any PayPal proprietary AI/ML product or service**; and a rule that findings involving **merchants' PayPal integrations** must be submitted to PayPal's bounty first so PayPal can determine origination (PayPal-side vs merchant-side). **Hunting read: the fixed XSS/subdomain payout floors cap commodity classes at low dollars, while zero-day modifiers + the AI/ML clause mark where discretionary upside lives; the merchant-integration origination rule is a triage trap — integration bugs reported to merchants first may be disqualified.** Program stats (crawl-dated ~2026-10): ~$13.8M total paid, ~$380K trailing 90 days, ~504 reports/90 days, 41 assets in scope, avg bounty $1,600–$2,500. Sources: https://hackerone.com/paypal , https://www.paypal.com/bugbounty . Rewards-table baselines still dated 2024-04-09; treat severity averages as indicative only.
 - **Regulatory Environment**: Must comply with PCI DSS and financial regulations
 - **High Security Bar**: Financial industry requires exceptional security standards
 - **Global Operations**: Complex international regulatory and security requirements
@@ -152,7 +153,8 @@ See [scope.md](scope.md) for full policy text and breakdown.
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Next Review**: 2025-10-01  
+**Last Intel Review**: 2026-10-15 (2026 policy-refresh terms captured: $50–$30,000 bounty bounds, set-payout classes, zero-day modifiers, AI/ML scope clause, merchant-integration origination rule; Overview last updated 2026-10-07)  
+**Next Review**: 2026-11-15  
 **Analyst**: Bastet Security Research Team
 
 <!-- bastet-public-scope-link:v1 -->
