@@ -12,11 +12,13 @@ This section provides essential resources for ethical security research, includi
 
     Legal considerations, compliance requirements, and regulatory guidelines
 
--   :material-shield-account:{ .lg .middle } **HackerOne Guidelines** (Coming Soon)
+-   :material-shield-account:{ .lg .middle } **HackerOne Platform Changes**
 
     ---
 
-    Platform-specific rules, best practices, and program participation
+    Durable log of platform-level HackerOne changes that affect submission
+    capacity, credentials, and payouts across all programs
+    ([read](hackerone-platform-changes.md))
 
 -   :material-chart-line:{ .lg .middle } **Program Quality Signals**
 
