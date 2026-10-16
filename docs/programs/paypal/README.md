@@ -126,6 +126,7 @@ See [scope.md](scope.md) for full policy text and breakdown.
 
 ## Notes & Intelligence
 
+- **2026-10-16 — new campaign-style scope item added**: `OTHER: Account restrictions and control bypasses - campaign` appeared in the public scope (anonymous GraphQL re-check 2026-10-16, scope `max_updated_at` 2026-10-16T08:47:43Z; bounty-eligible). This is the first named "campaign" asset on the program — a themed focus area rather than a domain, indicating PayPal is actively soliciting account-restriction/control-bypass bugs (think feature-limitation, rate/gate, KYC-adjacent control bypasses) and likely triages them as a priority queue. **Hunting read: control-bypass class findings that previously landed as generic logic bugs now have an explicit home asset — frame reports against this item. Pair with the merchant-integration origination rule below when the bypass crosses into merchant-side flows.** Source: https://hackerone.com/paypal/policy_scopes
 - **Policy refreshes through 2026 (program page re-check via public projection, 2026-10-15)**: the Overview section was last updated **2026-10-07** (prior revisions 2026-09-03 and 2026-07-16 — the program is actively churning policy text, unlike the stale 2024 rewards table beneath it). Current published terms include: **min bounty $50 / max bounty $30,000** per validated submission; **set-payout schedule** for named classes — Subdomain Takeover: $200 (Low/Med) / $3,000 (High) / $5,000 (Critical); XSS: $50–$500 / $500–$3,000 / $3,000–$6,000 / $6,000; a **separate zero-day payout structure** (percentage modifiers on standard bounties); an explicit scope clause covering **any PayPal proprietary AI/ML product or service**; and a rule that findings involving **merchants' PayPal integrations** must be submitted to PayPal's bounty first so PayPal can determine origination (PayPal-side vs merchant-side). **Hunting read: the fixed XSS/subdomain payout floors cap commodity classes at low dollars, while zero-day modifiers + the AI/ML clause mark where discretionary upside lives; the merchant-integration origination rule is a triage trap — integration bugs reported to merchants first may be disqualified.** Program stats (crawl-dated ~2026-10): ~$13.8M total paid, ~$380K trailing 90 days, ~504 reports/90 days, 41 assets in scope, avg bounty $1,600–$2,500. Sources: https://hackerone.com/paypal , https://www.paypal.com/bugbounty . Rewards-table baselines still dated 2024-04-09; treat severity averages as indicative only.
 - **Regulatory Environment**: Must comply with PCI DSS and financial regulations
 - **High Security Bar**: Financial industry requires exceptional security standards
@@ -153,7 +154,7 @@ See [scope.md](scope.md) for full policy text and breakdown.
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Last Intel Review**: 2026-10-15 (2026 policy-refresh terms captured: $50–$30,000 bounty bounds, set-payout classes, zero-day modifiers, AI/ML scope clause, merchant-integration origination rule; Overview last updated 2026-10-07)  
+**Last Intel Review**: 2026-10-16 (new campaign scope item: "Account restrictions and control bypasses - campaign" (OTHER, bounty-eligible), scope max_updated_at 2026-10-16; prior: 2026-10-15 policy-refresh terms)  
 **Next Review**: 2026-11-15  
 **Analyst**: Bastet Security Research Team
 

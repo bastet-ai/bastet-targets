@@ -211,13 +211,15 @@ All services behind Cloudflare proxy
 
 ## Notes & Intelligence
 
+- **2026-10-16 — x402 repos confirmed in published scope (live anonymous re-check, scope `max_updated_at` 2026-10-15T18:42:22Z)**: `SOURCE_CODE https://github.com/coinbase/x402` and `SOURCE_CODE https://github.com/x402-foundation/` are present in the current non-archived public scope (both flagged not-bounty-eligible in the anonymous API view — treat eligibility flags from the anonymous projection as indicative; the canonical policy page governs). x402 is Coinbase's HTTP-native machine-to-machine payment protocol (402-payment-required flow); the foundation repo means the open-standards org's code is in program scope too. **Hunting read: this is the agent-payments lane — protocol-level bugs in the 402 negotiation/settlement flow (replay, price-spoofing between middleware and facilitator, settle-before-verify races) hit money directly, and third-party middleware implementing x402 may be more soft than the reference clients. Consistent with the July restructure's "novel domain-expertise only" stance: this asset class rewards protocol reading, not scanning.** Source: https://hackerone.com/coinbase/policy_scopes
+
 - **Major program restructure (effective 2026-07-29, Web2 HackerOne program only)**: Coinbase removed Low and Medium severity findings from reward scope entirely and cut top payouts — High from ~$15,000 to ~$6,000, Critical from ~$50,000 to ~$15,000. A new "Extreme" tier remains eligible up to **$1,000,000**. Officially added **`*.coinbase-corp.com`** to the in-scope list. Rationale given publicly: AI-accelerated report flood — in H1 2026, 44% of closed reports were duplicates, 37% informational-only, 15% invalid; only ~4% earned rewards. The separate Cantina Web3/smart-contract program (up to $5M) is unchanged. **Hunting read: on this program only novel, high-impact, domain-expertise findings are monetizable — commodity scanner classes are explicitly out of scope and internal tooling already covers them; the value lane is multi-step money-flow logic, custody/isolation, and Extreme-tier chain-impact bugs. Coinbase-corp internal-facing subdomains are now fair game — worth a dedicated recon pass on that wildcard.** Sources: https://www.coinbase.com/blog/focusing-our-bug-bounty-program-on-what-matters-most-in-the-age-of-ai , https://hackerone.com/coinbase/updates , Fortune/Yahoo Finance coverage 2026-07-30.
 - Program stats from the public HackerOne projection (crawl-dated 2026-09-21): ~$2.98M total bounties paid, ~$236.7K in trailing 90 days, 16 assets in scope, average bounty ~$200 (skew confirms the low-value flood the restructure targets).
 - Major cryptocurrency exchange with high-value targets
 - Multiple platforms: Exchange, Pro, Wallet, Commerce
 - Track program policy updates and scope changes monthly.
 
-**Last Intel Review**: 2026-10-15 (July 29, 2026 Web2 restructure documented: Low/Med out of scope, High/Critical cuts, Extreme $1M tier, `*.coinbase-corp.com` in scope)
+**Last Intel Review**: 2026-10-16 (x402 + x402-foundation SOURCE_CODE repos confirmed in live scope, max_updated_at 2026-10-15; prior: July 29, 2026 Web2 restructure documented)
 
 <!-- bastet-public-scope-link:v1 -->
 ## Current public scope
