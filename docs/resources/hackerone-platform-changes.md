@@ -83,6 +83,42 @@ credential persists unnoticed after any access change.
 
 ---
 
+## August 2026 — ID verification mandatory for all BBP submissions
+(snapshot 2026-10-15; added because it predates the October snapshot above yet
+gates every submission path)
+
+Sources: HackerOne Help Center August 2026 Changelog —
+https://docs.hackerone.com/en/articles/16190765-august-2026-changelog — and ID
+Verification article — https://docs.hackerone.com/en/articles/8399430-id-verification
+
+- **Identity verification (Veriff) is now required before submitting to any
+  Bug Bounty Program (BBP)** — every public and private BBP, managed or
+  unmanaged, regardless of program settings. Nothing for programs to configure;
+  applies automatically.
+- Phased rollout: **Aug 5** new accounts → **Aug 14** existing accounts with
+  <150 reputation → **Aug 17** all remaining accounts. The old prerequisite of
+  one valid report before verifying was removed at the same time.
+- **VDPs are unaffected** — public vulnerability disclosure submissions remain
+  open without ID verification.
+- Mechanics: physical government-issued ID + live selfie via Veriff; no VPNs,
+  anonymizers, emulators, jailbroken devices, or iCloud Private Relay; 18+;
+  final status by email (typically ≤72h). **Verification expires after 12
+  months** and must be renewed; missing renewal revokes the badge, BBP
+  submission ability, and access to verification-required programs (re-invites
+  are re-issued on success if the program allows).
+- HackerOne also extended business-account scrutiny: at least one owner must
+  act as legally authorized representative, verified every 12 months.
+
+**Operational impact**: this is the hardest gate on the submission path — more
+fundamental than trial-report caps or signal requirements. Any submission
+workflow (human or automated) must maintain a current, unexpired ID
+verification on the submitting account; a lapsed 12-month renewal silently
+removes BBP submission ability mid-campaign. VDP-only lanes remain open
+without it. Renewal prompts arrive one month before expiry — treat them as
+mission-critical.
+
+---
+
 ## How to use this page
 
 - Check here before building submission automation: trial/signal mechanics
