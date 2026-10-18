@@ -183,7 +183,7 @@ See [scope.md](scope.md) for full policy text and breakdown.
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Last Intel Review**: 2026-10-17 (19.5.0 security-table correction: 45 changes, not 11 — cascading auth skip, build-trace authz, regex-compiler hardening families added; earlier: 19.2 line End-of-Support, named CVE fold CVE-2026-84284/81839, Rapid7 ETR fold CVE-2026-97229)  
+**Last Intel Review**: 2026-10-18 (advisory-watch re-check negative: zero GitLab GHSAs in sweep-26 tiers [629 unreviewed + 11 malware, all 100 adv-sweep records checked] and advisory API created-window 2026-10-16..19; `git ls-remote` tag traversal shows newest tags v19.5.0-ee / v19.4.2-ee — no 19.5.1/19.4.3/19.3.6/19.2.9 patch tags yet as of 2026-10-18 23:45 UTC; earlier 10-17: 19.5.0 security-table correction: 45 changes, not 11 — cascading auth skip, build-trace authz, regex-compiler hardening families added; 10-16: 19.2 line End-of-Support, named CVE fold CVE-2026-84284/81839, Rapid7 ETR fold CVE-2026-97229)  
 **Next Review**: 2026-11-01  
 **Analyst**: Bastet Security Research Team
 
