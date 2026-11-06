@@ -70,6 +70,39 @@ credential persists unnoticed after any access change.
   the request). More spot-check activity is likely on large programs — worth
   watching invitations on tracked high-value programs.
 
+### Signal requirements now a configurable slider from −1.0 to 7.0 (late-October addition to this snapshot)
+
+- The four fixed bands (Strict 1.0 / Moderate 0.0 / Lax −1.0 / Off) were replaced
+  by a **configurable signal-requirement slider anywhere in the −1.0 to 7.0
+  range**. Existing programs keep their current value unless a customer edits
+  it; nil/−10.0 programs stay off.
+- HackerOne's stated motive: AI-assisted testing increased submission volume,
+  and of 2,889 live gated programs 88.7% sat on Moderate (0.0), a weak gate.
+  The slider lets programs raise the bar far above the old Strict band, with a
+  live preview of which recent researchers would clear the value.
+- Submission pages now show researchers a banner whether they clear the bar or
+  must spend a trial report; the program signal displays in Program highlights.
+
+**Operational impact**: the practical ceiling on the submission gate moved from
+1.0 to 7.0. When a program abruptly stops accepting direct submissions, check
+whether it raised its signal requirement before assuming a program-side pause —
+a high slider plus the flat 3-trial-report cap can shut out accounts that were
+previously over the bar. Any multi-program workflow must track per-program
+signal values, which are now visible in Program highlights.
+
+### Program-wide limit on open trial reports (1–3, default 3)
+
+- Customers (via CSM enablement) can now cap how many **open** trial reports a
+  single researcher may have in their program at once, configurable 1–3,
+  default 3 — a program-side concurrency limit on top of the researcher-level
+  flat cap of 3.
+- Configure at Security page → Hacker Management → Submission.
+
+**Operational impact**: on opted-in programs a single open trial report can
+block further submissions until triage. Treat an unexplained inability to
+submit to one program (while others still accept) as a possible open-trial-cap
+hit before concluding scope or signal issues.
+
 ### Researcher UX changes (low intel value, recorded for completeness)
 
 - Pre-session ID-verification guidance expanded from 5 to 9 "do not" items
@@ -80,6 +113,11 @@ credential persists unnoticed after any access change.
 - Hacker inbox ("My reports") gains an **Asset type** filter; reports to
   programs without structured scope do not appear under an active asset filter.
 - Custom-inbox-only users now land on Findings instead of Home.
+- H1 Remediation Plans can now post root-cause analysis and proposed fixes as
+  comments on GitHub issues linked to HackerOne reports (customer-side opt-in,
+  off by default). Note for disclosure watching: unpatched vulnerability
+  detail may surface in linked public repos earlier than the report itself
+  where customers enable this on public repositories.
 
 ---
 
@@ -116,6 +154,31 @@ verification on the submitting account; a lapsed 12-month renewal silently
 removes BBP submission ability mid-campaign. VDP-only lanes remain open
 without it. Renewal prompts arrive one month before expiry — treat them as
 mission-critical.
+
+---
+
+## November 2026 (snapshot 2026-11-06)
+
+Source: HackerOne Help Center November 2026 Changelog —
+https://docs.hackerone.com/en/articles/18245628-november-2026-changelog
+
+### Programs can now hide the Response Efficiency Rate from researchers
+
+- New **"Response efficiency rate — appears on submission form to
+  researchers"** checkbox under Customizations → Metrics display (on by
+  default). Unticking hides the percentage everywhere researchers see it:
+  submission form, profile sidebar, embedded forms, and opportunity-discovery
+  listings. Programs that already hid it keep it hidden.
+- HackerOne's stated motive: the percentage counts H1-triage delays against
+  the program, which discouraged submissions; programs could hide other
+  response metrics but not this one.
+
+**Operational impact**: response-efficiency percentages in scraped program
+snapshots (e.g. policy captures recording "response efficiency above 90%")
+become point-in-time observations — a program can now remove the signal
+rather than improve it. When pre-submission triage-speed intel matters, treat
+a missing efficiency metric as opt-out, not absence of data; do not infer
+program quality from its disappearance.
 
 ---
 
