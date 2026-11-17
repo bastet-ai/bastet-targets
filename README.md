@@ -164,3 +164,7 @@ For questions, suggestions, or contributions:
 ---
 
 **Disclaimer**: This repository contains security research documentation. All content is for educational purposes and authorized testing only. Users are responsible for ensuring compliance with applicable laws and program terms.
+
+## License
+
+Original Bastet code and authored documentation are licensed under the [Apache License 2.0](LICENSE). Third-party dependencies, quoted source material, imported program policies and datasets, binaries, images, and other third-party assets retain their respective rights and notices and are not relicensed by this grant.
