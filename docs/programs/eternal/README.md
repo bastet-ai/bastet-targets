@@ -107,10 +107,14 @@ See [scope.md](scope.md) for full policy text and breakdown.
 - Virtual economies create novel attack vectors and impact scenarios
 - Community-driven platforms have complex trust and safety considerations
 
+### Recent Intelligence (2026)
+- **2026-11-17 DIRECT SOURCE VERIFICATION (first direct re-verify since 2025-09-01)**: Scope re-fetched from HackerOne's anonymous public projection (`POST https://hackerone.com/graphql`, `team(handle:"eternal")` with `structured_scopes(archived:false)`). Verified live: program **public_mode / open**, **max_updated_at = 2026-03-23T21:45:13Z**, **49 non-archived scope assets**. **Important correction to the 2025-era notes above: the "gaming platform" characterization does not match the live scope.** Eternal's public scope is the **Eternal (formerly Zomato) quick-commerce/local-services estate**: wildcards `*.zomato.com`, `*.blinkit.*` surface via `blinkit.com`/`bistro-api.blinkit.com`, `*.grofers.com`/`*.grofer.io`, `*.runnr.in` + `staging*.runnr.in`, `*.hyperpure.com` (+dev trio), `*.insider.in`/`*.ticketnew.com`/`*.tktnew.com`, `*.district.in`/`*.edition.in`, `*.zdev.net`, `*.zomans.com` + `*.ali.zomans.com`, `*.eternal.com`, `*.zomatoportugal.com`, `*.bstro.io`; URLs incl. `winecellar.zomato.com`, `api.grofers.com`, `api2.grofers.com`, `https://mcp-server.zomato.com/mcp` (notable MCP endpoint), `send.zomato.com`, `www.zomatobook.com`, business/blog/community/success subdomains, `dev{,api,pod}.hyperpure.com`; tier buckets *Tier 1/2/3*, *All Assets (other than Blinkit)*, *Data Protection Program*; Google Play IDs `com.application.zomato{,.district,.merchant,.ordering}`, `com.grofers.customerapp`, `com.blinkit.bistro`; Apple IDs 434613896, 960335206, 6670203019, 6670536058. Treat all "gaming industry" analysis above as unverified legacy text pending rewrite. Source: https://hackerone.com/graphql (anonymous team/structured_scopes projection, fetched 2026-11-17), canonical https://hackerone.com/eternal/policy_scopes
+
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Next Review**: 2025-10-01  
+**Last Intel Review**: 2026-11-17 (direct anonymous HackerOne GraphQL projection re-verify: public_mode/open, max_updated_at 2026-03-23 — no drift this cycle; 49 non-archived assets; program is quick-commerce (Zomato/Blinkit/Grofers), not gaming — legacy notes flagged for rewrite)  
+**Next Review**: 2026-12-17 (monthly scope watch via anonymous GraphQL projection; escalate on max_updated_at change)  
 **Analyst**: Bastet Security Research Team
 
 <!-- bastet-public-scope-link:v1 -->

@@ -130,10 +130,14 @@ See [scope.md](scope.md) for full policy text and breakdown.
 - Extensive use of microservices architecture creating large attack surface
 - Well-monitored infrastructure with detailed logging (visible in headers)
 
+### Recent Intelligence (2026)
+- **2026-11-17 DIRECT SOURCE VERIFICATION (first direct re-verify since 2025-09-01)**: Scope re-fetched from HackerOne's anonymous public projection (`POST https://hackerone.com/graphql`, `team(handle:"uber")` with `structured_scopes(archived:false)`, same read-only query this wiki's public-scope publisher uses). Verified live: program **public_mode / open**. **structured_scope_versions.max_updated_at = 2026-09-22T16:32:32Z — the scope was edited after this page's last review; the 2025-era notes above predate that change.** **24 non-archived scope assets** enumerated: `uber.com`, `uber.com.cn`, `*ubereats.com`, `merchants.ubereats.com`, `*.uberscoot.us`, `*.ubertransit.io`, `*.uberinternal.com`, `*.ubercarshare.com`, `*scaledsolutions.uber.com` + `scaledsolutions*.uber.com` wildcards, `et|eng|newsroom|people|love|drive|bizblog|adsacademy|central-beta.uber.com`, `uber.onelogin.com`, `https://assets.uber.com`, `https://brand.uber.com`, plus `OTHER` buckets: *Recon Data*, *Fraud Reports*. Notable vs old notes: `*.uberinternal.com` (internal-domain asset in public scope), the scaledsolutions wildcard pair, and `uber.onelogin.com` (IdP surface) are explicit current entries. Hunting read unchanged: authentication architecture + `et.uber.com`/`bizblog.uber.com` remain the freshest territory. Source: https://hackerone.com/graphql (anonymous team/structured_scopes projection, fetched 2026-11-17), canonical https://hackerone.com/uber/policy_scopes
+
 ---
 
 **Last Enumeration**: 2025-09-01  
-**Next Review**: 2025-10-01  
+**Last Intel Review**: 2026-11-17 (direct anonymous HackerOne GraphQL projection re-verify: public_mode/open, max_updated_at 2026-09-22 — scope drifted since 2025-09-01 baseline; 24 non-archived assets enumerated)  
+**Next Review**: 2026-12-17 (monthly scope watch via anonymous GraphQL projection; escalate on max_updated_at change)  
 **Analyst**: Bastet Security Research Team
 
 <!-- bastet-public-scope-link:v1 -->
